@@ -2,6 +2,7 @@
   "name": "readmestock",
   "version": "1.0.0",
   "private": true,
+  "author": "taiga-tech (https://github.com/taiga-tech/)",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
