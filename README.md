@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status)](https://app.netlify.com/sites/taiga-tech/deploys)
+
 # readmestock
 
 ## Build Setup
