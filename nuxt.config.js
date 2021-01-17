@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -6,7 +7,10 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - readmestock',
+    htmlAttrs: {
+      lang: 'ja',
+    },
+    titleTemplate: '%s',
     title: 'readmestock',
     meta: [
       { charset: 'utf-8' },
@@ -17,10 +21,10 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/scss/main.scss'],
+  css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/prism.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -43,7 +47,20 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+
+    '@nuxtjs/dotenv',
+
+    '@nuxtjs/markdownit',
   ],
+
+  markdownit: {
+    langPrefix: 'language-',
+    injected: true, // $mdを利用してmarkdownをhtmlにレンダリングする
+    breaks: true, // 改行コードに変換する
+    html: true, // HTML タグを有効にする
+    linkify: true, // URLに似たテキストをリンクに自動変換する
+    typography: true, // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
