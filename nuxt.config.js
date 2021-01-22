@@ -10,11 +10,14 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s',
-    title: 'readmestock',
+    titleTemplate: '%s - README Stock',
+    title: 'README Stock',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0',
+      },
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -37,7 +40,12 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
   ],
+
+  moment: {
+    locales: ['ja'],
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -51,7 +59,15 @@ export default {
     '@nuxtjs/dotenv',
 
     '@nuxtjs/markdownit',
+
+    '@nuxtjs/apollo',
   ],
+
+  apollo: {
+    clientConfigs: {
+      default: '~/plugins/apollo-auth.js',
+    },
+  },
 
   markdownit: {
     langPrefix: 'language-',

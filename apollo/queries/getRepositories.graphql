@@ -1,0 +1,22 @@
+{
+  viewer {
+    login
+    avatarUrl
+    createdAt
+    repositories(first: 100, privacy: PUBLIC) {
+      edges {
+        node {
+          name
+          createdAt
+          projectsUrl
+          languages(first: 10) {
+            nodes {
+              color
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
