@@ -64,7 +64,7 @@ export default {
     async getReadme() {
       const response = await this.$axios
         .$get(
-          `https://raw.githubusercontent.com/taiga-tech/${this.$parent.slug}/master/README.md`
+          `${this.cors}https://raw.githubusercontent.com/taiga-tech/${this.$parent.slug}/master/README.md`
         )
         .catch((error) => {
           this.error = error
