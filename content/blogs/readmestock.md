@@ -1,6 +1,7 @@
 ---
 title: readmestock
 discription: ポートフォリオサイト
+tags: [readmestock, readme]
 ---
 
 ## なぜ作ろうと思ったのか
