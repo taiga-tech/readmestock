@@ -1,15 +1,29 @@
 <template>
-  <div>
+  <div v-resize="onResize" dark>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
+      :expand-on-hover="miniVariant"
       clipped
-      fixed
       app
     >
       <v-list>
+        <v-list-item>
+          <v-list-item-action>
+            <v-avatar :size="miniVariant ? 24 : 36">
+              <v-img :src="viewer.avatarUrl" />
+            </v-avatar>
+          </v-list-item-action>
+          <v-list-item-content>
+            <strong>{{ viewer.login }}</strong>
+            <v-list-item-subtitle
+              >public:
+              {{ viewer.repositories.edges.length }}</v-list-item-subtitle
+            >
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in contents"
           :key="i"
           :to="item.to"
           router
@@ -18,14 +32,100 @@
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
+
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+
+        <!--  -->
+
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-action>
+              <v-icon>mdi-github</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="'README'"></v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item to="/readmes" router exact>
+            <v-list-item-action>
+              <v-icon small>mdi-github</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>一覧</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-virtual-scroll
+            :items="viewer.repositories.edges"
+            height="300"
+            item-height="48"
+          >
+            <template v-slot:default="{ item }">
+              <v-list-item
+                :key="item"
+                :to="'/readmes/' + item.node.name"
+                router
+                exact
+              >
+                <!-- 仮 -->
+                <!-- <v-list-item-action>
+                  <v-icon></v-icon>
+                </v-list-item-action> -->
+                <!-- 仮 -->
+                <v-list-item-action>
+                  <v-icon small>mdi-github</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.node.name }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-virtual-scroll>
+        </v-list-group>
+
+        <!--  -->
+
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-action>
+              <v-icon>mdi-post-outline</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="'Blogs'"></v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item to="/blogs" router exact>
+            <v-list-item-action>
+              <v-icon small>mdi-post</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>一覧</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-virtual-scroll :items="items" height="300" item-height="48">
+            <template v-slot:default="{ item }">
+              <v-list-item :key="item" :to="item.path" router exact>
+                <!-- 仮 -->
+                <!-- <v-list-item-action>
+                  <v-icon></v-icon>
+                </v-list-item-action> -->
+                <!-- 仮 -->
+                <v-list-item-action>
+                  <v-icon small>mdi-post</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-virtual-scroll>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar clipped-left fixed dense app>
+    <v-app-bar clipped-left fixed dense app elevation="1">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-btn icon @click.stop="miniVariant = !miniVariant">
@@ -35,13 +135,9 @@
       <v-toolbar-title v-text="title" />
 
       <v-spacer />
-
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-cog</v-icon>
-      </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
+    <v-navigation-drawer v-model="rightDrawer" right temporary fixed>
       <v-list>
         <theme-switch />
       </v-list>
@@ -50,37 +146,64 @@
 </template>
 
 <script>
+import getRepositories from '~/apollo/queries/getRepositories.graphql'
+
 export default {
   components: {
-    ThemeSwitch: () => import('~/components/ThemeSwitch.vue'),
+    ThemeSwitch: () => import('./ThemeSwitch.vue'),
   },
 
   data() {
     return {
+      viewer: [],
       drawer: false,
       fixed: false,
-      items: [
+      contents: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Welcome',
           to: '/',
         },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'README',
-          to: '/readmes',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Blogs',
-          to: '/blogs',
-        },
       ],
+      blogs: [],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'README Stock',
+      windowSize: {
+        x: 0,
+        y: 0,
+      },
     }
+  },
+
+  computed: {
+    items() {
+      return this.blogs
+    },
+  },
+
+  mounted() {
+    this.getData()
+  },
+
+  methods: {
+    onResize() {
+      this.windowSize = {
+        x: window.innerWidth,
+        y: window.innerHeight,
+      }
+    },
+    async getData() {
+      const query = await this.$content('blogs' || 'index')
+      const blogs = await query.fetch()
+      this.blogs = blogs
+    },
+  },
+  apollo: {
+    viewer: {
+      query: getRepositories,
+    },
   },
 }
 </script>
