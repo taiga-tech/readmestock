@@ -1,10 +1,11 @@
 ---
 title: Gitコマンド早見表
-tags: Git GitHub
+tags: [Git GitHub, Git,]
 author: kohga
 slide: false
 discription: コマンド早見表
 ---
+
 [作業別Gitコマンド集](https://qiita.com/kohga/items/20819414da2972bc5e0d)の圧縮版
 
 ## 初期設定を行う
