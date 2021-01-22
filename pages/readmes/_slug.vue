@@ -8,12 +8,17 @@ export default {
     Readme: () => import('~/components/Readme'),
   },
   async asyncData({ params }) {
-    const slug = await params.slug // "/abc" パスにアクセスすると、slug は "abc" になります。
-    return { readmesSlug: slug }
+    const res = await params.slug
+    return { slug: res }
   },
   data() {
     return {
-      readmesSlug: '',
+      slug: '',
+    }
+  },
+  head() {
+    return {
+      title: this.slug,
     }
   },
 }
