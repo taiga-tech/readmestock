@@ -1,8 +1,8 @@
 <template>
   <v-list-item>
-    <v-list-item-title>Switch Theme Color</v-list-item-title>
+    <v-list-item-title>ダークテーマ</v-list-item-title>
     <v-list-item-action>
-      <v-switch v-model="theme"></v-switch>
+      <v-switch v-model="theme" light></v-switch>
     </v-list-item-action>
   </v-list-item>
 </template>
