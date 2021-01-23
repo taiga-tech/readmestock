@@ -11,7 +11,7 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s - README Stock',
+    titleTemplate: '%s | README Stock',
     title: 'README Stock',
     meta: [
       { charset: 'utf-8' },
