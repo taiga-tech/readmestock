@@ -1,5 +1,5 @@
 <template>
-  <app-index :results="blogs" param="blogs" />
+  <blog-index :results="blogs" />
 </template>
 
 <script>
@@ -10,6 +10,11 @@ export default {
 
     return {
       blogs,
+    }
+  },
+  head() {
+    return {
+      title: 'ブログ一覧',
     }
   },
 }
