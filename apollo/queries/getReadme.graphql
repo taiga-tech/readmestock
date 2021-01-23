@@ -1,0 +1,11 @@
+query ($name: String!) {
+  viewer {
+    repository(name: $name) {
+      object(expression: "master:README.md") {
+        ... on Blob {
+          text
+        }
+      }
+    }
+  }
+}
