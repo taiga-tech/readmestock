@@ -19,6 +19,27 @@
   </article>
 </template>
 
+<script>
+export default {
+  async asyncData({ $content, params }) {
+    const blogs = await $content('blogs', params.slug || 'index').fetch()
+    return { blogs }
+  },
+  head() {
+    return {
+      title: this.blogs.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blogs.discription,
+        },
+      ],
+    }
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 .blog {
   box-sizing: border-box;
@@ -32,17 +53,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  async asyncData({ $content, params }) {
-    const blogs = await $content('blogs', params.slug || 'index').fetch()
-    return { blogs }
-  },
-  head() {
-    return {
-      title: this.blogs.title,
-    }
-  },
-}
-</script>
