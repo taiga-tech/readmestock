@@ -18,7 +18,7 @@
             <strong>{{ viewer.login }}</strong>
             <v-list-item-subtitle
               >public:
-              {{ viewer.repositories.edges.length }}</v-list-item-subtitle
+              {{ viewer.repositories.nodes.length }}</v-list-item-subtitle
             >
           </v-list-item-content>
         </v-list-item>
@@ -58,27 +58,22 @@
             </v-list-item-content>
           </v-list-item>
           <v-virtual-scroll
-            :items="viewer.repositories.edges"
+            :items="viewer.repositories.nodes"
             height="300"
             item-height="48"
           >
             <template v-slot:default="{ item }">
               <v-list-item
-                :key="item"
-                :to="'/readmes/' + item.node.name"
+                :key="item.url"
+                :to="'/readmes/' + item.name"
                 router
                 exact
               >
-                <!-- 仮 -->
-                <!-- <v-list-item-action>
-                  <v-icon></v-icon>
-                </v-list-item-action> -->
-                <!-- 仮 -->
                 <v-list-item-action>
                   <v-icon small>mdi-github</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title>{{ item.node.name }}</v-list-item-title>
+                  <v-list-item-title>{{ item.name }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
@@ -106,12 +101,7 @@
           </v-list-item>
           <v-virtual-scroll :items="items" height="300" item-height="48">
             <template v-slot:default="{ item }">
-              <v-list-item :key="item" :to="item.path" router exact>
-                <!-- 仮 -->
-                <!-- <v-list-item-action>
-                  <v-icon></v-icon>
-                </v-list-item-action> -->
-                <!-- 仮 -->
+              <v-list-item :key="item.path" :to="item.path" router exact>
                 <v-list-item-action>
                   <v-icon small>mdi-post</v-icon>
                 </v-list-item-action>
@@ -132,7 +122,7 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
 
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title @click="$router.push('/')" v-text="title" />
 
       <v-spacer />
     </v-app-bar>
