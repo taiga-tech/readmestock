@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="param + '/' + re.slug"
+        :to="re.path"
         tile
         :loading="!re.title"
         :disabled="!re.title"
@@ -17,19 +17,6 @@
         min-height="200"
       >
         <v-card-title>{{ re.title }}</v-card-title>
-
-        <v-card-subtitle v-if="re.languages">
-          <v-chip-group column>
-            <v-chip
-              v-for="(lang, index) in re.languages"
-              :key="index"
-              outlined
-              x-small
-            >
-              {{ lang }}</v-chip
-            >
-          </v-chip-group>
-        </v-card-subtitle>
 
         <v-card-subtitle v-if="re.tags">
           <v-chip-group v-if="re.tags" column>
@@ -54,11 +41,11 @@
 <script>
 export default {
   props: {
-    param: {
-      type: String,
-      required: true,
-      default: String,
-    },
+    // param: {
+    //   type: String,
+    //   required: true,
+    //   default: String,
+    // },
     results: {
       type: Array,
       required: true,
