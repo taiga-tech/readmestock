@@ -2,26 +2,26 @@
   <div class="list-container">
     <div v-for="(re, i) in results" :key="i">
       <v-skeleton-loader
-        v-if="!results"
+        v-if="results.length == 0"
         transition
         type="card"
       ></v-skeleton-loader>
 
       <v-card
         v-else
-        :to="param + '/' + re.node.name"
+        :to="$route.path + '/' + re.name"
         tile
-        :loading="!re.node.name"
-        :disabled="!re.node.name"
+        :loading="!re.name"
+        :disabled="!re.name"
         min-width="256"
         min-height="200"
       >
-        <v-card-title>{{ re.node.name }}</v-card-title>
+        <v-card-title>{{ re.name }}</v-card-title>
 
-        <v-card-subtitle v-if="re.node.languages.nodes">
+        <v-card-subtitle v-if="re.languages.nodes">
           <v-chip-group column>
             <v-chip
-              v-for="(lang, index) in re.node.languages.nodes"
+              v-for="(lang, index) in re.languages.nodes"
               :key="index"
               outlined
               x-small
@@ -30,15 +30,14 @@
               {{ lang.name }}</v-chip
             >
           </v-chip-group>
+          created_at: {{ re.createdAt }} <br />
+          update_at: {{ re.updatedAt }} <br />
+          owner: {{ re.owner.login }}
         </v-card-subtitle>
 
-        <v-card-text v-if="re.discription != ''" class="description-wrapper">
+        <v-card-text v-if="re.discription" class="description-wrapper">
           <span class="description">{{ re.discription }}</span>
         </v-card-text>
-
-        <v-card-subtitle>
-          {{ re.node.createdAt }}
-        </v-card-subtitle>
       </v-card>
     </div>
   </div>
@@ -47,16 +46,17 @@
 <script>
 export default {
   props: {
-    param: {
-      type: String,
-      required: true,
-      default: String,
-    },
     results: {
       type: Array,
       required: true,
       default: Array,
     },
+  },
+
+  head() {
+    return {
+      title: 'README一覧',
+    }
   },
 }
 </script>
