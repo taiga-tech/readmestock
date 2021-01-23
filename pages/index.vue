@@ -6,5 +6,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Welcome',
+    }
+  },
+}
 </script>
