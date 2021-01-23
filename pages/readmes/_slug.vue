@@ -1,25 +1,35 @@
 <template>
-  <readme />
+  <readme v-if="viewer" :viewer="viewer" />
 </template>
 
 <script>
+import getReadme from '~/apollo/queries/getReadme'
+
 export default {
   components: {
     Readme: () => import('~/components/Readme'),
   },
+
   async asyncData({ params }) {
-    const res = await params.slug
-    return { slug: res }
+    const slug = await params.slug
+    return { slug }
   },
+
   data() {
     return {
-      slug: '',
+      viewer: null,
     }
   },
-  head() {
-    return {
-      title: this.slug,
-    }
+
+  apollo: {
+    viewer: {
+      query: getReadme,
+      variables() {
+        return {
+          name: this.slug,
+        }
+      },
+    },
   },
 }
 </script>

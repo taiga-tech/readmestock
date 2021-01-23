@@ -1,9 +1,36 @@
 <template>
-  <div>
-    <div v-if="md" class="markdown-body line-numbers" v-html="$md.render(md)" />
-    <error-alert :error="error" :slug="slug" />
-  </div>
+  <div
+    class="markdown-body line-numbers"
+    v-html="$md.render(viewer.repository.object.text)"
+  />
 </template>
+
+<script>
+import Prism from '~/plugins/prism'
+
+export default {
+  props: {
+    viewer: { type: Object, default: null },
+  },
+
+  mounted() {
+    Prism.highlightAll()
+  },
+
+  head() {
+    return {
+      title: this.slug,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.viewer.repository.object.text,
+        },
+      ],
+    }
+  },
+}
+</script>
 
 <style lang="scss">
 .markdown-body {
@@ -31,46 +58,9 @@ code[class*='language-'] {
   // background-color: rgba(45, 45, 45, 1);
   code[class*='language-'] {
     background-color: rgba(45, 45, 45, 1);
-    // background: none;
   }
   .token.operator {
     background-color: rgba(45, 45, 45, 0);
-    // background: none;
   }
 }
 </style>
-
-<script>
-import Prism from '~/plugins/prism'
-
-export default {
-  components: {
-    ErrorAlert: () => import('./ErrorAlert'),
-  },
-  data() {
-    return {
-      cors: 'https://cors-anywhere.herokuapp.com/',
-      md: '',
-      error: null,
-    }
-  },
-
-  mounted() {
-    this.getReadme()
-    Prism.highlightAll()
-  },
-
-  methods: {
-    async getReadme() {
-      const response = await this.$axios
-        .$get(
-          `${this.cors}https://raw.githubusercontent.com/taiga-tech/${this.$parent.slug}/master/README.md`
-        )
-        .catch((error) => {
-          this.error = error
-        })
-      this.md = response
-    },
-  },
-}
-</script>
