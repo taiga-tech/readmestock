@@ -6,7 +6,11 @@
   /> -->
 
   <!-- Restapi -->
-  <v-card class="markdown-body line-numbers" v-html="$md.render(viewer)" />
+  <v-card
+    class="markdown-body line-numbers"
+    max-width="980"
+    v-html="$md.render(viewer)"
+  />
 </template>
 
 <script>
