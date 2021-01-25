@@ -1,9 +1,12 @@
 <template>
-  <v-card
-    dark
+  <!-- Graphql -->
+  <!-- <v-card
     class="markdown-body line-numbers"
     v-html="$md.render(viewer.repository.object.text)"
-  />
+  /> -->
+
+  <!-- Restapi -->
+  <v-card class="markdown-body line-numbers" v-html="$md.render(viewer)" />
 </template>
 
 <script>
@@ -11,7 +14,8 @@ import Prism from '~/plugins/prism'
 
 export default {
   props: {
-    viewer: { type: Object, default: null },
+    viewer: { type: String, default: '' },
+    slug: { type: String, default: '' },
   },
 
   mounted() {
@@ -25,7 +29,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.viewer.repository.object.text,
+          content: this.viewer,
         },
       ],
     }
