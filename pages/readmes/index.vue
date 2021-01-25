@@ -12,7 +12,9 @@
         ></v-select
       ></v-col>
     </v-row>
-    <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
+    <client-only>
+      <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
+    </client-only>
   </div>
 </template>
 
