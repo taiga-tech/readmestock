@@ -145,7 +145,7 @@ export default {
 
   data() {
     return {
-      viewer: [],
+      viewer: null,
       drawer: false,
       fixed: false,
       contents: [
@@ -190,6 +190,7 @@ export default {
       this.blogs = blogs
     },
   },
+
   apollo: {
     viewer: {
       query: getRepositories,
