@@ -1,5 +1,6 @@
 <template>
-  <div
+  <v-card
+    dark
     class="markdown-body line-numbers"
     v-html="$md.render(viewer.repository.object.text)"
   />
