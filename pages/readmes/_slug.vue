@@ -1,5 +1,7 @@
 <template>
-  <readme v-if="viewer" :viewer="viewer" />
+  <article>
+    <readme v-if="viewer" :viewer="viewer" />
+  </article>
 </template>
 
 <script>
@@ -18,6 +20,7 @@ export default {
   data() {
     return {
       viewer: null,
+      slug: null,
     }
   },
 
