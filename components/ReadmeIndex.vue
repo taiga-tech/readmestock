@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="$route.path + '/' + re.name + '/'"
+        :to="'/readmes/' + re.name + '/'"
         nuxt
         tile
         :loading="!re.name"
