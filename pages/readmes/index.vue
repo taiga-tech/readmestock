@@ -72,11 +72,6 @@ export default {
           orderBy: this.selectSort,
         }
       },
-      headers() {
-        return {
-          authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
-        }
-      },
     },
   },
 }
