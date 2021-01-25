@@ -74,6 +74,11 @@ export default {
           orderBy: this.selectSort,
         }
       },
+      headers() {
+        return {
+          getAuth: () => `Bearer ${process.env.GITHUB_API_TOKEN}`,
+        }
+      },
     },
   },
 }
