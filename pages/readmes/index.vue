@@ -1,21 +1,19 @@
 <template>
-  <client-only placeholder="loading...">
-    <div>
-      <v-row>
-        <v-spacer />
-        <v-col
-          ><v-select
-            v-model="selectSort"
-            label="並び替え"
-            :items="sortItems"
-            item-text="name"
-            item-value="orderValue"
-          ></v-select
-        ></v-col>
-      </v-row>
-      <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
-    </div>
-  </client-only>
+  <div>
+    <v-row>
+      <v-spacer />
+      <v-col
+        ><v-select
+          v-model="selectSort"
+          label="並び替え"
+          :items="sortItems"
+          item-text="name"
+          item-value="orderValue"
+        ></v-select
+      ></v-col>
+    </v-row>
+    <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
+  </div>
 </template>
 
 <script>
@@ -76,7 +74,7 @@ export default {
       },
       headers() {
         return {
-          getAuth: () => `Bearer ${process.env.GITHUB_API_TOKEN}`,
+          authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
         }
       },
     },
