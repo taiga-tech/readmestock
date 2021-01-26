@@ -11,9 +11,19 @@
           <strong>{{ error.statusCode }} : {{ error.message }}</strong>
         </v-col>
         <v-col class="shrink">
-          <v-btn icon href="https://github.com/taiga-tech/" target="_blank"
-            ><v-icon>mdi-github</v-icon></v-btn
-          >
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                icon
+                href="https://github.com/taiga-tech/"
+                target="_blank"
+                v-bind="attrs"
+                v-on="on"
+                ><v-icon>mdi-github</v-icon></v-btn
+              >
+            </template>
+            <span>Go to Github</span>
+          </v-tooltip>
         </v-col>
         <v-col class="shrink">
           <v-btn text @click="$router.go(-1)">back</v-btn>
