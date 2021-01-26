@@ -1,16 +1,60 @@
 <template>
   <!-- Graphql -->
-  <!-- <v-card
-    class="markdown-body line-numbers"
-    v-html="$md.render(viewer.repository.object.text)"
-  /> -->
-
-  <!-- Restapi -->
   <v-card
+    elevation="0"
     class="markdown-body line-numbers"
     max-width="980"
-    v-html="$md.render(viewer)"
-  />
+    color="#00000000"
+  >
+    <v-card-title class="text-h5">
+      <v-row>
+        <v-col>
+          {{ viewer.repository.name }}
+        </v-col>
+        <v-col class="shrink">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                icon
+                large
+                :href="viewer.repository.url"
+                target="_blank"
+                v-bind="attrs"
+                style="text-decoration: none"
+                v-on="on"
+                ><v-icon>mdi-github</v-icon>
+              </v-btn>
+            </template>
+            <span>Go to Github</span>
+          </v-tooltip>
+        </v-col>
+      </v-row>
+    </v-card-title>
+    <v-card-subtitle>
+      <div align="end">
+        <div>owner: {{ viewer.repository.owner.login }}</div>
+        <div>
+          作成日:
+          {{ $moment(viewer.repository.createdAt).calendar() }}
+        </div>
+        <div>
+          最終更新日: {{ $moment(viewer.repository.updatedAt).fromNow() }}
+        </div>
+      </div>
+      <v-chip-group>
+        <v-chip
+          v-for="(lng, i) in viewer.repository.languages.nodes"
+          :key="i"
+          :color="lng.color"
+          outlined
+          small
+        >
+          {{ lng.name }}
+        </v-chip>
+      </v-chip-group>
+    </v-card-subtitle>
+    <div v-html="$md.render(viewer.repository.object.text)"></div>
+  </v-card>
 </template>
 
 <script>
@@ -18,7 +62,7 @@ import Prism from '~/plugins/prism'
 
 export default {
   props: {
-    viewer: { type: String, default: '' },
+    viewer: { type: Object, default: null },
     slug: { type: String, default: '' },
   },
 
@@ -33,7 +77,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.viewer,
+          content: this.viewer.repository.object.text,
         },
       ],
     }

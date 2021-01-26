@@ -1,13 +1,18 @@
 <template>
   <article>
     <readme v-if="viewer" :viewer="viewer" :slug="slug" />
-    <v-alert v-if="err" outlined type="error">{{ err }}</v-alert>
+    <v-skeleton-loader
+      v-else
+      boilerplate
+      max-width="980"
+      type="card"
+      class="markdown-body"
+    ></v-skeleton-loader>
   </article>
 </template>
 
 <script>
-// graphql
-// import getReadme from '~/apollo/queries/getReadme'
+import getReadme from '~/apollo/queries/getReadme'
 
 export default {
   components: {
@@ -21,39 +26,19 @@ export default {
 
   data() {
     return {
-      viewer: '',
-      err: null,
+      viewer: null,
     }
   },
 
-  mounted() {
-    this.getReadme()
-  },
-
-  methods: {
-    async getReadme() {
-      const response = await this.$axios
-        .$get(
-          `https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/taiga-tech/${this.slug}/master/README.md`
-        )
-        .catch((err) => {
-          console.error(err)
-          this.err = err
-        })
-      this.viewer = response
+  apollo: {
+    viewer: {
+      query: getReadme,
+      variables() {
+        return {
+          name: this.slug,
+        }
+      },
     },
   },
-
-  // graphql
-  // apollo: {
-  //   viewer: {
-  //     query: getReadme,
-  //     variables() {
-  //       return {
-  //         name: this.slug,
-  //       }
-  //     },
-  //   },
-  // },
 }
 </script>
