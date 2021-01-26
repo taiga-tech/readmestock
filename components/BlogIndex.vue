@@ -41,11 +41,6 @@
 <script>
 export default {
   props: {
-    // param: {
-    //   type: String,
-    //   required: true,
-    //   default: String,
-    // },
     results: {
       type: Array,
       required: true,
@@ -75,6 +70,7 @@ export default {
   }
   @media only screen and (max-width: 599px) {
     grid-template-columns: 100%;
+    gap: 1px;
   }
 
   .description-wrapper {

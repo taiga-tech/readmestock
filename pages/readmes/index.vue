@@ -1,17 +1,17 @@
 <template>
   <div>
-    <v-row>
+    <div class="d-flex">
       <v-spacer />
-      <v-col
-        ><v-select
+      <div style="max-width: 200px">
+        <v-select
           v-model="selectSort"
           label="並び替え"
           :items="sortItems"
           item-text="name"
           item-value="orderValue"
-        ></v-select
-      ></v-col>
-    </v-row>
+        ></v-select>
+      </div>
+    </div>
     <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
   </div>
 </template>
@@ -33,28 +33,28 @@ export default {
       viewer: null,
       sortItems: [
         {
-          name: '作成日新しい順',
+          name: '作成日降順',
           orderValue: {
             field: 'CREATED_AT',
             direction: 'DESC',
           },
         },
         {
-          name: '作成日古い順',
+          name: '作成日昇順',
           orderValue: {
             field: 'CREATED_AT',
             direction: 'ASC',
           },
         },
         {
-          name: '最終更新日新しい順',
+          name: '最終更新日降順',
           orderValue: {
             field: 'UPDATED_AT',
             direction: 'DESC',
           },
         },
         {
-          name: '最終更新日古い順',
+          name: '最終更新日昇順',
           orderValue: {
             field: 'UPDATED_AT',
             direction: 'ASC',

@@ -20,6 +20,7 @@
         <v-card-title>{{ re.name }}</v-card-title>
 
         <v-card-subtitle v-if="re.languages.nodes">
+          owner: {{ re.owner.login }}
           <v-chip-group column>
             <v-chip
               v-for="(lang, index) in re.languages.nodes"
@@ -31,14 +32,15 @@
               {{ lang.name }}</v-chip
             >
           </v-chip-group>
-          created_at: {{ re.createdAt }} <br />
-          update_at: {{ re.updatedAt }} <br />
-          owner: {{ re.owner.login }}
         </v-card-subtitle>
 
         <v-card-text v-if="re.discription" class="description-wrapper">
           <span class="description">{{ re.discription }}</span>
         </v-card-text>
+        <v-btn text x-small absolute bottom right>
+          {{ $moment(re.createdAt).calendar() }} -
+          {{ $moment(re.updatedAt).fromNow() }}
+        </v-btn>
       </v-card>
     </div>
   </div>
@@ -82,6 +84,7 @@ export default {
   }
   @media only screen and (max-width: 599px) {
     grid-template-columns: 100%;
+    gap: 1px;
   }
 
   .description-wrapper {
