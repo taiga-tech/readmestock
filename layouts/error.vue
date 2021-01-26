@@ -1,12 +1,38 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
+  <v-app>
+    <v-alert
+      v-if="error.statusCode === 404 || error.statusCode === 500"
+      border="left"
+      type="error"
+      outlined
+    >
+      <v-row align="center">
+        <v-col class="grow">
+          <strong>{{ error.statusCode }} : {{ error.message }}</strong>
+        </v-col>
+        <v-col class="shrink">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                icon
+                href="https://github.com/taiga-tech/"
+                target="_blank"
+                v-bind="attrs"
+                v-on="on"
+                ><v-icon>mdi-github</v-icon></v-btn
+              >
+            </template>
+            <span>Go to Github</span>
+          </v-tooltip>
+        </v-col>
+        <v-col class="shrink">
+          <v-btn text @click="$router.go(-1)">back</v-btn>
+        </v-col>
+      </v-row>
+    </v-alert>
+    <v-alert v-else border="left" outlined type="error">
       {{ otherError }}
-    </h1>
-    <NuxtLink to="/"> Home page </NuxtLink>
+    </v-alert>
   </v-app>
 </template>
 
@@ -21,13 +47,14 @@ export default {
   },
   data() {
     return {
-      pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
     }
   },
   head() {
     const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+      this.error.statusCode === 404 || this.error.statusCode === 500
+        ? `${this.error.statusCode} : ${this.error.message}`
+        : this.otherError
     return {
       title,
     }
@@ -35,8 +62,8 @@ export default {
 }
 </script>
 
-<style scoped>
-h1 {
+<style lang="css">
+strong {
   font-size: 20px;
 }
 </style>

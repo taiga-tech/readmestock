@@ -1,0 +1,25 @@
+query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
+  viewer {
+    login
+    avatarUrl
+    createdAt
+    repositories(first: 100, privacy: PUBLIC, orderBy: $orderBy) {
+      nodes {
+        name
+        owner {
+          login
+        }
+        url
+        description
+        languages(first: 10) {
+          nodes {
+            color
+            name
+          }
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}

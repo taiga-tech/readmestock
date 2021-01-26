@@ -1,0 +1,26 @@
+query ($name: String!) {
+  viewer {
+    login
+    url
+    repository(name: $name) {
+      name
+      createdAt
+      updatedAt
+      url
+      owner {
+        login
+      }
+      languages(first: 10) {
+        nodes {
+          color
+          name
+        }
+      }
+      object(expression: "master:README.md") {
+        ... on Blob {
+          text
+        }
+      }
+    }
+  }
+}
