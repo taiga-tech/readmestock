@@ -1,5 +1,8 @@
 <template>
   <article class="blog">
+    <v-alert border="left" outlined type="warning" dismissible>
+      現在準備中です。準備出来次第投稿していきます！
+    </v-alert>
     <div>
       <div class="text-h4">{{ blogs.title }}</div>
       <v-chip-group column>
