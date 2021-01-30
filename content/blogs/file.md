@@ -5,10 +5,9 @@ tags: [Ruby, Ruby on Rails]
 
 # Ruby on Railsファイル構成
 
-
-### アプリのフォルダ,ファイルの役割
+## アプリのフォルダ,ファイルの役割
   ※あんまり使ったっことのないフォルダ、ファイルは省いてます。
-### `rails new`すると↓のフォルダやファイルが生成される
+## `rails new`すると↓のフォルダやファイルが生成される
   <img src="/img/first_app.png" width="20%" alt="新規App">
 
   - first_app
@@ -37,7 +36,7 @@ tags: [Ruby, Ruby on Rails]
     - README.md
       > アプリの説明書的なファイル
 
-### 各フォルダの詳細
+## 各フォルダの詳細
   - first_app
     - app
       - assets
@@ -83,23 +82,23 @@ tags: [Ruby, Ruby on Rails]
         > マイグレーションファイルが格納されている
           マイグレーションを編集する場合は`migrate/***********_create_モデル名.rb`を開く
 
-### applicationファイルについて
+## applicationファイルについて
 
   <img src="/img/applicationcss.png" width="20%">
 
   いろんなフォルダに`application.css`のように`application.~`があると思いますが、これはアプリ全体のプログラムを記載できるファイルです。
 
   (例)
-  ```scss
-  # assets/stylesheets/application.css
+  ```css
+  /* assets/stylesheets/application.css */
 
-    h1 {
-      color: red;
-    }
+  h1 {
+    color: red;
+  }
   ```
 
   と編集すると全てのコントローラ、アクションページのh1の文字の色が赤になる。
 
-## まとめ
+### まとめ
   他にも大事なファイルがあると思うんですけど、とりあえずここまで分かってたら楽になるはずです！
   雑に作ったんで間違ってるとことか分かりにくい表現があるかもしれないんでいつでも文句言ってください笑

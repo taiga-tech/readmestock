@@ -3,9 +3,7 @@ title: プロンプトの変更
 tags: [ターミナル, プロンプト]
 ---
 
-# プロンプトの変更
-
-  ### 現在のプロンプトの確認
+  ## 現在のプロンプトの確認
   **＄マーク**から前のプロンプトを変更するには **PS1** という環境変数に別の値を入れるコマンドを入力する。
   まずは、今入っている値を表示してみる。出力は `echo`コマンドで、変数を参照するには`echo $＋変数名`を実行する。
 
@@ -13,14 +11,14 @@ tags: [ターミナル, プロンプト]
 
   **実行結果**
   ```shell
-    # [ホスト名]:[ディレクトリ名] [ユーザ名]$
+  # [ホスト名]:[ディレクトリ名] [ユーザ名]$
     nakano-no-MacBook-Air-2:~ Taiga$ echo $PS1
     \h:\W \u$
   ```
   バックスラッシュ入りの文字列が出てきた。
   前から`\h（ホスト名） :（コロン） \W（ディレクトリ名） （スペース） \u（ユーザー名） $ （スペース）`となっている。
 
-  ### プロンプトの変更
+  ## プロンプトの変更
   ここからホスト名＝コンピューター名・コロン・ユーザー名を削ってしまえばいい。JSのような変数への値代入を行う。
 
   **実行結果**
@@ -33,7 +31,7 @@ tags: [ターミナル, プロンプト]
   ちなみに、**~** となっているのは**ホームディレクトリ**を表していて、場所はMacintosh HD > ユーザー > ※ココ（ユーザー名）。家のアイコンになっている。
   簡単に変更できたが、この変更は一時的なものでターミナルを再起動したら元に戻ってしまう。常に変更した状態を保つには専用のファイルに記述する必要がある。
 
-  ### プロンプトの保存
+  ## プロンプトの保存
   > 隠しファイル(.ファイル名)の表示方法 : finderを開いて`comand + shift + . (ドット)`ショートカットで表示される。
 
   **shellが`/bin/bash`の場合**
@@ -139,31 +137,24 @@ tags: [ターミナル, プロンプト]
 **これでいつ起動しても`[現在のディレクトリ]`に変更された**
 
 # MySetting
-### /bin/zshの場合(default)
+## /bin/zshの場合(default)
 
   ```shell
   # .zshrc
 
     # export PS1="%c %"
     export PS1="%F{green}%c%f %# "
-
-    # rails $PATH 修正    export PATH="$HOME/.rbenv/shims:$PATH"
-
-    # Taigaディレクトリ移動
-    # cd Taiga
-
-    # export PATH=$HOME/.nodebrew/current/bin:$PATH
   ```
 
-### /bin/bashの場合
+## /bin/bashの場合
 
-  ```shell
-  # .bash_profile
+```shell
+# .bash_profile
 
-    if [ -f ~/.bashrc ]; then
-      . ~/.bashrc
-    fi
-  ```
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+```
 
   ``` shell
   # .bashrc
@@ -175,7 +166,5 @@ tags: [ターミナル, プロンプト]
     # Warning取消
     export BASH_SILENCE_DEPRECATION_WARNING=1
 
-    # Taigaディレクトリ移動
-    # cd Taiga
     eval "$(rbenv init -)"
   ```
