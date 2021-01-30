@@ -4,7 +4,6 @@ require('dotenv').config()
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   // target: 'static',
-  // target: 'server',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -88,6 +87,7 @@ export default {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    // treeShake: true,
     theme: {
       dark: true,
       themes: {
