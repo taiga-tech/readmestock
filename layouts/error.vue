@@ -31,7 +31,7 @@
       </v-row>
     </v-alert>
     <v-alert v-else border="left" outlined type="error">
-      {{ otherError }}
+      <strong>{{ otherError }}</strong>
     </v-alert>
   </v-app>
 </template>
