@@ -1,38 +1,33 @@
 <template>
-  <!-- Graphql -->
   <v-card
     elevation="0"
     class="markdown-body line-numbers"
     max-width="980"
     color="#00000000"
   >
-    <v-card-title class="text-h5">
-      <v-row>
-        <v-col>
-          {{ viewer.repository.name }}
-        </v-col>
-        <v-col class="shrink">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                icon
-                large
-                :href="viewer.repository.url"
-                target="_blank"
-                v-bind="attrs"
-                style="text-decoration: none"
-                v-on="on"
-                ><v-icon>mdi-github</v-icon>
-              </v-btn>
-            </template>
-            <span>Go to Github</span>
-          </v-tooltip>
-        </v-col>
-      </v-row>
+    <v-card-title :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'">
+      {{ viewer.repository.name }}
     </v-card-title>
+
     <v-card-subtitle>
       <div align="end">
-        <div>owner: {{ viewer.repository.owner.login }}</div>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              large
+              :href="viewer.repository.url"
+              target="_blank"
+              v-bind="attrs"
+              style="text-decoration: none"
+              v-on="on"
+              ><v-icon>mdi-github</v-icon>
+            </v-btn>
+          </template>
+          <span>Go to Github</span>
+        </v-tooltip>
+
+        {{ viewer.repository.owner.login }}
         <div>
           作成日:
           {{ $moment(viewer.repository.createdAt).calendar() }}
@@ -41,7 +36,8 @@
           最終更新日: {{ $moment(viewer.repository.updatedAt).fromNow() }}
         </div>
       </div>
-      <v-chip-group>
+
+      <v-chip-group v-if="viewer.repository.languages.nodes.length != 0">
         <v-chip
           v-for="(lng, i) in viewer.repository.languages.nodes"
           :key="i"
@@ -53,7 +49,10 @@
         </v-chip>
       </v-chip-group>
     </v-card-subtitle>
-    <div v-html="$md.render(viewer.repository.object.text)"></div>
+
+    <v-divider />
+
+    <div v-html="$md.render(viewer.repository.object.text)" />
   </v-card>
 </template>
 
@@ -115,5 +114,31 @@ code[class*='language-'] {
   .token.operator {
     background-color: rgba(45, 45, 45, 0);
   }
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  color: rgb(204, 204, 204);
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #3b434b;
+}
+
+.markdown-body table tr {
+  border-top: 1px solid #0f1218;
+  background-color: #0f1218;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #161c21;
 }
 </style>
