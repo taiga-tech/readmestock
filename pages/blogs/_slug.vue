@@ -95,26 +95,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.markdown-body {
-  pre[class*='language-'],
-  code[class*='language-'] {
-    text-shadow: none;
-    // background-color: rgba(45, 45, 45, 1);
-    code[class*='language-'] {
-      background-color: rgba(45, 45, 45, 1);
-    }
-    span.token.operator {
-      background: rgba(45, 45, 45, 0);
-      background-color: rgba(45, 45, 45, 0);
-    }
-    .token.operator,
-    .token.entity,
-    .token.url,
-    .language-css .token.string,
-    .style .token.string {
-      background: none;
-    }
-  }
-}
-</style>
+<style lang="scss" src="~/assets/scss/custom.scss"></style>

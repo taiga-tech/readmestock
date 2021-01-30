@@ -315,13 +315,13 @@
   border-radius: 3px !important;
 }
 
-.markdown-body .bg-white {
-  /* background-color: #fff!important; */
+/* .markdown-body .bg-white {
+  background-color: #fff!important;
 }
 
 .markdown-body .bg-gray-light {
-  /* background-color: #fafbfc!important; */
-}
+  background-color: #fafbfc!important;
+} */
 
 .markdown-body .text-gray-light {
   color: #6a737d !important;
@@ -756,38 +756,38 @@
   margin-bottom: 16px;
 }
 
-.markdown-body table {
-  /* display: block; */
+/* .markdown-body table {
+  display: block;
 
-  /* width: 100%; */
+  width: 100%;
 
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 .markdown-body table th {
-  /* font-weight: 600; */
+  font-weight: 600;
 }
 
 .markdown-body table td,
 .markdown-body table th {
-  /* padding: 6px 13px; */
+  padding: 6px 13px;
 
-  /* border: 1px solid #3b434b; */
+  border: 1px solid #3b434b;
 }
 
 .markdown-body table tr {
-  /* background-color: #fff; */
+  background-color: #fff;
 
-  /* border-top: 1px solid #3b434b; */
+  border-top: 1px solid #3b434b;
 }
 
 .markdown-body table tr:nth-child(2n) {
-  /* background-color: rgba(246, 248, 250, 0.1); */
+  background-color: rgba(246, 248, 250, 0.1);
 
-  /* background-color: #3b434b; */
+  background-color: #3b434b;
 
-  /* background-color:rgba(0,0,0,0); */
-}
+  background-color:rgba(0,0,0,0);
+} */
 
 .markdown-body img {
   max-width: 100%;
@@ -1003,50 +1003,4 @@
 .markdown-body .task-list-item input {
   margin: 0 .2em .25em -1.6em;
   vertical-align: middle;
-}
-
-/* --- custum --- */
-.markdown-body {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 45px;
-}
-
-img {
-  background: none;
-  max-width: 100%;
-}
-
-@media (max-width: 767px) {
-  .markdown-body {
-    padding: 5px;
-  }
-}
-
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  color: rgb(204, 204, 204);
-}
-
-.markdown-body table th {
-  font-weight: 600;
-}
-
-.markdown-body table td,
-.markdown-body table th {
-  padding: 6px 13px;
-  border: 1px solid #3b434b;
-}
-
-.markdown-body table tr {
-  border-top: 1px solid #0f1218;
-  background-color: #0f1218;
-}
-
-.markdown-body table tr:nth-child(2n) {
-  background-color: #161c21;
 }
