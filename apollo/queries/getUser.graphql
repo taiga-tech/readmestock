@@ -1,0 +1,9 @@
+query {
+  user(login: "taiga-tech") {
+    login
+    avatarUrl
+    repositories {
+      totalCount
+    }
+  }
+}

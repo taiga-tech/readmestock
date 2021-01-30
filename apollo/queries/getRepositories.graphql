@@ -4,6 +4,7 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
     avatarUrl
     createdAt
     repositories(first: 100, privacy: PUBLIC, orderBy: $orderBy) {
+      totalCount
       nodes {
         name
         owner {
