@@ -12,8 +12,9 @@
         :to="'/readmes/' + re.name"
         nuxt
         tile
+        hover
         :loading="!re.name"
-        :disabled="!re.name"
+        :disabled="!re.object"
         min-width="256"
         min-height="200"
       >

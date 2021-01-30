@@ -24,7 +24,13 @@
       item-height="48"
     >
       <template v-slot:default="{ item }">
-        <v-list-item :key="item.url" :to="'/readmes/' + item.name" router exact>
+        <v-list-item
+          :key="item.url"
+          :to="'/readmes/' + item.name"
+          :disabled="!item.object"
+          router
+          exact
+        >
           <v-list-item-icon>
             <v-icon small>mdi-github</v-icon>
           </v-list-item-icon>
