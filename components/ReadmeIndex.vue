@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="'/readmes/' + re.name + '/'"
+        :to="'/readmes/' + re.name"
         nuxt
         tile
         :loading="!re.name"
@@ -74,13 +74,13 @@ export default {
     grid-template-columns: repeat(5, 20%);
   }
   @media only screen and (max-width: 1900px) {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 25%);
   }
   @media only screen and (max-width: 1300px) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 33.333%);
   }
   @media only screen and (max-width: 900px) {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 50%);
   }
   @media only screen and (max-width: 599px) {
     grid-template-columns: 100%;
