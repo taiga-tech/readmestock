@@ -8,7 +8,6 @@
       type="card"
       class="markdown-body"
     ></v-skeleton-loader>
-    <div v-if="!viewer.repository.obhect.text">error</div>
   </article>
 </template>
 
