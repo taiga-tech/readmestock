@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article>
     <v-alert border="left" outlined type="warning" dismissible>
       現在準備中です。準備出来次第投稿していきます！
     </v-alert>
@@ -15,8 +15,8 @@
       <v-card-subtitle>
         <div align="end">
           <div>
-            作成日: {{ blogs.createdAt }}
-            <!-- {{ $moment(blogs.createdAt).calendar() }} -->
+            作成日:
+            {{ $moment(blogs.createdAt).format('L') }}
           </div>
           <div>最終更新日: {{ $moment(blogs.updatedAt).fromNow() }}</div>
         </div>
@@ -58,7 +58,7 @@
       </ul>
     </v-navigation-drawer>
     <pre>{{ blogs.body.children }}</pre> -->
-  </div>
+  </article>
 </template>
 
 <script>

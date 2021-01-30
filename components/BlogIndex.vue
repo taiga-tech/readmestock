@@ -11,6 +11,7 @@
         v-else
         :to="re.path"
         tile
+        hover
         :loading="!re.title"
         :disabled="!re.title"
         min-width="256"
@@ -33,6 +34,10 @@
         <v-card-text v-if="re.discription != ''" class="description-wrapper">
           <span class="description">{{ re.discription }}</span>
         </v-card-text>
+        <v-btn text x-small absolute bottom right>
+          {{ $moment(re.createdAt).format('L') }} -
+          {{ $moment(re.updatedAt).fromNow() }}
+        </v-btn>
       </v-card>
     </div>
   </div>
