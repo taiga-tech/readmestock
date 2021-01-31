@@ -3,13 +3,7 @@
     <v-card-title>お問い合わせ</v-card-title>
     <v-card-subtitle></v-card-subtitle>
     <v-card-text>
-      <v-form
-        ref="from"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        @submit.prevent="onSubmit"
-      >
+      <v-form ref="from" name="contact" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
 
         <v-text-field
@@ -37,7 +31,7 @@
           label="お問い合わせ内容"
         ></v-textarea>
 
-        <v-btn type="submit">送信</v-btn>
+        <v-btn type="submit" @click="onSubmit">送信</v-btn>
       </v-form>
     </v-card-text>
   </v-card>
@@ -61,12 +55,25 @@ export default {
         ],
         message: [(v) => !!v || 'メッセージは必須です'],
       },
+      error: null,
     }
   },
 
   methods: {
-    onSubmit() {
-      console.log(this.data)
+    async onSubmit() {
+      const contacts = new FormData()
+      contacts.append('form-name', 'contact')
+      contacts.append('name', this.data.name)
+      contacts.append('email', this.data.email)
+      contacts.append('message', this.data.message)
+      const response = await this.$axios
+        .$post(window.location.origin, contacts)
+        .catch((err) => {
+          console.error(err)
+          this.error = err
+        })
+      console.log(response)
+      this.$router.push('/')
     },
   },
 }
