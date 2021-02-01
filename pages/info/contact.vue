@@ -1,14 +1,18 @@
 <template>
   <div class="mx-auto" style="max-width: 940px">
-    <v-stepper v-model="e1">
+    <v-stepper v-model="steps">
       <v-stepper-header>
-        <v-stepper-step :complete="e1 > 1" step="1" :rules="[() => valid]">
+        <v-stepper-step :complete="steps > 1" step="1" :rules="[() => valid]">
           お問い合わせ
         </v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step :complete="e1 > 2" step="2">
+        <v-stepper-step
+          :complete="steps > 2"
+          step="2"
+          :rules="[() => error.status]"
+        >
           お問い合わせ内容確認
         </v-stepper-step>
 
@@ -19,10 +23,17 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <!-- <contact-form :data="data" :rules="rules" @valid="getValid" /> -->
+          <!-- <contact-form :data="data" :rules="rules" /> -->
+
           <v-card>
             <v-card-title>お問い合わせ</v-card-title>
-            <v-card-subtitle></v-card-subtitle>
+            <v-card-subtitle>
+              ご意見、ご要望、フィードバックなどがあればこちらからお問い合わせください、<br />
+              Twitter<a href="https://twitter.com/Taiga_dev" target="_blank"
+                ><v-icon x-small color="primary">mdi-twitter</v-icon
+                >@Taiga_dev</a
+              >でも受付可能です。
+            </v-card-subtitle>
             <v-card-text>
               <v-form
                 ref="from"
@@ -37,9 +48,8 @@
                 <v-text-field
                   v-model="data.name"
                   :rules="rules.name"
-                  :counter="10"
                   name="name"
-                  label="名前"
+                  label="お名前"
                   required
                 ></v-text-field>
 
@@ -53,7 +63,6 @@
 
                 <v-textarea
                   v-model="data.message"
-                  :counter="200"
                   :rules="rules.message"
                   name="message"
                   label="お問い合わせ内容"
@@ -61,32 +70,57 @@
               </v-form>
             </v-card-text>
           </v-card>
-
-          <v-btn
-            color="primary"
-            :disabled="
-              !valid ||
-              data.name == '' ||
-              data.email == '' ||
-              data.message == ''
-            "
-            @click="e1 = 2"
-          >
-            確認
-          </v-btn>
+          <v-row dense class="mt-1">
+            <v-col>
+              <v-btn
+                block
+                color="primary"
+                :disabled="status"
+                @click="steps = 2"
+              >
+                確認
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-stepper-content>
 
         <v-stepper-content step="2">
+          <v-alert v-if="!error.status" border="left" outlined type="error">
+            <v-row align="center">
+              <v-col class="grow">
+                {{ error.message }}
+              </v-col>
+              <v-col class="shrink">
+                <v-btn
+                  color="error"
+                  small
+                  :fab="$vuetify.breakpoint.xs"
+                  @click="refresh"
+                >
+                  <v-icon>mdi-rotate-right</v-icon>
+                  <span v-show="!$vuetify.breakpoint.xs">ページ再読み込み</span>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-alert>
+
           <contact-show :data="data" />
 
-          <div class="d-flex px-6 mt-4" style="justify-content: space-between">
-            <div><v-btn text @click="e1 = 1"> 戻る </v-btn></div>
-            <div><v-btn color="primary" @click="onSubmit"> 送信 </v-btn></div>
-          </div>
+          <v-row v-if="error.status" dense class="mt-1">
+            <v-col><v-btn block @click="steps = 1"> 戻る </v-btn></v-col>
+            <v-col>
+              <v-btn block color="primary" @click="onSubmit"> 送信 </v-btn>
+            </v-col>
+          </v-row>
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <contact-sucsess />
+          <contact-sucsess :data="data" />
+          <v-row class="mt-1" dense
+            ><v-col
+              ><v-btn block to="/" color="primary">トップへ戻る</v-btn></v-col
+            ></v-row
+          >
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -94,25 +128,21 @@
 </template>
 
 <script>
-// import ContactForm from '~/components/Contacts/ContactForm.vue'
-import ContactShow from '~/components/Contacts/ContactShow.vue'
-import ContactSucsess from '~/components/Contacts/ContactSucsess.vue'
-
 export default {
   components: {
-    // ContactForm,
-    ContactShow,
-    ContactSucsess,
+    // ContactForm: () => import('~/components/Contacts/ContactForm'),
+    ContactShow: () => import('~/components/Contacts/ContactShow'),
+    ContactSucsess: () => import('~/components/Contacts/ContactSucsess'),
   },
+
   data() {
     return {
-      e1: 1,
+      steps: 1,
       data: {
         name: '',
         email: '',
         message: '',
       },
-      response: null,
       valid: true,
       rules: {
         name: [(v) => !!v || '名前は必須です'],
@@ -123,29 +153,49 @@ export default {
         ],
         message: [(v) => !!v || 'メッセージは必須です'],
       },
-      errors: null,
+      response: null,
+      error: { status: true, message: '' },
     }
   },
+
+  computed: {
+    status() {
+      const status =
+        !this.valid ||
+        this.data.name === '' ||
+        this.data.email === '' ||
+        this.data.message === ''
+
+      return status
+    },
+  },
+
   methods: {
     async onSubmit() {
-      const contacts = new FormData()
+      const contacts = new URLSearchParams()
       contacts.append('form-name', 'contact')
       contacts.append('name', this.data.name)
       contacts.append('email', this.data.email)
       contacts.append('message', this.data.message)
       const response = await this.$axios
+        // .$post('/', contacts)
         .$post(window.location.origin, contacts)
-        .catch((err) => {
-          console.error(err)
-          this.error = err
+        // .$post('localhost', contacts) // error handling
+        .catch(() => {
+          this.error = {
+            status: false,
+            message: `メッセージ送信に失敗しました もう一度最初からお願いします`,
+          }
         })
-      console.log(response)
-      this.e1 = 3
+      if (this.error.status) {
+        this.response = response
+        this.steps = 3
+      }
     },
 
-    // getValid(valid) {
-    //   this.valid = valid
-    // },
+    refresh() {
+      location.reload()
+    },
   },
 }
 </script>
