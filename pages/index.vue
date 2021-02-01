@@ -5,11 +5,11 @@
         <v-btn nuxt to="/readmes"> README </v-btn>
 
         <v-btn nuxt to="/blogs"> blogs </v-btn>
+
+        <v-btn nuxt to="/info/contact">contact</v-btn>
       </div>
 
       <!-- npm install vue-chartjs chart.js --save -->
-
-      <contact-from class="mt-12" />
     </div>
   </div>
 </template>
@@ -18,7 +18,6 @@
 import getRepositories from '~/apollo/queries/getRepositories.graphql'
 
 export default {
-  components: { ContactFrom: () => import('~/components/ContactFrom') },
   data() {
     return {
       selectSort: {
