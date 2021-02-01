@@ -9,9 +9,13 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn> -->
 
-      <n-link to="/" style="text-decoration: none; color: #fff">
+      <nuxt-link
+        to="/"
+        style="text-decoration: none"
+        :style="$vuetify.theme.dark ? 'color: #fff' : 'color: #000'"
+      >
         <v-toolbar-title v-text="title" />
-      </n-link>
+      </nuxt-link>
 
       <v-spacer />
 
