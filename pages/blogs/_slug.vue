@@ -1,8 +1,6 @@
 <template>
   <article>
-    <v-alert border="left" outlined type="warning" dismissible>
-      現在準備中です。準備出来次第投稿していきます！
-    </v-alert>
+    <warning-alert style="max-width: 940px; margin: 0 auto" />
     <v-card
       elevation="0"
       class="markdown-body"
@@ -65,9 +63,15 @@
 import Prism from '~/plugins/prism'
 
 export default {
-  async asyncData({ $content, params }) {
-    const blogs = await $content('blogs', params.slug || 'index').fetch()
-    return { blogs }
+  components: {
+    WarningAlert: () => import('~/components/WarningAlert'),
+  },
+  async asyncData({ $content, params, payload }) {
+    if (payload) {
+      return { blogs: payload }
+    } else {
+      return { blogs: await $content('blogs', params.slug || 'index').fetch() }
+    }
   },
 
   data() {
