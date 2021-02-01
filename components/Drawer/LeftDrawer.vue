@@ -47,10 +47,6 @@
   </v-navigation-drawer>
 </template>
 
-<style lang="sass">
-$navigation-drawer-border-width: 0
-</style>
-
 <script>
 import getRepositories from '~/apollo/queries/getRepositories.graphql'
 import getUser from '~/apollo/queries/getUser.graphql'
