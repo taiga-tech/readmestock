@@ -9,7 +9,9 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn> -->
 
-      <v-toolbar-title v-text="title" />
+      <n-link to="/" style="text-decoration: none; color: #fff">
+        <v-toolbar-title v-text="title" />
+      </n-link>
 
       <v-spacer />
 
