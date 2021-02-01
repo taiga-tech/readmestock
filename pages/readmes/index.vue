@@ -5,6 +5,10 @@
       <div style="max-width: 200px">
         <v-select
           v-model="selectSort"
+          solo
+          dense
+          menu-props="auto"
+          prepend-inner-icon="mdi-swap-vertical"
           label="並び替え"
           :items="sortItems"
           item-text="name"

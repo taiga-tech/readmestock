@@ -1,10 +1,16 @@
 <template>
-  <v-list-item>
-    <v-list-item-title>ダークテーマ</v-list-item-title>
-    <v-list-item-action>
-      <v-switch v-model="theme" light></v-switch>
-    </v-list-item-action>
-  </v-list-item>
+  <div>
+    <v-list-item>
+      <v-list-item-icon>
+        テーマ変更
+        <v-icon v-text="themeIcon" />
+      </v-list-item-icon>
+      <v-spacer />
+      <v-list-item-action>
+        <v-switch v-model="theme"></v-switch>
+      </v-list-item-action>
+    </v-list-item>
+  </div>
 </template>
 
 <script>
@@ -24,6 +30,5 @@ export default {
       this.$vuetify.theme.dark = this.theme
     },
   },
-  //  :prepend-icon="themeIcon
 }
 </script>

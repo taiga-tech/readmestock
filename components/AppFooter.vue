@@ -13,7 +13,7 @@
 
     <v-spacer />
 
-    <span>&copy; {{ new Date().getFullYear() }} Taiga</span>
+    <span>&copy; 2021 Taiga</span>
   </v-footer>
 </template>
 
