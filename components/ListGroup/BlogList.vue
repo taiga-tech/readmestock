@@ -1,5 +1,5 @@
 <template>
-  <v-list-group>
+  <v-list-group color="yellow">
     <template v-slot:activator>
       <v-list-item-icon>
         <v-icon>mdi-post-outline</v-icon>

@@ -24,7 +24,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item
+      <!-- <v-list-item
         v-for="(item, i) in items"
         :key="i"
         :to="item.to"
@@ -38,11 +38,12 @@
         <v-list-item-content>
           <v-list-item-title v-text="item.title" />
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <readme-list :viewer="viewer" />
 
       <blog-list />
+      <info-list />
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -55,6 +56,7 @@ export default {
   components: {
     ReadmeList: () => import('../ListGroup/ReadmeList'),
     BlogList: () => import('../ListGroup/BlogList'),
+    InfoList: () => import('../ListGroup/InfoList'),
   },
 
   props: {

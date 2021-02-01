@@ -18,6 +18,10 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
             name
           }
         }
+        primaryLanguage {
+          color
+          name
+        }
         createdAt
         updatedAt
         object(expression: "master:README.md") {

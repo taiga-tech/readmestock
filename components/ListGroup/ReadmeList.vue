@@ -1,5 +1,5 @@
 <template>
-  <v-list-group>
+  <v-list-group color="purple">
     <template v-slot:activator>
       <v-list-item-icon>
         <v-icon>mdi-github</v-icon>
@@ -28,6 +28,11 @@
           :key="item.url"
           :to="'/readmes/' + item.name"
           :disabled="!item.object"
+          :color="
+            item.primaryLanguage && item.object
+              ? item.primaryLanguage.color
+              : null
+          "
           router
           exact
         >
