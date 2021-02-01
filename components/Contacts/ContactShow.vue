@@ -1,22 +1,16 @@
 <template>
-  <v-card max-width="940" class="mx-auto py-auto" color="inherit">
+  <v-card>
     <v-card-title>お問い合わせ内容確認</v-card-title>
-    <v-card-text>
-      <div>
-        name: <span>{{ data.name }}</span>
-      </div>
-      <div>
-        email: <span>{{ data.email }}</span>
-      </div>
-      <div>
-        message: <span>{{ data.message }}</span>
-      </div>
-    </v-card-text>
+    <v-divider></v-divider>
+    <Content :data="data" />
   </v-card>
 </template>
 
 <script>
 export default {
+  components: {
+    Content: () => import('./Content'),
+  },
   props: {
     data: {
       type: Object,

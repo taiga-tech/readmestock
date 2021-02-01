@@ -1,24 +1,26 @@
 <template>
-  <v-card max-width="940" class="mx-auto py-auto" color="inherit">
-    <v-card-title>お問い合わせありがとうございました</v-card-title>
-    <v-card-text>
-      <div></div>
-      <v-btn text to="/">戻る</v-btn>
-    </v-card-text>
+  <v-card>
+    <v-card-title>
+      お問い合わせありがとうございます。<br />
+      以下の内容でフォームを送信いたしました。<br />
+      数日中に追ってメールにて回答をお送りいたします。<br />
+      今しばらくお待ちください。
+    </v-card-title>
+    <v-divider></v-divider>
+    <Content :data="data" />
   </v-card>
 </template>
 
 <script>
 export default {
+  components: {
+    Content: () => import('./Content'),
+  },
   props: {
-    response: {
+    data: {
       type: Object,
       default: null,
     },
-    // error: {
-    //   type: Error,
-    //   default: null,
-    // },
   },
 }
 </script>
