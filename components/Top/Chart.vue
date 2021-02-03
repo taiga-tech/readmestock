@@ -14,7 +14,7 @@
                 </v-list-item-title>
                 <v-list-item-subtitle>
                   <v-icon x-small>mdi-github</v-icon>
-                  <a :src="user.url" style="text-decoration: underline">
+                  <a :href="user.url" target="_blank">
                     {{ user.url }}
                   </a>
                 </v-list-item-subtitle>
