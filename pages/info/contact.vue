@@ -197,5 +197,11 @@ export default {
       location.reload()
     },
   },
+
+  head() {
+    return {
+      title: 'お問い合わせ | ',
+    }
+  },
 }
 </script>

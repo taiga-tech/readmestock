@@ -71,7 +71,6 @@ export default {
 
   head() {
     return {
-      title: this.slug,
       meta: [
         {
           hid: 'description',

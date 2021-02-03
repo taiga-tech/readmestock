@@ -37,7 +37,7 @@ export default {
 
   head() {
     return {
-      title: this.info.title,
+      title: this.info.title + ' | ',
       meta: [
         {
           hid: 'description',

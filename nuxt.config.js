@@ -10,8 +10,8 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s | README Stock',
-    title: 'README Stock',
+    titleTemplate: '%sREADME Stock',
+    title: 'README Stock | ',
     meta: [
       { charset: 'utf-8' },
       {

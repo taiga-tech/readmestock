@@ -20,7 +20,7 @@ export default {
 
   head() {
     return {
-      title: 'ブログ一覧',
+      title: 'ブログ一覧 | ',
     }
   },
 }

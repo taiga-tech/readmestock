@@ -59,7 +59,7 @@ export default {
 
   head() {
     return {
-      title: 'README一覧',
+      title: 'README一覧 | ',
     }
   },
 }
