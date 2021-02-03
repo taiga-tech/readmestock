@@ -9,12 +9,12 @@
     app
   >
     <v-list>
-      <v-list-item>
-        <v-list-item-icon>
-          <v-avatar :size="minivariant ? 24 : 36">
-            <v-img :src="user.avatarUrl" />
-          </v-avatar>
-        </v-list-item-icon>
+      <v-list-item to="/" router exact>
+        <v-list-item-avatar>
+          <!-- <v-avatar :size="minivariant ? 24 : 36"> -->
+          <v-img :src="user.avatarUrl" />
+          <!-- </v-avatar> -->
+        </v-list-item-avatar>
         <v-list-item-content>
           <strong>{{ user.login }}</strong>
           <v-list-item-subtitle>
