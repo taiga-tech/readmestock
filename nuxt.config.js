@@ -23,11 +23,22 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  pwa: {
+    manifest: {
+      name: 'README Stock',
+      short_name: 'README Stock',
+      lang: 'ja',
+      useWebmanifestExtension: false,
+      background_color: '#000000',
+      theme_color: '#000000',
+    },
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/prism.js'],
+  plugins: ['~/plugins/prism.js', '~/plugins/vue-chart.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
