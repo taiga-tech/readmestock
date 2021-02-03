@@ -3,7 +3,10 @@
     <left-drawer :minivariant="miniVariant" :drawer="drawer" :items="items" />
 
     <v-app-bar clipped-left clipped-right fixed dense app flat>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon
+        aria-label="mdi-menu"
+        @click.stop="drawer = !drawer"
+      />
 
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -22,6 +25,7 @@
       <v-btn
         v-show="$vuetify.breakpoint.xs"
         icon
+        aria-label="mdi-cog"
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>mdi-cog</v-icon>
