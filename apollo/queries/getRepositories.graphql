@@ -12,7 +12,7 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
         }
         url
         description
-        languages(first: 10) {
+        languages(first: 100) {
           nodes {
             color
             name

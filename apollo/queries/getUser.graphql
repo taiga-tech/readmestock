@@ -1,8 +1,17 @@
 query {
   user(login: "taiga-tech") {
+    url
     login
     avatarUrl
-    repositories {
+    repositories(first: 100) {
+      nodes {
+        languages(first: 100) {
+          nodes {
+            name
+            color
+          }
+        }
+      }
       totalCount
     }
   }
