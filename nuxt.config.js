@@ -18,7 +18,12 @@ export default {
         name: 'viewport',
         content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0',
       },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
