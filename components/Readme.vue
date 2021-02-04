@@ -59,27 +59,27 @@
 
 <script>
 import Prism from '~/plugins/prism'
+import Meta from '~/assets/mixins/meta.js'
 
 export default {
+  mixins: [Meta],
   props: {
     viewer: { type: Object, default: null },
     slug: { type: String, default: '' },
   },
 
-  mounted() {
-    Prism.highlightAll()
+  data() {
+    return {
+      meta: {
+        title: this.viewer.repository.name,
+        description: this.viewer.repository.discription,
+        url: 'readmes/' + this.viewer.repository.name,
+      },
+    }
   },
 
-  head() {
-    return {
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.viewer.repository.object.text,
-        },
-      ],
-    }
+  mounted() {
+    Prism.highlightAll()
   },
 }
 </script>

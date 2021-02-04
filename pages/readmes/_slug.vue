@@ -40,30 +40,5 @@ export default {
       },
     },
   },
-
-  head() {
-    return {
-      title: this.slug + ' | ',
-      meta: [
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.slug + ' | README Stock',
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://taiga-tech.tk/' + this.slug,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            this.slug +
-            ' | Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
-        },
-      ],
-    }
-  },
 }
 </script>
