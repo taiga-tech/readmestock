@@ -28,7 +28,7 @@ export default {
       { hid: 'ogTitle', property: 'og:title', content: 'README Stock' },
       { hid: 'ogType', property: 'og:type', content: 'website' },
       { hid: 'ogUrl', property: 'og:url', content: 'https://taiga-tech.tk/' },
-      { hid: 'ogImage', property: 'og:image', content: '/icon.png' },
+      { hid: 'ogImage', property: 'og:image', content: 'https://taiga-tech.tk/icon.png' },
       { property: 'og:site_name', content: 'README Stock' },
       {
         hid: 'ogDescription',
