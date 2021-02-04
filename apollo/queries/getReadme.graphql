@@ -4,6 +4,7 @@ query ($name: String!) {
     url
     repository(name: $name) {
       name
+      description
       createdAt
       updatedAt
       url
