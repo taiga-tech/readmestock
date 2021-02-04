@@ -1,6 +1,7 @@
 ---
 title: Ruby on Railsファイル構成
 tags: [Ruby, Ruby on Rails]
+description: railsファイル構成
 ---
 
 # Ruby on Railsファイル構成

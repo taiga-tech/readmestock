@@ -1,6 +1,6 @@
 ---
 title: welcome
-discription: welcome
+description: welcome
 ---
 
 # welcome
