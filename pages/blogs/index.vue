@@ -21,6 +21,28 @@ export default {
   head() {
     return {
       title: 'ブログ一覧 | ',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'ブログ一覧',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'ブログ一覧 | README Stock',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://taiga-tech.tk/blogs/',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'ブログ一覧',
+        },
+      ],
     }
   },
 }

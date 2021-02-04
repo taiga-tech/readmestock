@@ -42,7 +42,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.info.discription,
+          content: this.info.description,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.info.title + ' | README Stock',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://taiga-tech.tk/info/site/',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.info.description,
         },
       ],
     }

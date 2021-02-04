@@ -91,7 +91,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.blogs.discription,
+          content: this.blogs.description,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.blogs.title + ' | README Stock',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://taiga-tech.tk/' + this.$route.params.slug + '/',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.blogs.description,
         },
       ],
     }
