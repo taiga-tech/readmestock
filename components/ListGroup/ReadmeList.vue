@@ -9,7 +9,7 @@
       </v-list-item-content>
     </template>
 
-    <v-list-item to="/readmes" router exact>
+    <v-list-item to="/readmes/" router exact>
       <v-list-item-icon>
         <v-icon small>mdi-github</v-icon>
       </v-list-item-icon>

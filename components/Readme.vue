@@ -17,6 +17,7 @@
               icon
               large
               :href="viewer.repository.url"
+              rel="noopener"
               target="_blank"
               v-bind="attrs"
               style="text-decoration: none"
