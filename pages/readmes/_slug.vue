@@ -24,11 +24,11 @@ export default {
     return { slug }
   },
 
-  data() {
-    return {
-      viewer: null,
-    }
-  },
+  // data() {
+  //   return {
+  //     viewer: null,
+  //   }
+  // },
 
   apollo: {
     viewer: {
