@@ -24,6 +24,7 @@ export default {
         content:
           'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
       },
+      // OGP
       { hid: 'ogTitle', property: 'og:title', content: 'README Stock' },
       { hid: 'ogType', property: 'og:type', content: 'website' },
       { hid: 'ogUrl', property: 'og:url', content: 'https://taiga-tech.tk/' },
@@ -36,20 +37,6 @@ export default {
           'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
       },
       { name: 'twitter:card', content: 'summary' },
-      { hid: 'twitterSite', name: 'twitter:site', content: 'README Stock' },
-      {
-        hid: 'twitterUrl',
-        name: 'twitter:url',
-        content: 'https://taiga-tech.tk/',
-      },
-      { hid: 'twitterTitle', name: 'twitter:title', content: 'README Stock' },
-      {
-        hid: 'twitterDescription',
-        name: 'twitter:description',
-        content:
-          'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
-      },
-      { hid: 'twitterImage', property: 'twitter:image', content: '/icon.png' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
