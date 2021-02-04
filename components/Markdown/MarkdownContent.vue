@@ -14,6 +14,10 @@ export default {
       type: Object,
       default: null,
     },
+    params: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -21,13 +25,14 @@ export default {
       meta: {
         title: this.result.title,
         description: this.result.description,
-        url: this.$route.params.slug,
+        url: this.params + '/' + this.$route.params.slug,
       },
     }
   },
 
   mounted() {
     Prism.highlightAll()
+    console.log(this.$route.params.slug)
   },
 }
 </script>

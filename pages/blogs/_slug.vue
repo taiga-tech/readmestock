@@ -31,7 +31,7 @@
         </v-chip-group>
       </v-card-subtitle>
 
-      <markdown-content :result="blogs" />
+      <markdown-content :result="blogs" params="blogs" />
     </v-card>
 
     <!-- <v-navigation-drawer

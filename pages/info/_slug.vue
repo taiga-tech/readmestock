@@ -7,8 +7,7 @@
       max-width="980"
       color="#00000000"
     >
-      <markdown-content :result="info" />
-      <!-- <nuxt-content :document="info" /> -->
+      <markdown-content :result="info" params="info" />
       <v-card-subtitle align="end">
         {{ $moment(info.createdAt).format('L') }} -
         {{ $moment(info.updatedAt).fromNow() }}
