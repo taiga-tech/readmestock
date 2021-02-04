@@ -30,7 +30,8 @@
           >
         </v-chip-group>
       </v-card-subtitle>
-      <nuxt-content :document="blogs" />
+
+      <markdown-content :result="blogs" />
     </v-card>
 
     <!-- <v-navigation-drawer
@@ -60,12 +61,12 @@
 </template>
 
 <script>
-import Prism from '~/plugins/prism'
-
 export default {
   components: {
     WarningAlert: () => import('~/components/WarningAlert'),
+    MarkdownContent: () => import('~/components/Markdown/MarkdownContent'),
   },
+
   async asyncData({ $content, params, payload }) {
     if (payload) {
       return { blogs: payload }
@@ -77,38 +78,6 @@ export default {
   data() {
     return {
       tree: [],
-    }
-  },
-
-  mounted() {
-    Prism.highlightAll()
-  },
-
-  head() {
-    return {
-      title: this.blogs.title + ' | ',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.blogs.description,
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.blogs.title + ' | README Stock',
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://taiga-tech.tk/' + this.$route.params.slug + '/',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.blogs.description,
-        },
-      ],
     }
   },
 }
