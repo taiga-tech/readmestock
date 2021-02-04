@@ -35,7 +35,7 @@ export default {
         content:
           'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
       },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:card', content: 'summary' },
       { hid: 'twitterSite', name: 'twitter:site', content: 'README Stock' },
       {
         hid: 'twitterUrl',
