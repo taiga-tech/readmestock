@@ -26,7 +26,7 @@
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.url"
-          :to="'/readmes/' + item.name"
+          :to="'/readmes/' + item.name + '/'"
           :disabled="!item.object"
           :color="
             item.primaryLanguage && item.object

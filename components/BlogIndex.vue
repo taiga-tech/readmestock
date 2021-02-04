@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="re.path"
+        :to="re.path + '/'"
         tile
         hover
         :loading="!re.title"

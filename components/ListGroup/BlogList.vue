@@ -22,7 +22,7 @@
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.path"
-          :to="item.path"
+          :to="item.path + '/'"
           :disabled="!item.title"
           router
           exact

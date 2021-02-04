@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="'/readmes/' + re.name"
+        :to="'/readmes/' + re.name + '/'"
         nuxt
         tile
         hover
