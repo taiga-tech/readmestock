@@ -22,14 +22,21 @@
 
 <script>
 import getRepositories from '~/apollo/queries/getRepositories.graphql'
+import Meta from '~/assets/mixins/meta.js'
 
 export default {
   components: {
     ReadmeIndex: () => import('~/components/ReadmeIndex'),
   },
+  mixins: [Meta],
 
   data() {
     return {
+      meta: {
+        title: 'README一覧',
+        description: 'README一覧',
+        url: 'readmes',
+      },
       selectSort: {
         field: 'CREATED_AT',
         direction: 'DESC',

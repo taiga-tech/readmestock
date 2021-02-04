@@ -56,12 +56,6 @@ export default {
       default: Array,
     },
   },
-
-  head() {
-    return {
-      title: 'README一覧 | ',
-    }
-  },
 }
 </script>
 
