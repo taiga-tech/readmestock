@@ -49,7 +49,7 @@ export default {
         content:
           'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
       },
-      { hid: 'twitterImage', property: 'twitter:image:src', content: '/icon.png' },
+      { hid: 'twitterImage', property: 'twitter:image', content: '/icon.png' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
