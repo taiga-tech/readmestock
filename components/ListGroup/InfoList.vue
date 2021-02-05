@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       items: [
-        { name: 'このサイトについて', to: 'site', icon: 'application' },
+        { name: 'このサイトについて', to: 'about', icon: 'application' },
         { name: 'お問い合わせ', to: 'contact', icon: 'chat-question-outline' },
       ],
     }
