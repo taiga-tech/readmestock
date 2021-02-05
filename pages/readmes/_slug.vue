@@ -24,12 +24,6 @@ export default {
     return { slug }
   },
 
-  // data() {
-  //   return {
-  //     viewer: null,
-  //   }
-  // },
-
   apollo: {
     viewer: {
       query: getReadme,
