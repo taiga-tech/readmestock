@@ -1,53 +1,16 @@
 <template>
-  <div align="start">
-    <v-row class="my-12">
-      <v-col>
-        <v-card hover>
-          <v-card-title>
-            <v-list-item>
-              <v-list-item-avatar>
-                <v-img :src="user.avatarUrl" />
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title class="headline"
-                  >{{ user.login }}
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  <v-icon x-small>mdi-github</v-icon>
-                  <a :href="user.url" target="_blank" rel="noopener">
-                    {{ user.url }}
-                  </a>
-                </v-list-item-subtitle>
-                <v-list-item-subtitle>
-                  <v-chip outlined small label
-                    >リポジトリ : {{ user.repositories.totalCount }}</v-chip
-                  >
-                  <v-chip outlined small label
-                    >パブリック : {{ viewer.repositories.totalCount }}</v-chip
-                  >
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card-title>
-          <v-card-text>
-            こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは
-            こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは
-            こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col>
-        <pie-chart :chart-data="chartData" :options="chartOptions" />
-      </v-col>
-    </v-row>
-  </div>
+  <pie-chart :chart-data="chartData" :options="chartOptions" />
 </template>
 
 <script>
-import getRepositories from '~/apollo/queries/getRepositories.graphql'
-import getUser from '~/apollo/queries/getUser.graphql'
-
 export default {
+  props: {
+    user: {
+      type: Object,
+      default: null,
+    },
+  },
+
   data() {
     return {
       languages: {},
@@ -114,15 +77,6 @@ export default {
 
       this.languages = objectSort(languages)
       this.color = objectSort(color)
-    },
-  },
-
-  apollo: {
-    user: {
-      query: getUser,
-    },
-    viewer: {
-      query: getRepositories,
     },
   },
 }
