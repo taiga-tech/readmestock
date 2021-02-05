@@ -1,0 +1,21 @@
+query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
+  viewer {
+    login
+    repositories(first: 100, privacy: PUBLIC, orderBy: $orderBy) {
+      totalCount
+      nodes {
+        name
+        url
+        primaryLanguage {
+          color
+          name
+        }
+        object(expression: "master:README.md") {
+          ... on Blob {
+            byteSize
+          }
+        }
+      }
+    }
+  }
+}
