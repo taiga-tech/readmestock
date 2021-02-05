@@ -72,7 +72,7 @@ export default {
     return {
       meta: {
         title: this.viewer.repository.name,
-        description: this.viewer.repository.discription,
+        description: this.viewer.repository.description,
         url: 'readmes/' + this.viewer.repository.name,
       },
     }
