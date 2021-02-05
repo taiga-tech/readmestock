@@ -31,7 +31,7 @@
         </v-chip-group>
       </v-card-subtitle>
 
-      <markdown-content :result="blogs" params="blogs" />
+      <markdown-content v-if="blogs" :result="blogs" params="blogs" />
     </v-card>
 
     <!-- <v-navigation-drawer
@@ -68,16 +68,17 @@ export default {
   },
 
   async asyncData({ $content, params, payload }) {
-    if (payload) {
-      return { blogs: payload }
-    } else {
-      return { blogs: await $content('blogs', params.slug || 'index').fetch() }
-    }
+    // if (payload) {
+    //   return { blogs: payload }
+    // } else {
+    return { blogs: await $content('blogs', params.slug || 'index').fetch() }
+    // }
   },
 
   data() {
     return {
       tree: [],
+      blogs: null,
     }
   },
 }

@@ -7,7 +7,7 @@
       max-width="980"
       color="#00000000"
     >
-      <markdown-content :result="info" params="info" />
+      <markdown-content v-if="info" :result="info" params="info" />
       <v-card-subtitle align="end">
         {{ $moment(info.createdAt).format('L') }} -
         {{ $moment(info.updatedAt).fromNow() }}
@@ -22,12 +22,13 @@ export default {
     WarningAlert: () => import('~/components/WarningAlert'),
     MarkdownContent: () => import('~/components/Markdown/MarkdownContent'),
   },
+
   async asyncData({ $content, params, payload }) {
-    if (payload) {
-      return { info: payload }
-    } else {
-      return { info: await $content('info', params.slug || 'index').fetch() }
-    }
+    // if (payload) {
+    //   return { info: payload }
+    // } else {
+    return { info: await $content('info', params.slug || 'index').fetch() }
+    // }
   },
 }
 </script>
