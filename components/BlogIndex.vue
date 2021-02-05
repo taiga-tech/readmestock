@@ -11,6 +11,7 @@
         v-else
         :to="re.path + '/'"
         tile
+        nuxt
         hover
         :loading="!re.title"
         :disabled="!re.title"
