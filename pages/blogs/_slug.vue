@@ -7,17 +7,17 @@
       max-width="980"
       color="#00000000"
     >
-      <v-card-title :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'">
+      <v-subheader>
+        {{ $moment(blogs.createdAt).format('L') }} - 最終更新
+        {{ $moment(blogs.updatedAt).fromNow() }}
+      </v-subheader>
+      <v-card-title
+        class="pt-0"
+        :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'"
+      >
         {{ blogs.title }}
       </v-card-title>
       <v-card-subtitle>
-        <div align="end">
-          <div>
-            作成日:
-            {{ $moment(blogs.createdAt).format('L') }}
-          </div>
-          <div>最終更新日: {{ $moment(blogs.updatedAt).fromNow() }}</div>
-        </div>
         <v-chip-group column>
           <v-chip
             v-for="(tag, i) in blogs.tags"
@@ -30,7 +30,6 @@
           >
         </v-chip-group>
       </v-card-subtitle>
-
       <markdown-content v-if="blogs" :result="blogs" params="blogs" />
     </v-card>
 
