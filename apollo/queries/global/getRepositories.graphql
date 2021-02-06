@@ -10,6 +10,9 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
           color
           name
         }
+        owner {
+          login
+        }
         object(expression: "master:README.md") {
           ... on Blob {
             byteSize

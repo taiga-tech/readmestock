@@ -4,6 +4,7 @@ query ($login: String!) {
     login
     avatarUrl
     repositories(first: 100) {
+      totalCount
       nodes {
         languages(first: 100) {
           nodes {
@@ -12,7 +13,6 @@ query ($login: String!) {
           }
         }
       }
-      totalCount
     }
   }
 }

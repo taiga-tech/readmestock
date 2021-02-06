@@ -1,6 +1,7 @@
 query ($name: String!) {
   viewer {
     login
+    avatarUrl
     url
     repository(name: $name) {
       name
