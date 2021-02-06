@@ -2,7 +2,7 @@
   <div class="list-container">
     <div v-for="(re, i) in results" :key="i">
       <v-skeleton-loader
-        v-if="results.length == 0"
+        v-if="!results"
         transition
         type="card"
       ></v-skeleton-loader>
