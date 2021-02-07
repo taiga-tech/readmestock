@@ -10,12 +10,12 @@ export default {
   components: {
     WarningAlert: () => import('~/components/WarningAlert'),
   },
+
   async asyncData({ $content, payload }) {
-    if (payload) {
-      return { blogs: payload }
-    } else {
-      return { blogs: await $content('blogs' || 'index').fetch() }
-    }
+    const blogs = await $content('blogs' || 'index')
+      .sortBy('createdAt', 'desc')
+      .fetch()
+    return { blogs }
   },
 
   head() {
