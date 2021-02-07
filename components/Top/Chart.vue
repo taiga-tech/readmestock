@@ -16,7 +16,6 @@ export default {
       languages: {},
       color: {},
       dataCollection: null,
-      themeStatus: this.theme,
     }
   },
 
@@ -38,7 +37,7 @@ export default {
       const options = {
         legend: {
           labels: {
-            // fontColor: this.themeStatus ? '#fff' : '#000',
+            fontColor: '#fff',
           },
         },
       }
