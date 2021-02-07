@@ -22,14 +22,14 @@
 
       <v-spacer />
 
-      <v-btn
+      <!-- <v-btn
         v-show="$vuetify.breakpoint.xs"
         icon
         aria-label="mdi-cog"
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>mdi-cog</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <right-drawer :right-drawer="rightDrawer" />
