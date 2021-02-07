@@ -21,7 +21,12 @@
       </nuxt-link>
 
       <v-spacer />
-
+      <span>
+        <v-img
+          src="https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status"
+          alt="Netlify Status"
+        />
+      </span>
       <!-- <v-btn
         v-show="$vuetify.breakpoint.xs"
         icon
