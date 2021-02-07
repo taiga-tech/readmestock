@@ -41,7 +41,6 @@ export default {
         field: 'CREATED_AT',
         direction: 'DESC',
       },
-      viewer: null,
       sortItems: [
         {
           name: '作成日降順',
