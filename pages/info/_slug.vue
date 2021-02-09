@@ -1,6 +1,5 @@
 <template>
   <article>
-    <warning-alert style="max-width: 940px; margin: 0 auto" />
     <v-card
       elevation="0"
       class="markdown-body"
@@ -19,7 +18,6 @@
 <script>
 export default {
   components: {
-    WarningAlert: () => import('~/components/WarningAlert'),
     MarkdownContent: () => import('~/components/Markdown/MarkdownContent'),
   },
 
