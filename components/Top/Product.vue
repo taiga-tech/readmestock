@@ -1,7 +1,10 @@
 <template>
   <v-col cols="12">
     <v-card>
-      <v-card-title>product</v-card-title>
+      <v-card-actions class="pa-0">
+        <v-card-title>product</v-card-title>
+        <v-btn absolute right to="/readmes/">all</v-btn>
+      </v-card-actions>
       <v-divider />
       <v-list>
         <v-list-item v-for="(product, i) in products" :key="i"
