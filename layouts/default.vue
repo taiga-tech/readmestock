@@ -8,7 +8,7 @@
       </v-container>
     </v-main>
 
-    <bottom-nav v-show="$vuetify.breakpoint.xs" />
+    <bottom-nav class="hidden-sm-and-up" />
 
     <!-- <app-footer v-show="!$vuetify.breakpoint.xs" /> -->
   </v-app>
