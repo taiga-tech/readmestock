@@ -4,11 +4,11 @@
       <v-card :href="user.url" target="_blank" rel="noopener">
         <v-list-item>
           <v-list-item-avatar>
-            <v-img :src="user.avatarUrl" />
+            <v-icon large>mdi-github</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title
-              ><strong>{{ user.login }}</strong>
+            <v-list-item-title class="hidden-sm-and-down">
+              <strong>{{ user.login }}</strong>
             </v-list-item-title>
             <!-- <v-list-item-subtitle class="hidden-sm-and-down">
               <v-icon small>mdi-github</v-icon>
@@ -16,15 +16,17 @@
                 {{ user.url }}
               </a>
             </v-list-item-subtitle> -->
-            <!-- <v-list-item-subtitle>
+          </v-list-item-content>
+          <v-list-item-action class="ma-0">
+            <v-chip-group>
               <v-chip outlined small label>
                 リポジトリ : {{ user.repositories.totalCount }}</v-chip
               >
               <v-chip outlined small label>
                 パブリック : {{ viewer.repositories.totalCount }}</v-chip
               >
-            </v-list-item-subtitle> -->
-          </v-list-item-content>
+            </v-chip-group>
+          </v-list-item-action>
         </v-list-item>
       </v-card>
     </v-col>
