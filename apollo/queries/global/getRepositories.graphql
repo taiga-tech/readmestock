@@ -6,6 +6,7 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
       nodes {
         name
         url
+        homepageUrl
         primaryLanguage {
           color
           name
