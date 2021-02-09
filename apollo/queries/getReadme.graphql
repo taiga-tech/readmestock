@@ -6,7 +6,6 @@ query ($name: String!) {
     repository(name: $name) {
       name
       description
-      homepageUrl
       createdAt
       updatedAt
       url
