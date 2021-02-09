@@ -1,7 +1,7 @@
 <template>
   <v-row dense>
-    <v-col cols="6" md="3" lg="3">
-      <v-card>
+    <v-col cols="12" md="6">
+      <v-card :href="user.url" target="_blank" rel="noopener">
         <v-list-item>
           <v-list-item-avatar>
             <v-img :src="user.avatarUrl" />
@@ -10,12 +10,12 @@
             <v-list-item-title
               ><strong>{{ user.login }}</strong>
             </v-list-item-title>
-            <v-list-item-subtitle class="hidden-sm-and-down">
+            <!-- <v-list-item-subtitle class="hidden-sm-and-down">
               <v-icon small>mdi-github</v-icon>
               <a :href="user.url" target="_blank" rel="noopener">
                 {{ user.url }}
               </a>
-            </v-list-item-subtitle>
+            </v-list-item-subtitle> -->
             <!-- <v-list-item-subtitle>
               <v-chip outlined small label>
                 リポジトリ : {{ user.repositories.totalCount }}</v-chip
@@ -29,61 +29,21 @@
       </v-card>
     </v-col>
 
-    <v-col cols="6" md="3" lg="3">
-      <v-card>
+    <v-col v-for="(s, i) in sns" :key="i" cols="6" md="3" lg="3">
+      <v-card :href="s.to" target="_blank" rel="noopener">
         <v-list-item>
           <v-list-item-avatar>
-            <v-icon large>mdi-twitter</v-icon>
+            <v-icon large>{{ s.icon }}</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title
-              ><strong>{{ user.login }}</strong>
+              ><strong>{{ s.name }}</strong>
             </v-list-item-title>
-            <v-list-item-subtitle class="hidden-sm-and-down">
-              <a :href="user.url" target="_blank" rel="noopener">
-                https://twitter.com
+            <!-- <v-list-item-subtitle class="hidden-sm-and-down">
+              <a :href="s.to" target="_blank" rel="noopener">
+                {{ s.to }}
               </a>
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-card>
-    </v-col>
-
-    <v-col cols="6" md="3" lg="3">
-      <v-card>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-icon large>mdi-facebook</v-icon>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title
-              ><strong>{{ user.login }}</strong>
-            </v-list-item-title>
-            <v-list-item-subtitle class="hidden-sm-and-down">
-              <a :href="user.url" target="_blank" rel="noopener">
-                https://wantedly.com
-              </a>
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-card>
-    </v-col>
-
-    <v-col cols="6" md="3" lg="3">
-      <v-card>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-icon large>mdi-facebook</v-icon>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title
-              ><strong>{{ user.login }}</strong>
-            </v-list-item-title>
-            <v-list-item-subtitle class="hidden-sm-and-down">
-              <a :href="user.url" target="_blank" rel="noopener">
-                https://wantedly.com
-              </a>
-            </v-list-item-subtitle>
+            </v-list-item-subtitle> -->
           </v-list-item-content>
         </v-list-item>
       </v-card>
@@ -107,8 +67,16 @@ export default {
   data() {
     return {
       sns: [
-        { name: 'Twitter', to: '', icon: '' },
-        { name: 'Wantedly', to: '', icon: '' },
+        {
+          name: 'Twitter',
+          to: 'https://twitter.com/Taiga_dev',
+          icon: 'mdi-twitter',
+        },
+        {
+          name: 'Wantedly',
+          to: 'https://www.wantedly.com/users/137448604?profile_v1=true',
+          icon: '',
+        },
       ],
     }
   },
