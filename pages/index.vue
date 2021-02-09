@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <top-sns :user="user" :viewer="viewer" />
 
     <v-row>
@@ -28,7 +28,7 @@ export default {
     LangChart: () => import('~/components/Top/Chart'),
     TopSns: () => import('~/components/Top/Sns'),
     TopProduct: () => import('~/components/Top/Product'),
-    TopProfile: () => import('~/components/Top/Profile'),
+    TopProfile: () => import('~/components/Top/MyProfile'),
   },
 
   apollo: {
