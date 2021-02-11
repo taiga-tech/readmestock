@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "author": "taiga-tech (https://github.com/taiga-tech/)",
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "80"
-    }
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
