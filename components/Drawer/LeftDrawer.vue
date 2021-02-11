@@ -9,12 +9,12 @@
     app
   >
     <v-list>
-      <v-list-item to="/" router exact>
-        <v-list-item-avatar>
-          <!-- <v-avatar :size="minivariant ? 24 : 36"> -->
-          <v-img :src="user.avatarUrl" />
-          <!-- </v-avatar> -->
-        </v-list-item-avatar>
+      <!-- <v-list-item to="/" router exact>
+        <v-list-item-avatar> -->
+      <!-- <v-avatar :size="minivariant ? 24 : 36"> -->
+      <!-- <v-img :src="user.avatarUrl" /> -->
+      <!-- </v-avatar> -->
+      <!-- </v-list-item-avatar>
         <v-list-item-content>
           <strong>{{ user.login }}</strong>
           <v-list-item-subtitle>
@@ -22,7 +22,7 @@
             {{ viewer.repositories.totalCount }}
           </v-list-item-subtitle>
         </v-list-item-content>
-      </v-list-item>
+      </v-list-item> -->
 
       <!-- <v-list-item
         v-for="(item, i) in items"
