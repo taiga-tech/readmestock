@@ -1,11 +1,50 @@
 <template>
-  <pie-chart :chart-data="chartData" :options="chartOptions" />
+  <v-row>
+    <v-col cols="12">
+      <v-card>
+        <v-list-item :href="user.url" target="_blank" rel="noopener">
+          <v-list-item-avatar>
+            <v-icon large>mdi-github</v-icon>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>
+              <strong>{{ user.login }}</strong>
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              <v-chip-group>
+                <v-chip outlined x-small label>
+                  リポジトリ : {{ user.repositories.totalCount }}</v-chip
+                >
+                <v-chip outlined x-small label>
+                  パブリック : {{ viewer.repositories.totalCount }}</v-chip
+                >
+              </v-chip-group>
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider />
+
+        <v-card-text>
+          <pie-chart :chart-data="chartData" :options="chartOptions" />
+        </v-card-text>
+
+        <v-card-subtitle>
+          ※Githubのプライベート含めた全てのリポジトリで使用した言語の割合です、参考にしていただけると幸いです。
+        </v-card-subtitle>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
   props: {
     user: {
+      type: Object,
+      default: null,
+    },
+    viewer: {
       type: Object,
       default: null,
     },

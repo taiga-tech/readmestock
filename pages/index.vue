@@ -1,20 +1,19 @@
 <template>
   <div>
-    <top-sns :user="user" :viewer="viewer" />
+    <v-row>
+      <v-col cols="12" sm="12" md="5" lg="4" xl="4">
+        <lang-chart :user="user" :viewer="viewer" />
+
+        <top-sns :user="user" :viewer="viewer" />
+      </v-col>
+
+      <v-col cols="12" sm="12" md="7" lg="8" xl="8">
+        <top-profile />
+      </v-col>
+    </v-row>
 
     <v-row>
-      <v-col cols="12" sm="6" md="6" lg="4"
-        ><v-card>
-          <v-card-title>languagechart</v-card-title>
-          <v-divider />
-          <v-card-text><lang-chart :user="user" /></v-card-text></v-card
-      ></v-col>
-      <v-col cols="12" sm="6" md="6" lg="8">
-        <v-row>
-          <top-profile />
-          <top-product />
-        </v-row>
-      </v-col>
+      <top-product />
     </v-row>
   </div>
 </template>
