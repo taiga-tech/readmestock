@@ -9,7 +9,7 @@
       </v-list-item-content>
     </template>
 
-    <v-list-item to="/readmes" router exact>
+    <v-list-item to="/readmes/" router exact>
       <v-list-item-icon>
         <v-icon small>mdi-github</v-icon>
       </v-list-item-icon>
@@ -26,7 +26,7 @@
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.url"
-          :to="'/readmes/' + item.name"
+          :to="'/readmes/' + item.name + '/'"
           :disabled="!item.object"
           :color="
             item.primaryLanguage && item.object

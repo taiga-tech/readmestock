@@ -9,7 +9,7 @@
       </v-list-item-content>
     </template>
 
-    <v-list-item to="/blogs" router exact>
+    <v-list-item to="/blogs/" router exact>
       <v-list-item-icon>
         <v-icon small>mdi-post</v-icon>
       </v-list-item-icon>
@@ -22,7 +22,7 @@
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.path"
-          :to="item.path"
+          :to="item.path + '/'"
           :disabled="!item.title"
           router
           exact

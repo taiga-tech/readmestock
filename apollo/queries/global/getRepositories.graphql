@@ -5,18 +5,15 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
       totalCount
       nodes {
         name
+        url
+        homepageUrl
+        primaryLanguage {
+          color
+          name
+        }
         owner {
           login
         }
-        description
-        languages(first: 100) {
-          nodes {
-            color
-            name
-          }
-        }
-        createdAt
-        updatedAt
         object(expression: "master:README.md") {
           ... on Blob {
             byteSize

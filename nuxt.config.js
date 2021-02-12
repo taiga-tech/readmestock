@@ -5,29 +5,68 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   // target: 'static',
 
+  server: {
+    host: '0',
+    port: 80,
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     htmlAttrs: {
       lang: 'ja',
     },
-    titleTemplate: '%s | README Stock',
-    title: 'README Stock',
+    titleTemplate: '%sREADME Stock',
+    title: 'README Stock | ',
     meta: [
       { charset: 'utf-8' },
       {
         name: 'viewport',
         content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0',
       },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Nuxt + GitHub API v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
+      },
+      // global OGP
+      { hid: 'og:title', property: 'og:title', content: 'README Stock' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'https://taiga-tech.tk/' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://taiga-tech.tk/icon.png',
+      },
+      { property: 'og:site_name', content: 'README Stock' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Nuxt + GitHub API(GraphQL) + Netlifyを使用したポートフォリオサイト',
+      },
+      // Twitter OGP
+      { name: 'twitter:card', content: 'summary' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+
+  pwa: {
+    manifest: {
+      name: 'README Stock',
+      short_name: 'README Stock',
+      lang: 'ja',
+      useWebmanifestExtension: false,
+      background_color: '#000000',
+      theme_color: '#000000',
+    },
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/prism.js'],
+  plugins: ['~/plugins/prism.js', '~/plugins/vue-chart.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

@@ -1,6 +1,7 @@
 ---
 title: Ruby on Railsファイル構成
 tags: [Ruby, Ruby on Rails]
+description: railsファイル構成
 ---
 
 # Ruby on Railsファイル構成
@@ -8,7 +9,7 @@ tags: [Ruby, Ruby on Rails]
 ## アプリのフォルダ,ファイルの役割
   ※あんまり使ったっことのないフォルダ、ファイルは省いてます。
 ## `rails new`すると↓のフォルダやファイルが生成される
-  <img src="/img/first_app.png" width="20%" alt="新規App">
+  <img src="/img/first_app.png" width="40%" alt="新規App">
 
   - first_app
     - app
@@ -41,34 +42,34 @@ tags: [Ruby, Ruby on Rails]
     - app
       - assets
 
-        <img src="/img/assetsforder.png" width="20%">
+        <img src="/img/assetsforder.png" width="40%">
 
         > イメージファイルや、スタイルシート(CSSファイル)などを格納するフォルダ
           スタイルを編集したい場合は`assets/stylesheets/コントローラ名.scss`を開く
 
       - controllers
 
-        <img src="/img/controllers.png" width="20%">
+        <img src="/img/controllers.png" width="40%">
 
         > コントローラーファイルが格納されている
           アクションなどを編集したい場合は`controllers/コントローラ名_controller.rb`を開く
 
       - models
 
-        <img src="/img/models.png" width="20%">
+        <img src="/img/models.png" width="40%">
 
         > モデルファイルが格納されている
           バリテーションなどを編集したい場合は`models/モデル名.rb`を開く
       - views
 
-        <img src="/img/views.png" width="20%">
+        <img src="/img/views.png" width="40%">
 
         > ビューファイルが格納されている
           各ページの見た目を編集したい場合は`views/コントローラ名/アクション名.html.erb`を開く
 
     - config
 
-        <img src="/img/config.png" width="20%">
+        <img src="/img/config.png" width="40%">
 
       > ルーティングファイルが格納されている
         ルーティングを編集する場合は、`config/routes.rb`を開く
@@ -77,14 +78,14 @@ tags: [Ruby, Ruby on Rails]
     - db
       - migrate
 
-        <img src="/img/db.png" width="20%">
+        <img src="/img/db.png" width="40%">
 
         > マイグレーションファイルが格納されている
           マイグレーションを編集する場合は`migrate/***********_create_モデル名.rb`を開く
 
 ## applicationファイルについて
 
-  <img src="/img/applicationcss.png" width="20%">
+  <img src="/img/applicationcss.png" width="40%">
 
   いろんなフォルダに`application.css`のように`application.~`があると思いますが、これはアプリ全体のプログラムを記載できるファイルです。
 

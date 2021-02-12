@@ -11,7 +11,7 @@
 
     <v-virtual-scroll :items="items" height="300" item-height="48">
       <template v-slot:default="{ item }">
-        <v-list-item :key="item.to" :to="'/info/' + item.to" router exact>
+        <v-list-item :key="item.to" :to="'/info/' + item.to + '/'" router exact>
           <v-list-item-icon>
             <v-icon small>mdi-{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       items: [
-        { name: 'このサイトについて', to: 'site', icon: 'application' },
+        { name: 'このサイトについて', to: 'about', icon: 'application' },
         { name: 'お問い合わせ', to: 'contact', icon: 'chat-question-outline' },
       ],
     }

@@ -7,17 +7,17 @@
       max-width="980"
       color="#00000000"
     >
-      <v-card-title :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'">
+      <v-subheader>
+        {{ $moment(blogs.createdAt).format('L') }} - 最終更新
+        {{ $moment(blogs.updatedAt).fromNow() }}
+      </v-subheader>
+      <v-card-title
+        class="pt-0"
+        :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'"
+      >
         {{ blogs.title }}
       </v-card-title>
       <v-card-subtitle>
-        <div align="end">
-          <div>
-            作成日:
-            {{ $moment(blogs.createdAt).format('L') }}
-          </div>
-          <div>最終更新日: {{ $moment(blogs.updatedAt).fromNow() }}</div>
-        </div>
         <v-chip-group column>
           <v-chip
             v-for="(tag, i) in blogs.tags"
@@ -30,7 +30,7 @@
           >
         </v-chip-group>
       </v-card-subtitle>
-      <nuxt-content :document="blogs" />
+      <markdown-content v-if="blogs" :result="blogs" params="blogs" />
     </v-card>
 
     <!-- <v-navigation-drawer
@@ -60,40 +60,24 @@
 </template>
 
 <script>
-import Prism from '~/plugins/prism'
-
 export default {
   components: {
     WarningAlert: () => import('~/components/WarningAlert'),
+    MarkdownContent: () => import('~/components/Markdown/MarkdownContent'),
   },
+
   async asyncData({ $content, params, payload }) {
-    if (payload) {
-      return { blogs: payload }
-    } else {
-      return { blogs: await $content('blogs', params.slug || 'index').fetch() }
-    }
+    // if (payload) {
+    //   return { blogs: payload }
+    // } else {
+    return { blogs: await $content('blogs', params.slug || 'index').fetch() }
+    // }
   },
 
   data() {
     return {
       tree: [],
-    }
-  },
-
-  mounted() {
-    Prism.highlightAll()
-  },
-
-  head() {
-    return {
-      title: this.blogs.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.blogs.discription,
-        },
-      ],
+      blogs: null,
     }
   },
 }

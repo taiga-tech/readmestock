@@ -128,15 +128,23 @@
 </template>
 
 <script>
+import Meta from '~/assets/mixins/meta.js'
+
 export default {
   components: {
     // ContactForm: () => import('~/components/Contacts/ContactForm'),
     ContactShow: () => import('~/components/Contacts/ContactShow'),
     ContactSucsess: () => import('~/components/Contacts/ContactSucsess'),
   },
+  mixins: [Meta],
 
   data() {
     return {
+      meta: {
+        title: 'お問い合わせ',
+        description: 'お問い合わせ',
+        url: 'info/contact',
+      },
       steps: 1,
       data: {
         name: '',

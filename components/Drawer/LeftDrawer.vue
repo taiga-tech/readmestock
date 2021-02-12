@@ -9,12 +9,12 @@
     app
   >
     <v-list>
-      <v-list-item>
-        <v-list-item-icon>
-          <v-avatar :size="minivariant ? 24 : 36">
-            <v-img :src="user.avatarUrl" />
-          </v-avatar>
-        </v-list-item-icon>
+      <v-list-item to="/" router exact>
+        <v-list-item-avatar>
+          <!-- <v-avatar :size="minivariant ? 24 : 36"> -->
+          <v-img :src="user.avatarUrl" />
+          <!-- </v-avatar> -->
+        </v-list-item-avatar>
         <v-list-item-content>
           <strong>{{ user.login }}</strong>
           <v-list-item-subtitle>
@@ -49,14 +49,14 @@
 </template>
 
 <script>
-import getRepositories from '~/apollo/queries/getRepositories.graphql'
-import getUser from '~/apollo/queries/getUser.graphql'
+import getUser from '~/apollo/queries/global/getUser.graphql'
+import getRepositories from '~/apollo/queries/global/getRepositories.graphql'
 
 export default {
   components: {
-    ReadmeList: () => import('../ListGroup/ReadmeList'),
-    BlogList: () => import('../ListGroup/BlogList'),
-    InfoList: () => import('../ListGroup/InfoList'),
+    ReadmeList: () => import('~/components/ListGroup/ReadmeList'),
+    BlogList: () => import('~/components/ListGroup/BlogList'),
+    InfoList: () => import('~/components/ListGroup/InfoList'),
   },
 
   props: {
@@ -94,6 +94,11 @@ export default {
     },
     user: {
       query: getUser,
+      variables() {
+        return {
+          login: 'taiga-tech',
+        }
+      },
     },
   },
 }

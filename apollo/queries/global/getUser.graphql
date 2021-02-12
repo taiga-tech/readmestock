@@ -1,9 +1,10 @@
-query {
-  user(login: "taiga-tech") {
+query ($login: String!) {
+  user(login: $login) {
     url
     login
     avatarUrl
     repositories(first: 100) {
+      totalCount
       nodes {
         languages(first: 100) {
           nodes {
@@ -12,7 +13,6 @@ query {
           }
         }
       }
-      totalCount
     }
   }
 }

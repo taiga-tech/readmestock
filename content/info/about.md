@@ -1,6 +1,6 @@
 ---
 title: このサイトについて
-discription: このサイトについて
+description: このサイトについて
 ---
 
 # このサイトについて

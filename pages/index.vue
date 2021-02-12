@@ -1,66 +1,52 @@
 <template>
   <div>
-    <div style="max-width: 940px; margin: 0 auto">
-      <div align="center">
-        <v-btn nuxt to="/readmes"> README </v-btn>
+    <v-row>
+      <v-col cols="12" sm="12" md="5" lg="4" xl="4">
+        <lang-chart :user="user" :viewer="viewer" />
 
-        <v-btn nuxt to="/blogs"> blogs </v-btn>
+        <top-sns :user="user" :viewer="viewer" />
+      </v-col>
 
-        <v-btn nuxt to="/info/contact">contact</v-btn>
-      </div>
+      <v-col cols="12" sm="12" md="7" lg="8" xl="8">
+        <top-profile />
+      </v-col>
+    </v-row>
 
-      <!-- npm install vue-chartjs chart.js --save -->
-    </div>
+    <v-row>
+      <top-product />
+    </v-row>
   </div>
 </template>
 
 <script>
-import getRepositories from '~/apollo/queries/getRepositories.graphql'
+import getPublicTotalCount from '~/apollo/queries/global/getPublicTotalCount.graphql'
+import getUser from '~/apollo/queries/global/getUser.graphql'
 
 export default {
-  data() {
-    return {
-      selectSort: {
-        field: 'CREATED_AT',
-        direction: 'DESC',
-      },
-      languages: [],
-    }
-  },
-
-  mounted() {
-    // this.calcLang()
-  },
-
-  methods: {
-    calcLang() {
-      const viewer = this.viewer.repositories.nodes
-      const count = []
-      for (let i = 0; i < viewer.length; i++) {
-        const nodes = viewer[i].languages.nodes
-        for (let i = 0; i < nodes.length; i++) {
-          const languages = nodes[i].name
-          count.push((count[languages] || 0) + 1)
-        }
-      }
-      this.languages = count
-    },
+  components: {
+    LangChart: () => import('~/components/Top/Chart'),
+    TopSns: () => import('~/components/Top/Sns'),
+    TopProduct: () => import('~/components/Top/Product'),
+    TopProfile: () => import('~/components/Top/MyProfile'),
   },
 
   apollo: {
-    viewer: {
-      query: getRepositories,
+    user: {
+      query: getUser,
       variables() {
         return {
-          orderBy: this.selectSort,
+          login: 'taiga-tech',
         }
       },
+    },
+    viewer: {
+      query: getPublicTotalCount,
     },
   },
 
   head() {
     return {
-      title: 'Welcome',
+      title: null,
     }
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <v-footer app>
-    <v-menu offset-y top :close-on-content-click="false">
+    <!-- <v-menu offset-y top :close-on-content-click="false">
       <template v-slot:activator="{ on, attrs }">
         <v-btn icon v-bind="attrs" x-small v-on="on">
           <v-icon>mdi-cog</v-icon>
@@ -9,7 +9,7 @@
       <v-list>
         <theme-switch />
       </v-list>
-    </v-menu>
+    </v-menu> -->
 
     <v-spacer />
 
@@ -20,7 +20,7 @@
 <script>
 export default {
   components: {
-    ThemeSwitch: () => import('./ThemeSwitch'),
+    // ThemeSwitch: () => import('./ThemeSwitch'),
   },
 }
 </script>
