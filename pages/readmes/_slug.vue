@@ -1,14 +1,16 @@
 <template>
-  <article>
-    <readme v-if="viewer" :viewer="viewer" :slug="slug" />
-    <v-skeleton-loader
-      v-else
-      boilerplate
-      max-width="980"
-      type="card"
-      class="markdown-body"
-    ></v-skeleton-loader>
-  </article>
+  <v-container>
+    <article>
+      <readme v-if="viewer" :viewer="viewer" :slug="slug" />
+      <v-skeleton-loader
+        v-else
+        boilerplate
+        max-width="980"
+        type="card"
+        class="markdown-body"
+      ></v-skeleton-loader>
+    </article>
+  </v-container>
 </template>
 
 <script>

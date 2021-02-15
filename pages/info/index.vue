@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-list>
       <v-list-item v-for="item in info" :key="item.name" :to="item.path + '/'">
         <v-list-item-content>
@@ -7,7 +7,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-  </div>
+  </v-container>
 </template>
 
 <script>

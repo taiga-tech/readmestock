@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container>
     <warning-alert />
     <blog-index :results="blogs" />
-  </div>
+  </v-container>
 </template>
 
 <script>

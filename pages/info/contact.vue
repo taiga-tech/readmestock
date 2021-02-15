@@ -1,130 +1,139 @@
 <template>
-  <div class="mx-auto" style="max-width: 940px">
-    <v-stepper v-model="steps">
-      <v-stepper-header>
-        <v-stepper-step :complete="steps > 1" step="1" :rules="[() => valid]">
-          お問い合わせ
-        </v-stepper-step>
+  <v-container>
+    <div class="mx-auto" style="max-width: 940px">
+      <v-stepper v-model="steps">
+        <v-stepper-header>
+          <v-stepper-step :complete="steps > 1" step="1" :rules="[() => valid]">
+            お問い合わせ
+          </v-stepper-step>
 
-        <v-divider></v-divider>
+          <v-divider></v-divider>
 
-        <v-stepper-step
-          :complete="steps > 2"
-          step="2"
-          :rules="[() => error.status]"
-        >
-          お問い合わせ内容確認
-        </v-stepper-step>
+          <v-stepper-step
+            :complete="steps > 2"
+            step="2"
+            :rules="[() => error.status]"
+          >
+            お問い合わせ内容確認
+          </v-stepper-step>
 
-        <v-divider></v-divider>
+          <v-divider></v-divider>
 
-        <v-stepper-step step="3"> 送信完了 </v-stepper-step>
-      </v-stepper-header>
+          <v-stepper-step step="3"> 送信完了 </v-stepper-step>
+        </v-stepper-header>
 
-      <v-stepper-items>
-        <v-stepper-content step="1">
-          <!-- <contact-form :data="data" :rules="rules" /> -->
+        <v-stepper-items>
+          <v-stepper-content step="1">
+            <!-- <contact-form :data="data" :rules="rules" /> -->
 
-          <v-card>
-            <v-card-title>お問い合わせ</v-card-title>
-            <v-card-subtitle>
-              ご意見、ご要望、フィードバックなどがあればこちらからお問い合わせください、<br />
-              Twitter<a href="https://twitter.com/Taiga_dev" target="_blank"
-                ><v-icon x-small color="primary">mdi-twitter</v-icon
-                >@Taiga_dev</a
-              >でも受付可能です。
-            </v-card-subtitle>
-            <v-card-text>
-              <v-form
-                ref="from"
-                v-model="valid"
-                lazy-validation
-                name="contact"
-                method="POST"
-                data-netlify="true"
-              >
-                <input type="hidden" name="form-name" value="contact" />
-
-                <v-text-field
-                  v-model="data.name"
-                  :rules="rules.name"
-                  name="name"
-                  label="お名前"
-                  required
-                ></v-text-field>
-
-                <v-text-field
-                  v-model="data.email"
-                  :rules="rules.email"
-                  name="email"
-                  label="メールアドレス"
-                  required
-                ></v-text-field>
-
-                <v-textarea
-                  v-model="data.message"
-                  :rules="rules.message"
-                  name="message"
-                  label="お問い合わせ内容"
-                ></v-textarea>
-              </v-form>
-            </v-card-text>
-          </v-card>
-          <v-row dense class="mt-1">
-            <v-col>
-              <v-btn
-                block
-                color="primary"
-                :disabled="status"
-                @click="steps = 2"
-              >
-                確認
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-stepper-content>
-
-        <v-stepper-content step="2">
-          <v-alert v-if="!error.status" border="left" outlined type="error">
-            <v-row align="center">
-              <v-col class="grow">
-                {{ error.message }}
-              </v-col>
-              <v-col class="shrink">
-                <v-btn
-                  color="error"
-                  small
-                  :fab="$vuetify.breakpoint.xs"
-                  @click="refresh"
+            <v-card>
+              <v-card-title>お問い合わせ</v-card-title>
+              <v-card-subtitle>
+                ご意見、ご要望、フィードバックなどがあればこちらからお問い合わせください、<br />
+                Twitter
+                <a
+                  href="https://twitter.com/Taiga_dev"
+                  target="_blank"
+                  rel="noopener"
+                  ><v-icon x-small color="primary">mdi-twitter</v-icon>
+                  @Taiga_dev
+                </a>
+                でも受付可能です。
+              </v-card-subtitle>
+              <v-card-text>
+                <v-form
+                  ref="from"
+                  v-model="valid"
+                  lazy-validation
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
                 >
-                  <v-icon>mdi-rotate-right</v-icon>
-                  <span v-show="!$vuetify.breakpoint.xs">ページ再読み込み</span>
+                  <input type="hidden" name="form-name" value="contact" />
+
+                  <v-text-field
+                    v-model="data.name"
+                    :rules="rules.name"
+                    name="name"
+                    label="お名前"
+                    required
+                  ></v-text-field>
+
+                  <v-text-field
+                    v-model="data.email"
+                    :rules="rules.email"
+                    name="email"
+                    label="メールアドレス"
+                    required
+                  ></v-text-field>
+
+                  <v-textarea
+                    v-model="data.message"
+                    :rules="rules.message"
+                    name="message"
+                    label="お問い合わせ内容"
+                  ></v-textarea>
+                </v-form>
+              </v-card-text>
+            </v-card>
+            <v-row dense class="mt-1">
+              <v-col>
+                <v-btn
+                  block
+                  color="primary"
+                  :disabled="status"
+                  @click="steps = 2"
+                >
+                  確認
                 </v-btn>
               </v-col>
             </v-row>
-          </v-alert>
+          </v-stepper-content>
 
-          <contact-show :data="data" />
+          <v-stepper-content step="2">
+            <v-alert v-if="!error.status" border="left" outlined type="error">
+              <v-row align="center">
+                <v-col class="grow">
+                  {{ error.message }}
+                </v-col>
+                <v-col class="shrink">
+                  <v-btn
+                    color="error"
+                    small
+                    :fab="$vuetify.breakpoint.xs"
+                    @click="refresh"
+                  >
+                    <v-icon>mdi-rotate-right</v-icon>
+                    <span v-show="!$vuetify.breakpoint.xs"
+                      >ページ再読み込み</span
+                    >
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-alert>
 
-          <v-row v-if="error.status" dense class="mt-1">
-            <v-col><v-btn block @click="steps = 1"> 戻る </v-btn></v-col>
-            <v-col>
-              <v-btn block color="primary" @click="onSubmit"> 送信 </v-btn>
-            </v-col>
-          </v-row>
-        </v-stepper-content>
+            <contact-show :data="data" />
 
-        <v-stepper-content step="3">
-          <contact-sucsess :data="data" />
-          <v-row class="mt-1" dense
-            ><v-col
-              ><v-btn block to="/" color="primary">トップへ戻る</v-btn></v-col
-            ></v-row
-          >
-        </v-stepper-content>
-      </v-stepper-items>
-    </v-stepper>
-  </div>
+            <v-row v-if="error.status" dense class="mt-1">
+              <v-col><v-btn block @click="steps = 1"> 戻る </v-btn></v-col>
+              <v-col>
+                <v-btn block color="primary" @click="onSubmit"> 送信 </v-btn>
+              </v-col>
+            </v-row>
+          </v-stepper-content>
+
+          <v-stepper-content step="3">
+            <contact-sucsess :data="data" />
+            <v-row class="mt-1" dense
+              ><v-col
+                ><v-btn block to="/" color="primary">トップへ戻る</v-btn></v-col
+              ></v-row
+            >
+          </v-stepper-content>
+        </v-stepper-items>
+      </v-stepper>
+    </div>
+  </v-container>
 </template>
 
 <script>
