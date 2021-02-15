@@ -27,7 +27,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Nuxt + GitHub API v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
+          'Nuxt + GitHubAPI v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
       },
       // global OGP
       { hid: 'og:title', property: 'og:title', content: 'README Stock' },
@@ -128,6 +128,7 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     // treeShake: true,
     theme: {
+      light: false,
       dark: true,
       themes: {
         dark: {
