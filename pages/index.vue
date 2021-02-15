@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-row>
       <v-col cols="12" sm="12" md="5" lg="4" xl="4">
         <lang-chart :user="user" :viewer="viewer" />
@@ -12,10 +12,12 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row class="mb-0">
       <top-product />
     </v-row>
-  </div>
+
+    <app-footer class="hidden-sm-and-down" />
+  </v-container>
 </template>
 
 <script>
@@ -28,6 +30,7 @@ export default {
     TopSns: () => import('~/components/Top/Sns'),
     TopProduct: () => import('~/components/Top/Product'),
     TopProfile: () => import('~/components/Top/MyProfile'),
+    AppFooter: () => import('~/components/AppFooter'),
   },
 
   apollo: {
