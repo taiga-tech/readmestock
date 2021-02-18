@@ -55,7 +55,7 @@
                     v-model="data.name"
                     :rules="rules.name"
                     name="name"
-                    label="お名前"
+                    label="お名前*"
                     required
                   ></v-text-field>
 
@@ -63,7 +63,7 @@
                     v-model="data.email"
                     :rules="rules.email"
                     name="email"
-                    label="メールアドレス"
+                    label="メールアドレス*"
                     required
                   ></v-text-field>
 
@@ -71,7 +71,7 @@
                     v-model="data.message"
                     :rules="rules.message"
                     name="message"
-                    label="お問い合わせ内容"
+                    label="お問い合わせ内容*"
                   ></v-textarea>
                 </v-form>
               </v-card-text>
