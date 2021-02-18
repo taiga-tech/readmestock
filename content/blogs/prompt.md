@@ -2,6 +2,7 @@
 title: プロンプトの変更
 tags: [ターミナル, プロンプト]
 description: プロンプトの編集
+createdAt: 2021-02-12T15:00:00.000Z
 ---
 
   ## 現在のプロンプトの確認
@@ -59,7 +60,7 @@ description: プロンプトの編集
 
   **文字色背景色コード**
    値 | 文字色 | 値 | 背景色 |
-  |:--:|:--|:--:|:--:|
+  |:--:|:--:|:--:|:--:|
   | 30m | <font color="#000000">黒</font> | 40m | <font color="#000000">■ </font>背景黒 |
   | 31m | <font color="#AA0000">赤</font> | 41m | <font color="#AA0000">■ </font>背景赤 |
   | 32m | <font color="#00AA00">緑</font> | 42m | <font color="#00AA00">■ </font>背景緑 |
@@ -117,14 +118,14 @@ description: プロンプトの編集
   **文字色コード**
   |番号|色|
   |:--|:--|
-  |0|black|
-  |1|red|
-  |2|green|
-  |3|yellow|
-  |4|blue|
-  |5|magenta|
-  |6|cyan|
-  |7|white|
+  |0|<font color="black">■</font> black|
+  |1|<font color="red">■</font> red|
+  |2|<font color="green">■</font> green|
+  |3|<font color="yellow">■</font> yellow|
+  |4|<font color="blue">■</font> blue|
+  |5|<font color="magenta">■</font> magenta|
+  |6|<font color="cyan">■</font> cyan|
+  |7|<font color="white">■</font> white|
 
 
   ```shell

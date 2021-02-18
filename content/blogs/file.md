@@ -2,6 +2,7 @@
 title: Ruby on Railsファイル構成
 tags: [Ruby, Ruby on Rails]
 description: railsファイル構成
+createdAt: 2021-02-12T15:00:00.000Z
 ---
 
 # Ruby on Railsファイル構成
