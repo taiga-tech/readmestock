@@ -15,8 +15,8 @@
       <v-btn
         v-for="link in links"
         :key="link.name"
-        text
         :to="link.to"
+        text
         class="my-2"
       >
         {{ link.name }}
