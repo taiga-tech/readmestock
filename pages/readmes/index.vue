@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <div class="d-flex">
       <v-spacer />
       <div style="max-width: 200px">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
-  </div>
+  </v-container>
 </template>
 
 <script>

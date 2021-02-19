@@ -3,14 +3,10 @@
     <app-bar />
 
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
 
     <bottom-nav class="hidden-sm-and-up" />
-
-    <!-- <app-footer v-show="!$vuetify.breakpoint.xs" /> -->
   </v-app>
 </template>
 
@@ -18,7 +14,6 @@
 export default {
   components: {
     AppBar: () => import('~/components/AppBar'),
-    // AppFooter: () => import('~/components/AppFooter'),
     BottomNav: () => import('~/components/BottomNav'),
   },
 }
