@@ -24,7 +24,7 @@ export default {
     return {
       meta: {
         title: this.result.title,
-        description: '',
+        description: null,
         url: this.params + '/' + this.$route.params.slug,
       },
     }
