@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container ref="index">
     <div class="d-flex">
       <v-spacer />
       <div style="max-width: 200px">
@@ -28,13 +28,14 @@ export default {
   components: {
     ReadmeIndex: () => import('~/components/ReadmeIndex'),
   },
+
   mixins: [Meta],
 
   data() {
     return {
       meta: {
         title: 'README一覧',
-        description: 'README一覧',
+        description: '',
         url: 'readmes',
       },
       selectSort: {
@@ -72,6 +73,16 @@ export default {
         },
       ],
     }
+  },
+
+  mounted() {
+    this.updateDescription()
+  },
+
+  methods: {
+    updateDescription() {
+      this.meta.description = this.$refs.index.textContent.replace(/\s/g, '')
+    },
   },
 
   apollo: {

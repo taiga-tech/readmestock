@@ -1,15 +1,17 @@
 <template>
   <v-container>
     <warning-alert />
-    <blog-index :results="blogs" />
+    <blog-index ref="index" :results="blogs" />
   </v-container>
 </template>
 
 <script>
+import Meta from '~/assets/mixins/meta.js'
 export default {
   components: {
     WarningAlert: () => import('~/components/WarningAlert'),
   },
+  mixins: [Meta],
 
   async asyncData({ $content, payload }) {
     const blogs = await $content('blogs' || 'index')
@@ -18,32 +20,27 @@ export default {
     return { blogs }
   },
 
-  head() {
+  data() {
     return {
-      title: 'ブログ一覧 | ',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'ブログ一覧',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'ブログ一覧 | README Stock',
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://taiga-tech.tk/blogs/',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'ブログ一覧',
-        },
-      ],
+      meta: {
+        title: 'ブログ一覧',
+        description: '',
+        url: 'blogs',
+      },
     }
+  },
+
+  mounted() {
+    this.updateDescription()
+  },
+
+  methods: {
+    updateDescription() {
+      this.meta.description = this.$refs.index.$vnode.elm.textContent.replace(
+        /\s/g,
+        ''
+      )
+    },
   },
 }
 </script>

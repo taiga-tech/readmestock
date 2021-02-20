@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="mx-auto" style="max-width: 940px">
-      <v-stepper v-model="steps">
+      <v-stepper ref="contact" v-model="steps">
         <v-stepper-header>
           <v-stepper-step :complete="steps > 1" step="1" :rules="[() => valid]">
             お問い合わせ
@@ -187,6 +187,10 @@ export default {
     },
   },
 
+  mounted() {
+    this.updateDescription()
+  },
+
   methods: {
     async onSubmit() {
       const contacts = new URLSearchParams()
@@ -212,6 +216,12 @@ export default {
 
     refresh() {
       location.reload()
+    },
+    updateDescription() {
+      this.meta.description = this.$refs.contact.$vnode.elm.textContent.replace(
+        /\s/g,
+        ''
+      )
     },
   },
 }
