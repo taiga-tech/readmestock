@@ -29,20 +29,22 @@
               <v-list-item-subtitle>{{ product.to }}</v-list-item-subtitle>
             </v-list-item-content>
             <v-list-item-icon>
-              <v-btn
-                small
-                :href="'https://github.com/taiga-tech/' + product.name"
-                target="_blank"
-                rel="noopener"
-              >
-                <v-icon left color="purple">mdi-github</v-icon>
-                README
-              </v-btn>
-              <v-divider vertical class="mx-2" />
-              <v-btn small :href="product.to" target="_blank" rel="noopener">
-                <v-icon left>mdi-open-in-new</v-icon>
-                site
-              </v-btn>
+              <v-btn-toggle dense>
+                <v-btn
+                  small
+                  :href="'https://github.com/taiga-tech/' + product.name"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <v-icon left color="purple">mdi-github</v-icon>
+                  README
+                </v-btn>
+                <!-- <v-divider vertical class="mx-2" /> -->
+                <v-btn small :href="product.to" target="_blank" rel="noopener">
+                  <v-icon left>mdi-open-in-new</v-icon>
+                  site
+                </v-btn>
+              </v-btn-toggle>
             </v-list-item-icon>
           </v-list-item>
           <v-divider v-if="i < products.length - 1" :key="product.name" />
