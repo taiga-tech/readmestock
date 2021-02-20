@@ -15,7 +15,9 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.meta.title ? this.meta.title + ' | ' : 'README Stock',
+          content: this.meta.title
+            ? this.meta.title + ' | README Stock'
+            : 'README Stock',
         },
         {
           hid: 'og:description',
