@@ -659,7 +659,7 @@
 
 .markdown-body blockquote {
   padding: 0 1em;
-  color: #6a737d;
+  color: #8b949e;
   border-left: .25em solid #dfe2e5;
 }
 
@@ -691,6 +691,7 @@
 .markdown-body h2 {
   padding-bottom: .3em;
   border-bottom: 1px solid #21262d;
+
   /* border-bottom: 1px solid #eaecef; */
 }
 
