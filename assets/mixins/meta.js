@@ -17,7 +17,9 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.meta.description,
+          content: this.meta.description
+            ? this.meta.description
+            : 'Nuxt + GitHubAPI v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
         },
         {
           hid: 'og:url',

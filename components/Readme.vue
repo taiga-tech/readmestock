@@ -1,5 +1,6 @@
 <template>
   <v-card
+    ref="readme"
     elevation="0"
     class="markdown-body line-numbers"
     max-width="980"
@@ -12,7 +13,7 @@
             <v-btn
               fab
               v-bind="attrs"
-              :href="viewer.repository.url"
+              :href="viewer.url"
               rel="noopener"
               target="_blank"
               style="text-decoration: none"
@@ -34,7 +35,32 @@
           {{ $moment(viewer.repository.updatedAt).fromNow() }}
         </v-list-item-subtitle>
       </v-list-item-content>
+
+      <v-btn-toggle dense>
+        <v-btn
+          small
+          :href="viewer.repository.url"
+          target="_blank"
+          rel="noopener"
+          style="text-decoration: none"
+        >
+          <v-icon left color="purple">mdi-github</v-icon>
+          readme
+        </v-btn>
+        <v-btn
+          v-if="viewer.repository.homepageUrl"
+          small
+          :href="viewer.repository.homepageUrl"
+          target="_blank"
+          rel="noopener"
+          style="text-decoration: none"
+        >
+          <v-icon left>mdi-open-in-new</v-icon>
+          site
+        </v-btn>
+      </v-btn-toggle>
     </v-list-item>
+
     <v-card-title
       class="pt-0"
       :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'"
@@ -75,7 +101,7 @@ export default {
     return {
       meta: {
         title: this.viewer.repository.name,
-        description: this.viewer.repository.description,
+        description: null,
         url: 'readmes/' + this.viewer.repository.name,
       },
     }
@@ -83,6 +109,7 @@ export default {
 
   mounted() {
     Prism.highlightAll()
+    this.meta.description = this.$refs.readme.$vnode.elm.textContent
   },
 }
 </script>
