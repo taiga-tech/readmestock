@@ -109,7 +109,16 @@ export default {
 
   mounted() {
     Prism.highlightAll()
-    this.meta.description = this.$refs.readme.$vnode.elm.textContent
+    this.updateDescription()
+  },
+
+  methods: {
+    updateDescription() {
+      this.meta.description = this.$refs.readme.$vnode.elm.textContent.replace(
+        /\s/g,
+        ''
+      )
+    },
   },
 }
 </script>
