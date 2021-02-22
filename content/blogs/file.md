@@ -1,11 +1,11 @@
 ---
-title: Ruby on Railsファイル構成
-tags: [Ruby, Ruby on Rails]
-description: railsファイル構成
+title: Ruby on Railsのディレクトリ構造
+tags: [ Ruby, Ruby on Rails ]
+description: Ruby on Railsのディレクトリ構造を調べたので、
 createdAt: 2021-02-12T15:00:00.000Z
 ---
 
-# Ruby on Railsファイル構成
+# Ruby on Railsディレクトリ構造
 
 ## アプリのフォルダ,ファイルの役割
   ※あんまり使ったっことのないフォルダ、ファイルは省いてます。
