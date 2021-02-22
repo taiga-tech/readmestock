@@ -24,7 +24,7 @@ export default {
     return {
       meta: {
         title: this.result.title,
-        description: null,
+        description: this.result.description,
         url: this.params + '/' + this.$route.params.slug,
       },
     }
@@ -32,16 +32,16 @@ export default {
 
   mounted() {
     Prism.highlightAll()
-    this.updateDescription()
+    // this.updateDescription()
   },
 
-  methods: {
-    updateDescription() {
-      this.meta.description = this.$refs.result.$vnode.elm.textContent.replace(
-        /\s/g,
-        ''
-      )
-    },
-  },
+  // methods: {
+  //   updateDescription() {
+  //     this.meta.description = this.$refs.result.$vnode.elm.textContent.replace(
+  //       /\s/g,
+  //       ''
+  //     )
+  //   },
+  // },
 }
 </script>
