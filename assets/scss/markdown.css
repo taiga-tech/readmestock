@@ -153,7 +153,7 @@
   overflow: hidden;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #dfe2e5;
+  border-bottom: 1px solid #21262d;
 }
 
 .markdown-body hr::after,
@@ -596,7 +596,7 @@
 }
 
 .markdown-body hr {
-  border-bottom-color: #eee;
+  border-bottom-color: #21262d;
 }
 
 .markdown-body kbd {
@@ -649,11 +649,10 @@
 }
 
 .markdown-body hr {
-  height: .25em;
+  height: .15em;
   padding: 0;
   margin: 24px 0;
-
-  /* background-color: #e1e4e8; */
+  background-color: #21262d;
   border: 0;
 }
 
