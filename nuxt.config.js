@@ -150,6 +150,7 @@ export default {
 
   env: {
     GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN,
+    BASE_URL: process.env.BASE_URL,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
