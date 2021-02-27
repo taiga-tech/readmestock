@@ -29,6 +29,7 @@
           href="https://github.com/taiga-tech/"
           target="_blank"
           rel="noopener"
+          aria-label="github"
           ><v-icon color="purple">mdi-github</v-icon></v-btn
         >
         <v-btn
@@ -36,6 +37,7 @@
           href="https://twitter.com/Taiga_dev/"
           target="_blang"
           rel="noopener"
+          aria-label="twitter"
           ><v-icon color="primary">mdi-twitter</v-icon></v-btn
         >
       </v-col>
