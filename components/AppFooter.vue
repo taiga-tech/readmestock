@@ -22,7 +22,23 @@
         {{ link.name }}
       </v-btn>
 
-      <v-col class="py-4 text-center" cols="12"> &copy; 2021 Taiga </v-col>
+      <v-col class="py-4 text-center" cols="12">
+        &copy; 2021 Taiga
+        <v-btn
+          icon
+          href="https://github.com/taiga-tech/"
+          target="_blank"
+          rel="noopener"
+          ><v-icon color="purple">mdi-github</v-icon></v-btn
+        >
+        <v-btn
+          icon
+          href="https://twitter.com/Taiga_dev/"
+          target="_blang"
+          rel="noopener"
+          ><v-icon color="primary">mdi-twitter</v-icon></v-btn
+        >
+      </v-col>
     </v-row>
   </v-footer>
 </template>

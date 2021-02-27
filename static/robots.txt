@@ -1,0 +1,5 @@
+User-Agent: *
+
+Allow: /
+
+Sitemap: https://taiga-tech.tk/sitemap.xml/
