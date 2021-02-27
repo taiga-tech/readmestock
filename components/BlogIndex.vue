@@ -32,8 +32,8 @@
           </v-chip-group>
         </v-card-subtitle>
 
-        <v-card-text v-if="re.discription != ''" class="description-wrapper">
-          <span class="description">{{ re.discription }}</span>
+        <v-card-text v-if="re.description != ''" class="description-wrapper">
+          <span class="description">{{ re.description }}</span>
         </v-card-text>
         <v-btn text x-small absolute bottom right>
           {{ $moment(re.createdAt).format('L') }} -

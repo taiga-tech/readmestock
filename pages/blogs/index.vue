@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container ref="index">
     <warning-alert />
-    <blog-index ref="index" :results="blogs" />
+    <blog-index :results="blogs" />
   </v-container>
 </template>
 
@@ -36,10 +36,7 @@ export default {
 
   methods: {
     updateDescription() {
-      this.meta.description = this.$refs.index.$vnode.elm.textContent.replace(
-        /\s/g,
-        ''
-      )
+      this.meta.description = this.$refs.index.textContent.replace(/\s/g, '')
     },
   },
 }
