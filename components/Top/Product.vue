@@ -6,19 +6,6 @@
         <v-btn absolute right to="/readmes/">all</v-btn>
       </v-card-actions>
       <v-divider />
-      <!-- <v-expansion-panels accordion>
-        <v-expansion-panel v-for="(product, i) in products" :key="i">
-          <v-expansion-panel-header>
-            {{ product.name }}
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels> -->
 
       <v-list>
         <template v-for="(product, i) in products">
@@ -28,24 +15,32 @@
               <v-list-item-title>{{ product.name }} </v-list-item-title>
               <v-list-item-subtitle>{{ product.to }}</v-list-item-subtitle>
             </v-list-item-content>
-            <v-list-item-icon>
-              <v-btn-toggle dense>
+            <template>
+              <v-btn-toggle group dense>
+                <v-btn small :to="'/readmes/' + product.name">
+                  <v-icon :left="!$vuetify.breakpoint.xs">mdi-text</v-icon>
+                  <span class="hidden-sm-and-down">README</span>
+                </v-btn>
                 <v-btn
                   small
                   :href="'https://github.com/taiga-tech/' + product.name"
                   target="_blank"
                   rel="noopener"
                 >
-                  <v-icon left color="purple">mdi-github</v-icon>
-                  README
+                  <v-icon :left="!$vuetify.breakpoint.xs" color="purple"
+                    >mdi-github</v-icon
+                  >
+                  <span class="hidden-sm-and-down">GitHub</span>
                 </v-btn>
                 <!-- <v-divider vertical class="mx-2" /> -->
                 <v-btn small :href="product.to" target="_blank" rel="noopener">
-                  <v-icon left>mdi-open-in-new</v-icon>
-                  site
+                  <v-icon :left="!$vuetify.breakpoint.xs"
+                    >mdi-open-in-new</v-icon
+                  >
+                  <span class="hidden-sm-and-down">site</span>
                 </v-btn>
               </v-btn-toggle>
-            </v-list-item-icon>
+            </template>
           </v-list-item>
           <v-divider v-if="i < products.length - 1" :key="product.name" />
         </template>
@@ -65,14 +60,14 @@ export default {
           lang: 'Ruby on Rails',
           to: 'http://54.248.158.30/',
         },
-        // {
-        //   name: 'SmartOrder',
-        //   lang: 'Ruby on Rails',
-        //   to: 'https://smart-order-app.herokuapp.com',
-        // },
-        { name: 'Readme Stock', lang: 'Nuxt', to: 'https://taiga-tech.tk/' },
+        { name: 'ReadmeStock', lang: 'Nuxt', to: 'https://taiga-tech.tk/' },
         {
-          name: 'FleamarketSample80b',
+          name: 'SmartOrder',
+          lang: 'Ruby on Rails',
+          to: 'https://smart-order-app.herokuapp.com',
+        },
+        {
+          name: 'Fleamarket_Sample_80b',
           lang: 'Ruby on Rails',
           to: 'http://18.224.192.120/',
         },

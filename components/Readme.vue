@@ -35,17 +35,23 @@
           {{ $moment(viewer.repository.updatedAt).fromNow() }}
         </v-list-item-subtitle>
       </v-list-item-content>
+    </v-list-item>
 
-      <v-btn-toggle dense>
+    <v-card-title
+      class="pt-0"
+      :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'"
+    >
+      {{ viewer.repository.name }}
+      <span class="mx-2">
         <v-btn
           small
           :href="viewer.repository.url"
           target="_blank"
           rel="noopener"
-          style="text-decoration: none"
+          style="text-decoration: none; text-transform: none"
         >
           <v-icon left color="purple">mdi-github</v-icon>
-          readme
+          GitHub
         </v-btn>
         <v-btn
           v-if="viewer.repository.homepageUrl"
@@ -58,14 +64,7 @@
           <v-icon left>mdi-open-in-new</v-icon>
           site
         </v-btn>
-      </v-btn-toggle>
-    </v-list-item>
-
-    <v-card-title
-      class="pt-0"
-      :class="$vuetify.breakpoint.xs ? 'text-h5' : 'text-h4'"
-    >
-      {{ viewer.repository.name }}
+      </span>
     </v-card-title>
 
     <v-card-subtitle>
