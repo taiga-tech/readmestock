@@ -1,7 +1,7 @@
 ---
 title: Ruby on Railsのディレクトリ構造
 tags: [ Ruby, Ruby on Rails ]
-description: Ruby on Railsのディレクトリ構造を調べたので、
+description: Ruby on Railsのディレクトリ構造を調べて見ました
 createdAt: 2021-02-12T15:00:00.000Z
 ---
 
