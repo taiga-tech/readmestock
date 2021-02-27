@@ -1,5 +1,5 @@
 <template>
-  <nuxt-content :document="result" />
+  <nuxt-content ref="result" :document="result" />
 </template>
 
 <script>
@@ -32,6 +32,16 @@ export default {
 
   mounted() {
     Prism.highlightAll()
+    // this.updateDescription()
   },
+
+  // methods: {
+  //   updateDescription() {
+  //     this.meta.description = this.$refs.result.$vnode.elm.textContent.replace(
+  //       /\s/g,
+  //       ''
+  //     )
+  //   },
+  // },
 }
 </script>
