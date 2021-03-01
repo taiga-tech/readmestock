@@ -57,7 +57,7 @@ export default {
         {
           name: 'ReservationApp',
           lang: 'Ruby on Rails',
-          to: 'http://54.248.158.30/',
+          to: 'https://reservationapp.tk/',
         },
         { name: 'ReadmeStock', lang: 'Nuxt', to: 'https://taiga-tech.tk/' },
         {
