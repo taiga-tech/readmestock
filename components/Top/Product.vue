@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       products: [
-        { name: 'DivingApp', lang: 'Laravel', to: 'http://3.88.45.99/' },
+        { name: 'DivingApp', lang: 'Laravel', to: 'https://divingapp.ga/' },
         {
           name: 'ReservationApp',
           lang: 'Ruby on Rails',
@@ -68,7 +68,7 @@ export default {
         {
           name: 'Fleamarket_Sample_80b',
           lang: 'Ruby on Rails',
-          to: 'http://18.224.192.120/',
+          to: 'http://fleamarket.taiga-tech.tk/',
         },
       ],
     }
