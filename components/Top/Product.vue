@@ -40,7 +40,6 @@
                   >
                   <span class="hidden-sm-and-down">GitHub</span>
                 </v-btn>
-                <!-- <v-divider vertical class="mx-2" /> -->
                 <v-btn small :href="product.to" target="_blank" rel="noopener">
                   <v-icon :left="!$vuetify.breakpoint.xs">
                     mdi-open-in-new

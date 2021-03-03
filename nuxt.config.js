@@ -157,5 +157,11 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config, { isClient }) {
+      if (isClient) {
+        config.devtool = 'source-map'
+      }
+    },
+  },
 }
