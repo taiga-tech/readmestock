@@ -16,7 +16,7 @@ export default {
       items: [
         { name: 'Home', to: '/', icon: 'home' },
         { name: 'README', to: '/readmes/', icon: 'github' },
-        { name: 'Blogs', to: '/blogs', icon: 'post' },
+        { name: 'Blogs', to: '/blogs/', icon: 'post' },
       ],
     }
   },
