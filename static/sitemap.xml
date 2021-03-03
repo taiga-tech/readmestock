@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://taiga-tech.tk/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/divingapp/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/reservationapp/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/readmestock/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/smartorder/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/fleamarket_sample_80b/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/divingapp_for_electron-local/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/memo/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/readmes/iosreservationapp/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/blogs/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/blogs/prompt/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/blogs/file/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/info/about/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://taiga-tech.tk/info/contact/</loc>
+  <lastmod>2021-03-03T15:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+</urlset>
