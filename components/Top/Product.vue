@@ -26,7 +26,9 @@
             <template>
               <v-btn-toggle group dense>
                 <v-btn small :to="'/readmes/' + product.name">
-                  <v-icon :left="!$vuetify.breakpoint.xs">mdi-text</v-icon>
+                  <v-icon :left="!$vuetify.breakpoint.xs">
+                    mdi-file-document-outline
+                  </v-icon>
                   <span class="hidden-sm-and-down">README</span>
                 </v-btn>
                 <v-btn
