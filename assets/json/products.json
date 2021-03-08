@@ -2,31 +2,31 @@
   {
     "name": "DivingApp",
     "icon": "laravel",
-    "color": "rgb(79, 93, 149)",
+    "color": "#ff291a",
     "to": "https://divingapp.ga/"
   },
   {
     "name": "ReservationApp",
     "icon": "language-ruby-on-rails",
-    "color": "rgb(112, 21, 22)",
+    "color": "#cc0202",
     "to": "https://reservationapp.tk/"
   },
   {
     "name": "ReadmeStock",
     "icon": "nuxt",
-    "color": "green",
+    "color": "#04c58e",
     "to": "https://taiga-tech.tk/"
   },
   {
     "name": "SmartOrder",
     "icon": "language-ruby-on-rails",
-    "color": "rgb(112, 21, 22)",
+    "color": "#cc0202",
     "to": "https://smart-order-app.herokuapp.com/"
   },
   {
     "name": "Fleamarket_Sample_80b",
     "icon": "language-ruby-on-rails",
-    "color": "rgb(112, 21, 22)",
+    "color": "#cc0202",
     "to": "http://fleamarket.taiga-tech.tk/"
   }
 ]
