@@ -33,9 +33,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.v-application a {
-  color: #55a0f4;
-}
-</style>
