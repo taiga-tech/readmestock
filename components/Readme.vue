@@ -17,6 +17,7 @@
               rel="noopener"
               target="_blank"
               style="text-decoration: none"
+              aria-label="github"
               v-on="on"
               ><v-icon x-large>mdi-github</v-icon>
             </v-btn>
