@@ -4,7 +4,7 @@
       <v-card>
         <v-list-item :href="s.to" target="_blank" rel="noopener">
           <v-list-item-avatar>
-            <v-icon>{{ s.icon }}</v-icon>
+            <v-icon :color="s.color">{{ s.icon }}</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>
@@ -37,6 +37,7 @@ export default {
           name: 'Twitter',
           to: 'https://twitter.com/Taiga_dev',
           icon: 'mdi-twitter',
+          color: 'primary',
         },
         {
           name: 'Wantedly',
