@@ -38,7 +38,12 @@
 </template>
 
 <script>
+import PieChart from '~/components/Top/PieChart'
+
 export default {
+  components: {
+    PieChart,
+  },
   props: {
     user: {
       type: Object,
