@@ -15,6 +15,7 @@
         hover
         :loading="!re.name"
         :disabled="!re.object"
+        style="color: #f6f6f6"
         min-width="256"
         min-height="200"
       >
