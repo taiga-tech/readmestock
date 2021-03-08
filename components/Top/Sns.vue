@@ -35,13 +35,13 @@ export default {
       sns: [
         {
           name: 'Twitter',
-          to: 'https://twitter.com/Taiga_dev',
+          to: 'https://twitter.com/Taiga_dev/',
           icon: 'mdi-twitter',
           color: 'primary',
         },
         {
           name: 'Wantedly',
-          to: 'https://www.wantedly.com/users/137448604?profile_v1=true',
+          to: 'https://www.wantedly.com/users/137448604?profile_v1=true/',
           icon: '',
         },
       ],
