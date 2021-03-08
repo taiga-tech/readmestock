@@ -75,8 +75,10 @@
 
 .markdown-body a {
   background-color: initial;
+
   /* color: #0366d6; */
-  color: #55a0f4;
+
+  /* color: #55a0f4; */
   text-decoration: none;
 }
 
