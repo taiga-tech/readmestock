@@ -14,7 +14,7 @@
         tile
         hover
         :loading="!re.name"
-        :disabled="!re.object"
+        :disabled="re.onMaster ? false : true || re.onMain ? false : true"
         style="color: #f6f6f6"
         min-width="256"
         min-height="200"
