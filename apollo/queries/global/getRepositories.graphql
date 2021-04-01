@@ -1,4 +1,4 @@
-query ($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
+query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
   viewer {
     login
     repositories(first: 100, privacy: PUBLIC, orderBy: $orderBy) {
@@ -14,16 +14,11 @@ query ($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
         owner {
           login
         }
-        onMaster: object(expression: "master:README.md") {
-        ... on Blob {
-          text
+        object(expression: "master:README.md") {
+          ... on Blob {
+            byteSize
+          }
         }
-      }
-      onMain: object(expression: "main:README.md") {
-        ... on Blob {
-          text
-        }
-      }
       }
     }
   }

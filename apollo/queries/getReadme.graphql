@@ -19,12 +19,7 @@ query ($name: String!) {
           name
         }
       }
-      onMaster: object(expression: "master:README.md") {
-        ... on Blob {
-          text
-        }
-      }
-      onMain: object(expression: "main:README.md") {
+      object(expression: "master:README.md") {
         ... on Blob {
           text
         }

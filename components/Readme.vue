@@ -82,15 +82,7 @@
       </v-chip-group>
     </v-card-subtitle>
 
-    <div
-      v-html="
-        $md.render(
-          viewer.repository.onMaster
-            ? viewer.repository.onMaster.text
-            : viewer.repository.onMain.text
-        )
-      "
-    />
+    <div v-html="$md.render(viewer.repository.object.text)" />
   </v-card>
 </template>
 
