@@ -27,11 +27,14 @@
         <v-list-item
           :key="item.url"
           :to="'/readmes/' + item.name + '/'"
-          :disabled="!item.object"
+          :disabled="item.onMaster ? false : true || item.onMain ? false : true"
           :color="
-            item.primaryLanguage && item.object
+            item.primaryLanguage &&
+            (item.onMaster
               ? item.primaryLanguage.color
-              : null
+              : null || item.onMain
+              ? item.primaryLanguage.color
+              : null)
           "
           router
           exact
