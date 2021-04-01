@@ -14,9 +14,14 @@ query($orderBy: RepositoryOrder = { field: CREATED_AT, direction: DESC }) {
         owner {
           login
         }
-        object(expression: "master:README.md") {
+        onMaster: object(expression: "master:README.md") {
           ... on Blob {
-            byteSize
+            text
+          }
+        }
+        onMain: object(expression: "main:README.md") {
+          ... on Blob {
+            text
           }
         }
       }
