@@ -1,6 +1,8 @@
 # README Stock
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status)](https://app.netlify.com/sites/taiga-tech/deploys)
+[![MIT License](https://img.shields.io/github/license/taiga-tech/readmestock)](https://github.com/taiga-tech/readmestock/blob/master/LICENSE)
+
 
 ## 開発環境
 ||Version|
