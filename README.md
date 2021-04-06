@@ -1,9 +1,19 @@
 # README Stock
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status)](https://app.netlify.com/sites/taiga-tech/deploys)
-[![issues](https://img.shields.io/github/issues/taiga-tech/readmestock)](https://github.com/taiga-tech/readmestock/issues)
-[![stars](https://img.shields.io/github/stars/taiga-tech/readmestock)](https://github.com/taiga-tech/readmestock/stargazers)
-[![MIT License](https://img.shields.io/github/license/taiga-tech/readmestock)](https://github.com/taiga-tech/readmestock/blob/master/LICENSE)
+<p>
+  <a href="https://app.netlify.com/sites/taiga-tech/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status" alt="Netlify Status">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/issues">
+    <img src="https://img.shields.io/github/issues/taiga-tech/readmestock" alt="issues">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/stargazers">
+    <img src="https://img.shields.io/github/stars/taiga-tech/readmestock" alt="stars">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/taiga-tech/readmestock" alt="MIT License">
+  </a>
+</p>
 
 ## 開発環境
 ||Version|
