@@ -1,8 +1,8 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-card>
-        <v-list-item :href="user.url" target="_blank" rel="noopener">
+      <v-card :href="user.url" target="_blank" rel="noopener">
+        <v-list-item>
           <v-list-item-avatar>
             <v-icon large>mdi-github</v-icon>
           </v-list-item-avatar>
