@@ -4,6 +4,9 @@
   <a href="https://app.netlify.com/sites/taiga-tech/deploys">
     <img src="https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status" alt="Netlify Status">
   </a>
+  <a href="https://app.circleci.com/pipelines/github/taiga-tech/readmestock/">
+    <img src="https://circleci.com/gh/taiga-tech/readmestock.svg?style=shield&circle-token=1759010c2aa0bbaeb1daefb62359e9662eef2921" alt="CircleCI">
+  </a>
   <a href="https://github.com/taiga-tech/readmestock/issues">
     <img src="https://img.shields.io/github/issues/taiga-tech/readmestock" alt="issues">
   </a>
