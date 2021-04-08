@@ -1,0 +1,66 @@
+version: 2.1
+
+# ---------------- Executors ----------------
+
+executors:
+  my-node-image:
+    docker:
+        - image: cimg/node:15.4
+
+# ---------------- Commands ----------------
+
+commands:
+  restore-cache:
+    steps:
+      - restore_cache:
+          keys:
+            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+
+  install-packages:
+    steps:
+      - run:
+          name: install packages
+          command: npm ci
+
+
+  save-cache:
+    steps:
+      - save_cache:
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          paths:
+            - ~/.npm
+
+  test-run:
+    steps:
+      - run:
+          name: Run Tests
+          command: npm run lint
+
+  test_notification_to_discord:
+    steps:
+      - run:
+          name: Notify to discord
+          command: |
+            curl -sS -XPOST -H "Content-Type: application/json" \
+            -d '{"content": "Project: '"$CIRCLE_PROJECT_REPONAME"'\n\n Build: ['"$CIRCLE_JOB: $CIRCLE_PREVIOUS_BUILD_NUM"']('"$CIRCLE_BUILD_URL"')\n\n Status: ['"$CIRCLE_BRANCH"']('"$CIRCLE_PULL_REQUEST"')のテストが完了しました\n\n User: '"$CIRCLE_USERNAME"'"}' \
+            $DISCORD_WEB_HOOK_URL >/dev/null
+
+# ---------------- Jobs ----------------
+
+jobs:
+  test:
+    executor: my-node-image
+    steps:
+      - checkout
+      - restore-cache
+      - install-packages
+      - save-cache
+      - test-run
+      - test_notification_to_discord
+
+# ---------------- Workflows ----------------
+
+workflows:
+  test:
+    jobs:
+      - test
