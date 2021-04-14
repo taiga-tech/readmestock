@@ -37,7 +37,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://taiga-tech.tk/icon.png',
+        content: 'https://taiga-tech.tk/icon.png/',
       },
       { property: 'og:site_name', content: 'README Stock' },
       {
