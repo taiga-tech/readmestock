@@ -48,6 +48,11 @@ export default {
       },
       // Twitter OGP
       { name: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:description',
+        property: 'twitter:description',
+        content: 'Nuxt + GitHubAPI v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

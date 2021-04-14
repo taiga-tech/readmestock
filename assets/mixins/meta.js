@@ -31,6 +31,13 @@ export default {
           property: 'og:url',
           content: 'https://taiga-tech.tk/' + this.meta.url + '/',
         },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: this.meta.description
+            ? this.meta.description
+            : 'Nuxt + GitHubAPI v4(GraphQL) + Netlifyを使用したポートフォリオサイト',
+        },
         { hid: 'og:image', property: 'og:image', content: this.meta.image },
       ],
     }
