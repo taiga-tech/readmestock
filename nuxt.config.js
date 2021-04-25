@@ -90,10 +90,15 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    '@nuxtjs/google-analytics',
   ],
 
   moment: {
     locales: ['ja'],
+  },
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -164,6 +169,7 @@ export default {
   env: {
     GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN,
     BASE_URL: process.env.BASE_URL,
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
