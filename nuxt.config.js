@@ -90,15 +90,10 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
-    '@nuxtjs/google-analytics',
   ],
 
   moment: {
     locales: ['ja'],
-  },
-
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -115,6 +110,8 @@ export default {
     '@nuxtjs/markdownit',
 
     '@nuxtjs/apollo',
+
+    '@nuxtjs/google-gtag',
   ],
 
   apollo: {
@@ -132,11 +129,16 @@ export default {
     typography: true, // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
   },
 
+  'google-gtag': {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    // debug: true,
+  },
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  // axios: {},
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
+  // content: {},
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
