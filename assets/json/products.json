@@ -1,5 +1,17 @@
 [
   {
+    "name": "wedding-photo-nuxt",
+    "icon": "nuxt",
+    "color": "#04c58e",
+    "to": "https://wedding-photo-app.netlify.com/"
+  },
+  {
+    "name": "wedding-photo-api",
+    "icon": "laravel",
+    "color": "#ff291a",
+    "to": "https://wedding-photo-app.netlify.com/"
+  },
+  {
     "name": "DivingApp",
     "icon": "laravel",
     "color": "#ff291a",
