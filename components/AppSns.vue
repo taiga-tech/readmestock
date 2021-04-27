@@ -8,6 +8,7 @@
       :href="sns.href"
       target="_blank"
       rel="noopener"
+      :aria-label="sns.name"
     >
       <v-icon medium>mdi-{{ sns.icon }}</v-icon>
     </v-btn>
