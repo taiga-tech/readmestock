@@ -74,7 +74,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/prism.js',
+    '~/plugins/vuetify-theme-cache.js',
+    { src: '~/plugins/prism.js', mode: 'client' },
     // '~/plugins/vue-chart.js',
   ],
 
@@ -92,9 +93,7 @@ export default {
     '@nuxtjs/moment',
   ],
 
-  moment: {
-    locales: ['ja'],
-  },
+  moment: { locales: ['ja'] },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -142,20 +141,16 @@ export default {
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
+    // customVariables: ['~/assets/variables.scss'],
+    // treeShake: true,
     // defaultAssets: {
     //   font: false,
     // },
     theme: {
-      // options: {
-      //   customProperties: true,
-      // },
       light: false,
       dark: true,
       themes: {
         dark: {
-          // background: '#0f1218',
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -163,6 +158,7 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
+          anchor: '#55a0f4',
         },
       },
     },
@@ -183,7 +179,5 @@ export default {
     },
   },
 
-  generate: {
-    fallback: true,
-  },
+  generate: { fallback: true },
 }
