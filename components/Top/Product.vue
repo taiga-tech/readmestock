@@ -8,6 +8,9 @@
       <v-divider />
 
       <v-list>
+        <v-alert text type="warning">
+          現在AWSリソース整理中のため、アクセスできないサービスがあります。
+        </v-alert>
         <template v-for="(product, i) in products">
           <v-list-item :key="i">
             <v-list-item-avatar>
@@ -42,7 +45,13 @@
                   >
                   <span class="hidden-sm-and-down">GitHub</span>
                 </v-btn>
-                <v-btn small :href="product.to" target="_blank" rel="noopener">
+                <v-btn
+                  small
+                  :disabled="!product.to"
+                  :href="product.to"
+                  target="_blank"
+                  rel="noopener"
+                >
                   <v-icon :left="!$vuetify.breakpoint.xs">
                     mdi-open-in-new
                   </v-icon>
