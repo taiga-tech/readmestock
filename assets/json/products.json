@@ -15,13 +15,13 @@
     "name": "DivingApp",
     "icon": "laravel",
     "color": "#ff291a",
-    "to": "https://divingapp.ga/"
+    "to-comment": "https://divingapp.ga/"
   },
   {
     "name": "ReservationApp",
     "icon": "language-ruby-on-rails",
     "color": "#cc0202",
-    "to": "https://reservationapp.tk/"
+    "to-comment": "https://reservationapp.tk/"
   },
   {
     "name": "ReadmeStock",
