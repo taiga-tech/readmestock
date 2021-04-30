@@ -3,13 +3,13 @@
     "name": "wedding-photo-nuxt",
     "icon": "nuxt",
     "color": "#04c58e",
-    "to": "https://wedding-photo-app.netlify.com/"
+    "to": "https://wedding-photo-app.netlify.app/"
   },
   {
     "name": "wedding-photo-api",
     "icon": "laravel",
     "color": "#ff291a",
-    "to": "https://wedding-photo-app.netlify.com/"
+    "to": "https://wedding-photo-app.netlify.app/"
   },
   {
     "name": "DivingApp",
