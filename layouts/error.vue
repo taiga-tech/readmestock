@@ -1,44 +1,40 @@
 <template>
   <v-app>
-    <v-container>
-      <v-alert
-        v-if="error.statusCode === 404 || error.statusCode === 500"
-        border="left"
-        type="error"
-        outlined
-      >
-        <v-row align="center">
-          <v-col class="grow">
-            <strong>{{ error.statusCode }} : {{ error.message }}</strong>
-          </v-col>
-          <v-col class="shrink">
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  icon
-                  href="https://github.com/taiga-tech/"
-                  target="_blank"
-                  v-bind="attrs"
-                  v-on="on"
-                  ><v-icon>mdi-github</v-icon></v-btn
-                >
-              </template>
-              <span>Go to Github</span>
-            </v-tooltip>
-          </v-col>
-          <v-col class="shrink">
-            <v-btn text @click="$router.go(-1)">back</v-btn>
-          </v-col>
-        </v-row>
-      </v-alert>
-      <v-alert v-else border="left" outlined type="error">
-        <strong>{{ otherError }}</strong>
-      </v-alert>
-    </v-container>
+    <v-dialog v-model="open" width="500" persistent>
+      <v-card color="#13151a">
+        <v-card-title>
+          <v-icon color="#dd2c00" left>mdi-cloud-alert</v-icon>
+          <h1 v-if="error.statusCode === 404" style="font-size: 20px">
+            {{ pageNotFound }}
+          </h1>
+          <h1 v-else style="font-size: 20px">{{ otherError }}</h1>
+        </v-card-title>
+        <v-card-text v-if="error.statusCode !== 404">
+          {{ error.message }}
+        </v-card-text>
+        <v-card-actions>
+          <v-btn text to="/" color="pink">topへ</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn color="green" text to="/info/contact/"> お問い合わせ </v-btn>
+          <v-btn
+            v-for="sns in socials"
+            :key="sns.name"
+            icon
+            :color="sns.color"
+            :href="sns.href"
+            rel="noopener"
+            target="_blank"
+          >
+            <v-icon>mdi-{{ sns.icon }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
 <script>
+import socials from '~/assets/json/socials.json'
 export default {
   layout: 'empty',
   props: {
@@ -49,7 +45,10 @@ export default {
   },
   data() {
     return {
+      pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
+      open: true,
+      socials,
     }
   },
   head() {
@@ -63,9 +62,3 @@ export default {
   },
 }
 </script>
-
-<style lang="css">
-strong {
-  font-size: 20px;
-}
-</style>
