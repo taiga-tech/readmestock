@@ -2,23 +2,39 @@
 title: このサイトについて
 description: APIでREADMEを取得し、一覧表示&README確認が出来る半自動ポートフォリオです。
 createdAt: 2021-02-12T15:00:00.000Z
-updatedAt: 2021-02-18
+updatedAt: 2021-06-21T15:00:00.000Z
 ---
 
 # このサイトについて
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status)](https://app.netlify.com/sites/taiga-tech/deploys)
+<p>
+  <a href="https://app.netlify.com/sites/taiga-tech/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status" alt="Netlify Status">
+  </a>
+  <a href="https://app.circleci.com/pipelines/github/taiga-tech/readmestock/">
+    <img src="https://circleci.com/gh/taiga-tech/readmestock.svg?style=shield&circle-token=1759010c2aa0bbaeb1daefb62359e9662eef2921" alt="CircleCI">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/issues">
+    <img src="https://img.shields.io/github/issues/taiga-tech/readmestock" alt="issues">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/stargazers">
+    <img src="https://img.shields.io/github/stars/taiga-tech/readmestock" alt="stars">
+  </a>
+  <a href="https://github.com/taiga-tech/readmestock/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/taiga-tech/readmestock" alt="MIT License">
+  </a>
+</p>
 
 ## 開発環境
-||Version|
-|---|---|
-|Mac OS|Catalina 10.15.7|
-|Node|v15.4.0|
-|npm|7.0.15|
-|Nuxt|2.14.12|
-|Vue|2.6.12|
-|Vuetify|2.4.2|
-|GitHubAPI|v4|
+|           | Version          |
+| --------- | ---------------- |
+| Mac OS    | Catalina 10.15.7 |
+| Node      | v15.4.0          |
+| npm       | 7.0.15           |
+| Nuxt      | 2.14.12          |
+| Vue       | 2.6.12           |
+| Vuetify   | 2.4.2            |
+| GitHubAPI | v4               |
 
 ## 概要
 
@@ -74,18 +90,17 @@ GitHubAPI v4が`GraphQL`を使用していて、`GraphQL`の勉強も出来る�
 
 ### Desktop
 
-![Lighthouse_desktop](/img/about/lighthouse_desktop.png)
+![Lighthouse_desktop](https://taiga-tech.tk/img/about/lighthouse_desktop.png)
 
 ### Mobile
 
-![Lighthouse_mobile](/img/about/lighthouse_mobile.png)
+![Lighthouse_mobile](https://taiga-tech.tk/img/about/lighthouse_mobile.png)
 
 ### 測定結果を見て
 
 Mobile測定でのパフォーマンスがかなり悪いようなので、改善していきたいと考えています。
 
-
 ## 参考サイト
 
-- https://docs.github.com/en/graphql/overview/explorer
+- https://docs.github.com/en/graphql/overview/explorer/
 - https://vuetifyjs.com/ja/
