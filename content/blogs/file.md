@@ -3,105 +3,109 @@ title: Ruby on Railsのディレクトリ構造
 tags: [ Ruby, Ruby on Rails ]
 description: Ruby on Railsのディレクトリ構造を調べて見ました
 createdAt: 2021-02-12T15:00:00.000Z
+updatedAt: 2021-06-21T23:00:00.000Z
 ---
 
-# Ruby on Railsディレクトリ構造
-
 ## アプリのフォルダ,ファイルの役割
-  ※あんまり使ったっことのないフォルダ、ファイルは省いてます。
-## `rails new`すると↓のフォルダやファイルが生成される
-  <img src="/img/file/first_app.png" width="40%" alt="新規App">
 
-  - first_app
-    - app
-      > アプリのMVC(モデル、ビュー、コントローラ)が格納されているフォルダ
-        めちゃくちゃ使う
-    - config
-      > アプリの設定ファイルが格納されているフォルダ
-        ルーティングファイルや、データベースの設定ファイルがある
-    - db
-      > データベースのマイグレーションファイルなどが格納されているフォルダ
-    - public
-      > 公開フォルダ
-        あんまり理解はできていないですが、今後使うかも。
-    - test
-      > テストを行う際のフォルダ
-        使うみたいなんですけど、まだ試したことないんで詳細はわかりません。
-        でも知っておいた方がいいと思う。
-    - .gitnore
-      > Gitのためのファイル
-    - gemfile
-      > gem(拡張機能みたいな感じ)を追加するファイル
-        結構使うかも
-    - gemfile.look
-      > gemが追加されると自動生成されるファイル
-    - README.md
-      > アプリの説明書的なファイル
+  ※あんまり使ったっことのないフォルダ、ファイルは省いてます。
+
+## `rails new`すると↓のフォルダやファイルが生成される
+
+<img src="/img/file/first_app.png" width="40%" alt="新規App">
+
+- first_app
+  - app
+    > アプリのMVC(モデル、ビュー、コントローラ)が格納されているフォルダ
+      めちゃくちゃ使う
+  - config
+    > アプリの設定ファイルが格納されているフォルダ
+      ルーティングファイルや、データベースの設定ファイルがある
+  - db
+    > データベースのマイグレーションファイルなどが格納されているフォルダ
+  - public
+    > 公開フォルダ
+      あんまり理解はできていないですが、今後使うかも。
+  - test
+    > テストを行う際のフォルダ
+      使うみたいなんですけど、まだ試したことないんで詳細はわかりません。
+      でも知っておいた方がいいと思う。
+  - .gitnore
+    > Gitのためのファイル
+  - gemfile
+    > gem(拡張機能みたいな感じ)を追加するファイル
+      結構使うかも
+  - gemfile.look
+    > gemが追加されると自動生成されるファイル
+  - README.md
+    > アプリの説明書的なファイル
 
 ## 各フォルダの詳細
-  - first_app
-    - app
-      - assets
 
-        <img src="/img/file/assetsforder.png" width="40%" alt="assets">
+- first_app
+  - app
+    - assets
 
-        > イメージファイルや、スタイルシート(CSSファイル)などを格納するフォルダ
-          スタイルを編集したい場合は`assets/stylesheets/コントローラ名.scss`を開く
+      <img src="/img/file/assetsforder.png" width="40%" alt="assets">
 
-      - controllers
+      > イメージファイルや、スタイルシート(CSSファイル)などを格納するフォルダ
+        スタイルを編集したい場合は`assets/stylesheets/コントローラ名.scss`を開く
 
-        <img src="/img/file/controllers.png" width="40%" alt="controllers">
+    - controllers
 
-        > コントローラーファイルが格納されている
-          アクションなどを編集したい場合は`controllers/コントローラ名_controller.rb`を開く
+      <img src="/img/file/controllers.png" width="40%" alt="controllers">
 
-      - models
+      > コントローラーファイルが格納されている
+        アクションなどを編集したい場合は`controllers/コントローラ名_controller.rb`を開く
 
-        <img src="/img/file/models.png" width="40%" alt="models">
+    - models
 
-        > モデルファイルが格納されている
-          バリテーションなどを編集したい場合は`models/モデル名.rb`を開く
+      <img src="/img/file/models.png" width="40%" alt="models">
 
-      - views
+      > モデルファイルが格納されている
+        バリテーションなどを編集したい場合は`models/モデル名.rb`を開く
 
-        <img src="/img/file/views.png" width="40%" alt="views">
+    - views
 
-        > ビューファイルが格納されている
-          各ページの見た目を編集したい場合は`views/コントローラ名/アクション名.html.erb`を開く
+      <img src="/img/file/views.png" width="40%" alt="views">
 
-    - config
+      > ビューファイルが格納されている
+        各ページの見た目を編集したい場合は`views/コントローラ名/アクション名.html.erb`を開く
 
-        <img src="/img/file/config.png" width="40%" alt="config">
+  - config
 
-      > ルーティングファイルが格納されている
-        ルーティングを編集する場合は、`config/routes.rb`を開く
-        データベースの設定のときは、`database.yml`ファイルを開く
+      <img src="/img/file/config.png" width="40%" alt="config">
 
-    - db
-      - migrate
+    > ルーティングファイルが格納されている
+      ルーティングを編集する場合は、`config/routes.rb`を開く
+      データベースの設定のときは、`database.yml`ファイルを開く
 
-        <img src="/img/file/db.png" width="40%" alt="migrate">
+  - db
+    - migrate
 
-        > マイグレーションファイルが格納されている
-          マイグレーションを編集する場合は`migrate/***********_create_モデル名.rb`を開く
+      <img src="/img/file/db.png" width="40%" alt="migrate">
+
+      > マイグレーションファイルが格納されている
+        マイグレーションを編集する場合は`migrate/***********_create_モデル名.rb`を開く
 
 ## applicationファイルについて
 
-  <img src="/img/file/applicationcss.png" width="40%" alt="applicationcss">
+<img src="/img/file/applicationcss.png" width="40%" alt="applicationcss">
 
-  いろんなフォルダに`application.css`のように`application.~`があると思いますが、これはアプリ全体のプログラムを記載できるファイルです。
+いろんなフォルダに`application.css`のように`application.~`があると思いますが、これはアプリ全体のプログラムを記載できるファイルです。
 
-  (例)
-  ```css
-  /* assets/stylesheets/application.css */
+(例)
+```css
+/* assets/stylesheets/application.css */
 
-  h1 {
-    color: red;
-  }
-  ```
+h1 {
+  color: red;
+}
+```
 
-  と編集すると全てのコントローラ、アクションページのh1の文字の色が赤になる。
+と編集すると全てのコントローラ、アクションページのh1の文字の色が赤になる。
 
-### まとめ
-  他にも大事なファイルがあると思うんですけど、とりあえずここまで分かってたら楽になるはずです！
-  雑に作ったんで間違ってるとことか分かりにくい表現があるかもしれないんでいつでも文句言ってください笑
+## まとめ
+
+他にも大事なファイルがあると思うんですけど、とりあえずここまで分かってたら楽になるはずです！
+雑に作ったんで間違ってるとことか分かりにくい表現があるかもしれないんでいつでも文句言ってください笑
