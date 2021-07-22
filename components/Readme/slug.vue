@@ -68,40 +68,42 @@
       </span>
     </v-card-title>
 
-    <v-card-subtitle>
-      <v-chip-group v-if="viewer.repository.languages.nodes.length != 0">
+    <v-card-subtitle v-if="viewer.repository.languages.nodes !== 0">
+      <v-chip-group mandatory>
         <v-chip
-          v-for="(lng, i) in viewer.repository.languages.nodes"
+          v-for="(lang, i) in viewer.repository.languages.nodes"
           :key="i"
-          :color="lng.color"
+          :color="lang.color"
           outlined
           small
         >
-          {{ lng.name }}
+          {{ lang.name }}
         </v-chip>
       </v-chip-group>
     </v-card-subtitle>
 
-    <div
-      v-html="
-        $md.render(
-          viewer.repository.onMaster
-            ? viewer.repository.onMaster.text
-            : viewer.repository.onMain.text
-        )
-      "
-    />
+    <base-markdown>
+      <div
+        v-html="
+          $md.render(
+            viewer.repository.onMaster
+              ? '[[toc]]' + '\n\n' + viewer.repository.onMaster.text
+              : '[[toc]]' + '\n\n' + viewer.repository.onMain.text
+          )
+        "
+      />
+    </base-markdown>
   </v-card>
 </template>
 
 <script>
-import Prism from '~/plugins/prism'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
   mixins: [Meta],
+
   props: {
-    viewer: { type: Object, default: null },
+    viewer: { type: Object, default: () => null },
     slug: { type: String, default: '' },
   },
 
@@ -116,7 +118,6 @@ export default {
   },
 
   mounted() {
-    Prism.highlightAll()
     this.updateDescription()
   },
 
@@ -130,5 +131,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" src="~/assets/scss/custom.scss"></style>
