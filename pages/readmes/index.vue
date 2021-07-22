@@ -13,23 +13,29 @@
           :items="sortItems"
           item-text="name"
           item-value="orderValue"
+          @change="sortIndex"
         ></v-select>
       </div>
     </div>
-    <readme-index v-if="viewer" :results="viewer.repositories.nodes" />
+    <readme v-if="viewer" :results="viewer.repositories.nodes" />
   </v-container>
 </template>
 
 <script>
-import getRepositories from '~/apollo/queries/getRepositories.graphql'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
-  components: {
-    ReadmeIndex: () => import('~/components/ReadmeIndex'),
-  },
-
   mixins: [Meta],
+  async asyncData({ store }) {
+    await store
+      .dispatch('gh-readme/index', {
+        field: 'CREATED_AT',
+        direction: 'DESC',
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  },
 
   data() {
     return {
@@ -75,6 +81,12 @@ export default {
     }
   },
 
+  computed: {
+    viewer() {
+      return this.$store.getters['gh-readme/index']
+    },
+  },
+
   mounted() {
     this.updateDescription()
   },
@@ -83,16 +95,13 @@ export default {
     updateDescription() {
       this.meta.description = this.$refs.index.textContent.replace(/\s/g, '')
     },
-  },
 
-  apollo: {
-    viewer: {
-      query: getRepositories,
-      variables() {
-        return {
-          orderBy: this.selectSort,
-        }
-      },
+    async sortIndex() {
+      await this.$store
+        .dispatch('gh-readme/index', this.selectSort)
+        .catch((err) => {
+          console.error(err)
+        })
     },
   },
 }
