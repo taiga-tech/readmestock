@@ -8,7 +8,7 @@
       color="#55a0f4"
     >
       <v-icon color="#fff" left>mdi-arrow-left</v-icon>
-      {{ prev.title }}
+      {{ prev.path }}
     </v-btn>
 
     <v-spacer />
@@ -20,7 +20,7 @@
       class="text-decoration-none text-capitalize"
       color="#55a0f4"
     >
-      {{ next.title }}
+      {{ next.path }}
       <v-icon color="#fff" right>mdi-arrow-right</v-icon>
     </v-btn>
     <!-- </div> -->
