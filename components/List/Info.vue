@@ -1,5 +1,5 @@
 <template>
-  <v-list-group>
+  <!-- <v-list-group>
     <template v-slot:activator>
       <v-list-item-icon>
         <v-icon>mdi-information-variant</v-icon>
@@ -21,7 +21,24 @@
         </v-list-item>
       </template>
     </v-virtual-scroll>
-  </v-list-group>
+  </v-list-group> -->
+
+  <v-list>
+    <v-list-item
+      v-for="item in items"
+      :key="item.to"
+      :to="'/info/' + item.to + '/'"
+      nuxt
+      exact
+    >
+      <v-list-item-icon>
+        <v-icon small>mdi-{{ item.icon }}</v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title v-text="item.name" />
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>

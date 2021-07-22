@@ -9,7 +9,7 @@
       </v-list-item-content>
     </template>
 
-    <v-list-item to="/blogs/" router exact>
+    <v-list-item to="/blogs/" exact>
       <v-list-item-icon>
         <v-icon small>mdi-post</v-icon>
       </v-list-item-icon>
@@ -24,7 +24,6 @@
           :key="item.path"
           :to="item.path + '/'"
           :disabled="!item.title"
-          router
           exact
         >
           <v-list-item-icon>
@@ -41,22 +40,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      blogs: [],
-    }
-  },
-
-  mounted() {
-    this.getData()
-  },
-
-  methods: {
-    async getData() {
-      const query = await this.$content('blogs' || 'index')
-      const blogs = await query.fetch()
-      this.blogs = blogs
-    },
+  props: {
+    blogs: { type: Array, default: () => [] },
   },
 }
 </script>
