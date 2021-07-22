@@ -1,39 +1,24 @@
 <template>
   <v-container>
-    <article>
-      <readme v-if="viewer" :viewer="viewer" :slug="slug" />
-      <v-skeleton-loader
-        v-else
-        boilerplate
-        max-width="980"
-        type="card"
-        class="markdown-body"
-      ></v-skeleton-loader>
+    <article v-if="viewer">
+      <readme-slug :viewer="viewer" :slug="slug" />
     </article>
   </v-container>
 </template>
 
 <script>
-import getReadme from '~/apollo/queries/getReadme'
-
 export default {
-  components: {
-    Readme: () => import('~/components/Readme'),
-  },
-
-  async asyncData({ params }) {
+  async asyncData({ store, params }) {
     const slug = await params.slug
+    await store.dispatch('gh-readme/readme', slug).catch((err) => {
+      console.error(err)
+    })
     return { slug }
   },
 
-  apollo: {
-    viewer: {
-      query: getReadme,
-      variables() {
-        return {
-          name: this.slug,
-        }
-      },
+  computed: {
+    viewer() {
+      return this.$store.getters['gh-readme/readme']
     },
   },
 }
