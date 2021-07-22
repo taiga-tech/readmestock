@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card height="100%">
     <v-card-title>自己紹介</v-card-title>
 
     <v-divider />
@@ -12,20 +12,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      profile: null,
-    }
-  },
-
-  mounted() {
-    this.getProfile()
-  },
-
-  methods: {
-    async getProfile() {
-      this.profile = await this.$content('info', 'profile').fetch()
-    },
+  props: {
+    profile: { type: Object, default: () => null },
   },
 }
 </script>
