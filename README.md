@@ -18,6 +18,10 @@
   </a>
 </p>
 
+## サイトURL
+
+https://www.taiga-tech.tk/
+
 ## 開発環境
 
 |           | Version          |
@@ -96,5 +100,5 @@ Mobile測定でのパフォーマンスがかなり悪いようなので、改�
 
 ## 参考サイト
 
-- https://docs.github.com/en/graphql/overview/explorer
+- https://docs.github.com/en/graphql/overview/explorer/
 - https://vuetifyjs.com/ja/
