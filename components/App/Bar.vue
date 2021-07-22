@@ -1,8 +1,8 @@
 <template>
   <div>
-    <left-drawer :minivariant="miniVariant" :drawer="drawer" :items="items" />
+    <drawer-left :minivariant="miniVariant" :drawer="drawer" :items="items" />
 
-    <v-app-bar clipped-left clipped-right fixed dense app flat>
+    <v-app-bar clipped-left clipped-right dense app :flat="!scrollY">
       <v-app-bar-nav-icon
         aria-label="mdi-menu"
         @click.stop="drawer = !drawer"
@@ -12,13 +12,11 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn> -->
 
-      <nuxt-link
-        to="/"
-        style="text-decoration: none"
-        :style="$vuetify.theme.dark ? 'color: #fff' : 'color: #000'"
-      >
-        <v-toolbar-title v-text="title" />
-      </nuxt-link>
+      <v-toolbar-title
+        style="cursor: pointer"
+        @click="$router.push('/')"
+        v-text="title"
+      />
 
       <v-spacer />
       <span>
@@ -27,6 +25,7 @@
           alt="Netlify Status"
         />
       </span>
+
       <!-- <v-btn
         v-show="$vuetify.breakpoint.xs"
         icon
@@ -37,17 +36,12 @@
       </v-btn> -->
     </v-app-bar>
 
-    <right-drawer :right-drawer="rightDrawer" />
+    <!-- <drawer-right :right-drawer="rightDrawer" /> -->
   </div>
 </template>
 
 <script>
 export default {
-  components: {
-    LeftDrawer: () => import('./Drawer/LeftDrawer'),
-    RightDrawer: () => import('./Drawer/RightDrawer'),
-  },
-
   data() {
     return {
       title: 'README Stock',
@@ -55,7 +49,18 @@ export default {
       drawer: false,
       miniVariant: false,
       rightDrawer: false,
+      scrollY: 0,
     }
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+
+  methods: {
+    handleScroll() {
+      this.scrollY = window.scrollY
+    },
   },
 }
 </script>
