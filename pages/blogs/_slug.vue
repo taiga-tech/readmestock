@@ -33,8 +33,8 @@
         <client-only>
           <markdown-content v-if="blogs" :result="blogs" params="blogs" />
         </client-only>
-        <v-divider />
-        <app-prev-next :prev="prev" :next="next" />
+        <!-- <v-divider /> -->
+        <!-- <app-prev-next :prev="prev" :next="next" /> -->
       </v-card>
     </article>
     <app-toc :toc="blogs.toc" />
@@ -55,21 +55,21 @@ export default {
         console.error(err)
       })
 
-    const [prev, next] = await $content('blogs')
-      .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .surround(slug)
-      .fetch()
-      .catch((err) => {
-        console.error(err)
-      })
+    // const [prev, next] = await $content('blogs')
+    //   .only(['title', 'slug'])
+    //   .sortBy('createdAt', 'asc')
+    //   .surround(slug)
+    //   .fetch()
+    //   .catch((err) => {
+    //     console.error(err)
+    //   })
 
     // }
 
     return {
       blogs,
-      prev,
-      next,
+      // prev,
+      // next,
     }
   },
 }
