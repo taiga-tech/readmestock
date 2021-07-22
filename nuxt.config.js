@@ -64,19 +64,20 @@ export default {
       short_name: 'README Stock',
       lang: 'ja',
       useWebmanifestExtension: false,
-      background_color: '#272727',
-      theme_color: '#272727',
+      background_color: '#121212',
+      theme_color: '#121212',
     },
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  // css: ['~/assets/scss/main.scss'],
+  // css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/vuetify-theme-cache.js',
+    { src: '~/plugins/vuetify-theme-cache.js' },
     { src: '~/plugins/prism.js', mode: 'client' },
-    // '~/plugins/vue-chart.js',
+    { src: '~/plugins/markdown-it.js' },
+    { src: '~/plugins/vue-scrollactive.js', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -106,8 +107,6 @@ export default {
 
     '@nuxtjs/dotenv',
 
-    '@nuxtjs/markdownit',
-
     '@nuxtjs/apollo',
 
     '@nuxtjs/google-gtag',
@@ -119,15 +118,6 @@ export default {
     },
   },
 
-  markdownit: {
-    langPrefix: 'language-',
-    injected: true, // $mdを利用してmarkdownをhtmlにレンダリングする
-    breaks: true, // 改行コードに変換する
-    html: true, // HTML タグを有効にする
-    linkify: true, // URLに似たテキストをリンクに自動変換する
-    typography: true, // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
-  },
-
   'google-gtag': {
     id: process.env.GOOGLE_ANALYTICS_ID,
     // debug: true,
@@ -137,12 +127,12 @@ export default {
   // axios: {},
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  // content: {},
+  content: { liveEdit: false },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
-    // treeShake: true,
+    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     // defaultAssets: {
     //   font: false,
     // },
