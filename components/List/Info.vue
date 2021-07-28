@@ -45,6 +45,7 @@
       <v-list-item-content>
         <v-list-item-title v-text="lts" />
       </v-list-item-content>
+      <v-chip x-small outlined color="green">Latest</v-chip>
     </v-list-item>
   </v-list>
 </template>
