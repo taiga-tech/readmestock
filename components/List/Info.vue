@@ -38,11 +38,22 @@
         <v-list-item-title v-text="item.name" />
       </v-list-item-content>
     </v-list-item>
+    <v-list-item to="/info/release-notes/" nuxt exact color="green">
+      <v-list-item-icon>
+        <v-icon small>mdi-tag-outline</v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title v-text="lts" />
+      </v-list-item-content>
+    </v-list-item>
   </v-list>
 </template>
 
 <script>
 export default {
+  props: {
+    lts: { type: String, default: '' },
+  },
   data() {
     return {
       items: [
