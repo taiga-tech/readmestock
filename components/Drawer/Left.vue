@@ -28,7 +28,7 @@
 
       <list-blog :blogs="blogs" />
 
-      <list-info />
+      <list-info :lts="viewer.repository.latestRelease.name" />
     </v-list>
     <template v-slot:append>
       <div class="ma-1">
