@@ -1,0 +1,18 @@
+query {
+  viewer {
+    repository(name: "readmestock") {
+      createdAt
+      releases(first: 5) {
+        nodes {
+          publishedAt
+          name
+          description
+          descriptionHTML
+          url
+          isLatest
+        }
+        totalCount
+      }
+    }
+  }
+}
