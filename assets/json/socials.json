@@ -2,20 +2,20 @@
   {
     "name": "GitHub",
     "icon": "github",
-    "href": "https://github.com/taiga-tech/",
+    "href": "https://github.com/taiga-tech/readmestock/",
     "color": "purple"
-  },
-  {
-    "name": "Wantedry",
-    "icon": "alpha-w",
-    "href": "https://www.wantedly.com/users/137448604/",
-    "color": "#4fcce3"
   },
   {
     "name": "Twitter",
     "icon": "twitter",
     "href": "https://twitter.com/Taiga_dev/",
     "color": "primary"
+  },
+  {
+    "name": "Wantedry",
+    "icon": "alpha-w",
+    "href": "https://www.wantedly.com/users/137448604/",
+    "color": "#4fcce3"
   },
   {
     "name": "Qiita",

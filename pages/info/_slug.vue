@@ -19,10 +19,6 @@
 
 <script>
 export default {
-  components: {
-    MarkdownContent: () => import('~/components/Markdown/MarkdownContent'),
-  },
-
   async asyncData({ $content, params, payload }) {
     // if (payload) {
     //   return { info: payload }

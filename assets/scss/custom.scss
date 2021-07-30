@@ -1,6 +1,12 @@
-@import "./markdown.css";
+@import './markdown.css';
 
 // --- custom ---
+.theme--dark.v-application pre code {
+  background-color: #0000;
+}
+
+.hide { display: none; }
+
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
@@ -20,14 +26,17 @@
   pre[class*='language-'],
   code[class*='language-'] {
     text-shadow: none;
-    code[class*='language-'] {
-      background-color: rgba(45, 45, 45, 1);
-    }
+    // code[class*='language-'] {
+    //   background-color: #111c27;
+    // }
     .token.operator {
-      background-color: rgba(45, 45, 45, 0);
+      background-color: #2d2d2d00;
     }
     .token.entity {
-      background-color: rgba(45, 45, 45, 0);
+      background-color: #2d2d2d00;
+    }
+    .line-numbers-rows {
+      background-color: #111c27;
     }
   }
 
@@ -45,10 +54,13 @@
       border: 1px solid #3b434b;
     }
     tr {
-      border-top: 1px solid #0f1218;
-      background-color: #0f1218;
+      // border-top: 1px solid #0f1218;
+      // background-color: #0f1218;
+      border-top: 1px solid #12151d;
+      background-color: #12151d;
     }
     tr:nth-child(2n) {
+      // background-color: #`111c27;
       background-color: #161c21;
     }
   }
@@ -76,10 +88,14 @@
       }
 
       a,
+      button {
+        cursor: pointer;
+      }
+
+      a,
       button,
       span {
-        cursor: pointer;
-        color: #bbb;
+        color: #8da1b9;
         font-size: .8em;
         padding: .5em;
         margin: 0 1px;
@@ -87,6 +103,7 @@
         box-shadow: none;
         border-radius: 3px;
       }
+
       a:hover,
       a:focus,
       button:hover,
@@ -95,6 +112,12 @@
       span:focus {
         color: inherit;
         text-decoration: none;
+      }
+
+      span:hover,
+      span:focus {
+        background: none;
+        cursor: default;
       }
     }
     .toolbar .toolbar-item {

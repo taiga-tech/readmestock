@@ -8,7 +8,7 @@
       <v-divider />
 
       <v-list>
-        <v-alert text type="warning">
+        <v-alert border="left" text type="warning" class="mx-5">
           現在AWSリソース整理中のため、アクセスできないサービスがあります。
         </v-alert>
         <template v-for="(product, i) in products">
@@ -28,7 +28,7 @@
             </v-list-item-content>
             <template>
               <v-btn-toggle group dense>
-                <v-btn small :to="'/readmes/' + product.name">
+                <v-btn small :to="'/readmes/' + product.name + '/'">
                   <v-icon :left="!$vuetify.breakpoint.xs">
                     mdi-file-document-outline
                   </v-icon>
@@ -36,7 +36,7 @@
                 </v-btn>
                 <v-btn
                   small
-                  :href="'https://github.com/taiga-tech/' + product.name"
+                  :href="'https://github.com/taiga-tech/' + product.name + '/'"
                   target="_blank"
                   rel="noopener"
                 >
@@ -47,8 +47,8 @@
                 </v-btn>
                 <v-btn
                   small
-                  :disabled="!product.to"
-                  :href="product.to"
+                  :disabled="!product.href"
+                  :href="product.href"
                   target="_blank"
                   rel="noopener"
                 >

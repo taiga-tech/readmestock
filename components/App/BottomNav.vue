@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation shift grow app>
+  <v-bottom-navigation shift grow fixed>
     <v-btn v-for="(item, i) in items" :key="i" :to="item.to">
       <span>{{ item.name }}</span>
 

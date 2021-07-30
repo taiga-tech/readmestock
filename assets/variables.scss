@@ -1,4 +1,11 @@
-// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
-//
-// The variables you want to modify
-// $font-size-root: 20px;
+// Dark
+
+$material-dark: (
+  'background': #12151d,
+  'app-bar': #13151a,
+  'toolbar': #152535,
+  'navigation-drawer': #12151d,
+  'cards': #111c27,
+  'bg-color': #2c3e4f,
+  'bottom-navigation': #12151d,
+);

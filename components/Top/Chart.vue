@@ -1,7 +1,13 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-card :href="user.url" target="_blank" rel="noopener">
+      <v-card
+        :href="user.url"
+        target="_blank"
+        rel="noopener"
+        min-height="100%"
+        hover
+      >
         <v-list-item>
           <v-list-item-avatar>
             <v-icon large>mdi-github</v-icon>
@@ -26,7 +32,7 @@
         <v-divider />
 
         <v-card-text>
-          <pie-chart :chart-data="chartData" :options="chartOptions" />
+          <top-pie-chart :chart-data="chartData" :options="chartOptions" />
         </v-card-text>
 
         <v-card-subtitle>
@@ -38,12 +44,7 @@
 </template>
 
 <script>
-import PieChart from '~/components/Top/PieChart'
-
 export default {
-  components: {
-    PieChart,
-  },
   props: {
     user: {
       type: Object,

@@ -3,30 +3,30 @@
     "name": "wedding-photo-nuxt",
     "icon": "nuxt",
     "color": "#04c58e",
-    "to": "https://wedding-photo-app.netlify.app/"
+    "href": "https://wedding-photo-app.netlify.app/"
   },
   {
     "name": "wedding-photo-api",
     "icon": "laravel",
     "color": "#ff291a",
-    "to": "https://wedding-photo-app.netlify.app/"
+    "href": "https://wedding-photo-app.netlify.app/"
   },
   {
     "name": "DivingApp",
     "icon": "laravel",
     "color": "#ff291a",
-    "to-comment": "https://divingapp.ga/"
+    "href-comment": "https://divingapp.ga/"
   },
   {
     "name": "ReservationApp",
     "icon": "language-ruby-on-rails",
     "color": "#cc0202",
-    "to-comment": "https://reservationapp.tk/"
+    "href-comment": "https://reservationapp.tk/"
   },
   {
     "name": "ReadmeStock",
     "icon": "nuxt",
     "color": "#04c58e",
-    "to": "https://taiga-tech.tk/"
+    "href": "https://www.taiga-tech.tk/"
   }
 ]
