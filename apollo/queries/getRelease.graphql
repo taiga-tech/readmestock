@@ -2,7 +2,7 @@ query {
   viewer {
     repository(name: "readmestock") {
       createdAt
-      releases(first: 5) {
+      releases(last: 5, orderBy: {field: NAME, direction: DESC}) {
         nodes {
           publishedAt
           name
