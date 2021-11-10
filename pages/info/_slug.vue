@@ -18,7 +18,12 @@
 </template>
 
 <script>
+;(async () => await require('~/assets/scss/custom.scss'))()
+
 export default {
+  components: {
+    MarkdownContent: () => import('~/components/Markdown/Content.vue'),
+  },
   async asyncData({ $content, params, payload }) {
     // if (payload) {
     //   return { info: payload }
@@ -28,5 +33,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" src="~/assets/scss/custom.scss"></style>

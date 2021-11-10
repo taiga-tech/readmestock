@@ -7,7 +7,7 @@
       class="text-decoration-none text-capitalize"
       color="#55a0f4"
     >
-      <v-icon color="#fff" left>mdi-arrow-left</v-icon>
+      <v-icon color="#fff" left>{{ mdiArrowLeft }}</v-icon>
       {{ prev.path }}
     </v-btn>
 
@@ -21,17 +21,21 @@
       color="#55a0f4"
     >
       {{ next.path }}
-      <v-icon color="#fff" right>mdi-arrow-right</v-icon>
+      <v-icon color="#fff" right>{{ mdiArrowRight }}</v-icon>
     </v-btn>
-    <!-- </div> -->
   </v-card-actions>
 </template>
 
 <script>
+import { mdiArrowLeft, mdiArrowRight } from '@mdi/js'
+
 export default {
   props: {
     prev: { type: Object, default: () => null },
     next: { type: Object, default: () => null },
+  },
+  data() {
+    return { mdiArrowLeft, mdiArrowRight }
   },
 }
 </script>

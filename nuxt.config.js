@@ -1,14 +1,10 @@
-import colors from 'vuetify/es5/util/colors'
-require('dotenv').config()
+// require('dotenv').config()
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
-  server: {
-    host: '0',
-    port: 80,
-  },
+  server: { host: '0', port: 80 },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -81,7 +77,7 @@ export default {
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
@@ -92,9 +88,43 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    'nuxt-purgecss',
   ],
 
   moment: { locales: ['ja'] },
+
+  purgeCSS: {
+    enabled: process.env.NODE_ENV === 'production',
+    paths: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      './node_modules/vuetify/dist/vuetify.js',
+      'assets/**/*.scss',
+    ],
+    styleExtensions: ['.css'],
+    whitelist: ['v-application', 'v-application--wrap', 'layout', 'row', 'col'],
+    whitelistPatterns: [
+      /^v-((?!application).)*$/,
+      /^theme--*/,
+      /.*-transition/,
+      /^justify-*/,
+      /^p*-[0-9]/,
+      /^m*-[0-9]/,
+      /^text--*/,
+      /--text$/,
+      /^row-*/,
+      /^col-*/,
+    ],
+    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--*/],
+    extractors: [
+      {
+        extractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
+        extensions: ['html', 'vue', 'js'],
+      },
+    ],
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -104,18 +134,13 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-
     '@nuxtjs/dotenv',
-
     '@nuxtjs/apollo',
-
     '@nuxtjs/google-gtag',
   ],
 
   apollo: {
-    clientConfigs: {
-      default: '~/plugins/apollo-auth.js',
-    },
+    clientConfigs: { default: '~/plugins/apollo-auth.js' },
   },
 
   'google-gtag': {
@@ -132,42 +157,36 @@ export default {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    optionsPath: '~/vuetify.options.js',
+    defaultAssets: false,
     treeShake: true,
-    // defaultAssets: {
-    //   font: false,
-    // },
-    theme: {
-      light: false,
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-          anchor: '#55a0f4',
-        },
-      },
-    },
   },
+
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {
+    cache: true,
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true,
+    },
+    extend(config, { isClient }) {
+      if (isClient) {
+        config.optimization.splitChunks.maxSize = 200000
+        config.devtool = 'source-map'
+      }
+    },
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
+    transpile: [/^vuetify/],
+  },
+
+  generate: { fallback: true },
 
   env: {
     GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN,
     BASE_URL: process.env.BASE_URL,
     GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-    extend(config, { isClient }) {
-      if (isClient) {
-        config.devtool = 'source-map'
-      }
-    },
-  },
-
-  generate: { fallback: true },
 }

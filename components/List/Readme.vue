@@ -2,16 +2,16 @@
   <v-list-group color="purple">
     <template v-slot:activator>
       <v-list-item-icon>
-        <v-icon>mdi-github</v-icon>
+        <v-icon>{{ mdiGithub }}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="'README'" />
       </v-list-item-content>
     </template>
 
-    <v-list-item to="/readmes/" router exact>
+    <v-list-item to="/readmes/" exact nuxt>
       <v-list-item-icon>
-        <v-icon small>mdi-github</v-icon>
+        <v-icon small>{{ mdiGithub }}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="'一覧'" />
@@ -26,8 +26,6 @@
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.url"
-          :to="'/readmes/' + item.name + '/'"
-          :disabled="item.onMaster ? false : true || item.onMain ? false : true"
           :color="
             item.primaryLanguage &&
             (item.onMaster
@@ -36,11 +34,13 @@
               ? item.primaryLanguage.color
               : null)
           "
-          router
+          :to="'/readmes/' + item.name + '/'"
+          :disabled="item.onMaster ? false : true || item.onMain ? false : true"
+          nuxt
           exact
         >
           <v-list-item-icon>
-            <v-icon small>mdi-github</v-icon>
+            <v-icon small>{{ mdiGithub }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.name" />
@@ -52,12 +52,17 @@
 </template>
 
 <script>
+import { mdiGithub } from '@mdi/js'
+
 export default {
   props: {
     viewer: {
       type: Object,
       default: null,
     },
+  },
+  data() {
+    return { mdiGithub }
   },
 }
 </script>

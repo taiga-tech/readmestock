@@ -6,7 +6,7 @@
           お問い合わせ
         </v-stepper-step>
 
-        <v-divider></v-divider>
+        <v-divider />
 
         <v-stepper-step
           :complete="steps > 2"
@@ -16,7 +16,7 @@
           お問い合わせ内容確認
         </v-stepper-step>
 
-        <v-divider></v-divider>
+        <v-divider />
 
         <v-stepper-step step="3"> 送信完了 </v-stepper-step>
       </v-stepper-header>
@@ -32,7 +32,7 @@
                 href="https://twitter.com/Taiga_dev"
                 target="_blank"
                 rel="noopener"
-                ><v-icon x-small color="primary">mdi-twitter</v-icon>
+                ><v-icon x-small color="primary">{{ mdiTwitter }}</v-icon>
                 @Taiga_dev
               </a>
               でも受付可能です。
@@ -105,7 +105,7 @@
                   :fab="$vuetify.breakpoint.xs"
                   @click="refresh"
                 >
-                  <v-icon>mdi-rotate-right</v-icon>
+                  <v-icon>{{ mdiRotateRight }}</v-icon>
                   <span v-show="!$vuetify.breakpoint.xs">ページ再読み込み</span>
                 </v-btn>
               </v-col>
@@ -124,11 +124,11 @@
 
         <v-stepper-content step="3">
           <contacts-sucsess :data="data" />
-          <v-row class="mt-1" dense
-            ><v-col
-              ><v-btn block to="/" color="primary">トップへ戻る</v-btn></v-col
-            ></v-row
-          >
+          <v-row class="mt-1" dense>
+            <v-col>
+              <v-btn block to="/" color="primary">トップへ戻る</v-btn>
+            </v-col>
+          </v-row>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -136,9 +136,15 @@
 </template>
 
 <script>
+import { mdiTwitter, mdiRotateRight } from '@mdi/js'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
+  components: {
+    BaseContainer: () => import('~/components/Base/Container.vue'),
+    ContactsShow: () => import('~/components/Contacts/Show.vue'),
+    ContactsSucsess: () => import('~/components/Contacts/Sucsess.vue'),
+  },
   mixins: [Meta],
 
   data() {
@@ -167,6 +173,8 @@ export default {
       },
       response: null,
       error: { status: true, message: '' },
+      mdiTwitter,
+      mdiRotateRight,
     }
   },
 

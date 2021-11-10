@@ -14,9 +14,7 @@
         <template v-for="(product, i) in products">
           <v-list-item :key="i">
             <v-list-item-avatar>
-              <v-icon large :color="product.color"
-                >mdi-{{ product.icon }}</v-icon
-              >
+              <v-icon large :color="product.color">{{ product.icon }}</v-icon>
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title>
@@ -30,7 +28,7 @@
               <v-btn-toggle group dense>
                 <v-btn small :to="'/readmes/' + product.name + '/'">
                   <v-icon :left="!$vuetify.breakpoint.xs">
-                    mdi-file-document-outline
+                    {{ mdiFileDocumentOutline }}
                   </v-icon>
                   <span class="hidden-sm-and-down">README</span>
                 </v-btn>
@@ -40,9 +38,9 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  <v-icon :left="!$vuetify.breakpoint.xs" color="purple"
-                    >mdi-github</v-icon
-                  >
+                  <v-icon :left="!$vuetify.breakpoint.xs" color="purple">{{
+                    mdiGithub
+                  }}</v-icon>
                   <span class="hidden-sm-and-down">GitHub</span>
                 </v-btn>
                 <v-btn
@@ -53,7 +51,7 @@
                   rel="noopener"
                 >
                   <v-icon :left="!$vuetify.breakpoint.xs">
-                    mdi-open-in-new
+                    {{ mdiOpenInNew }}
                   </v-icon>
                   <span class="hidden-sm-and-down">site</span>
                 </v-btn>
@@ -68,13 +66,12 @@
 </template>
 
 <script>
-import products from '~/assets/json/products.json'
+import { mdiGithub, mdiFileDocumentOutline, mdiOpenInNew } from '@mdi/js'
+import { products } from '~/assets/constants/products.js'
 
 export default {
   data() {
-    return {
-      products,
-    }
+    return { products, mdiGithub, mdiFileDocumentOutline, mdiOpenInNew }
   },
 }
 </script>

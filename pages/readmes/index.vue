@@ -8,7 +8,7 @@
           solo
           dense
           menu-props="auto"
-          prepend-inner-icon="mdi-swap-vertical"
+          :prepend-inner-icon="mdiSwapVertical"
           label="並び替え"
           :items="sortItems"
           item-text="name"
@@ -22,9 +22,11 @@
 </template>
 
 <script>
+import { mdiSwapVertical } from '@mdi/js'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
+  components: { Readme: () => import('~/components/Readme/Index.vue') },
   mixins: [Meta],
   async asyncData({ store }) {
     await store
@@ -78,6 +80,7 @@ export default {
           },
         },
       ],
+      mdiSwapVertical,
     }
   },
 

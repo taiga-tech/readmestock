@@ -42,7 +42,14 @@
 </template>
 
 <script>
+;(async () => await require('~/assets/scss/custom.scss'))()
+
 export default {
+  components: {
+    AppWarning: () => import('~/components/App/Warning.vue'),
+    MarkdownContent: () => import('~/components/Markdown/Content.vue'),
+    AppToc: () => import('~/components/App/Toc.vue'),
+  },
   async asyncData({ $content, store, params, payload }) {
     // if (payload) {
     //   return { blogs: payload }
@@ -63,7 +70,6 @@ export default {
     //   .catch((err) => {
     //     console.error(err)
     //   })
-
     // }
 
     return {
@@ -74,8 +80,6 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" src="~/assets/scss/custom.scss"></style>
 
 <style lang="scss">
 .nuxt-content {
@@ -95,16 +99,21 @@ export default {
     .icon-link {
       float: left;
       display: inline-block;
-      height: 14px;
-      margin-top: 8px;
+      height: 16px;
+      margin-top: 4px;
       position: relative;
-      width: 14px;
+      width: 16px;
 
       & .icon-link {
-        background-image: url('~/assets/images/link.svg');
-        background-size: 14px 14px;
+        background-size: 16px 16px;
         visibility: hidden;
+        content: '';
+        display: inline-block;
+        margin-right: 20px;
         vertical-align: middle;
+        background-color: #f1f1f1;
+        -webkit-mask-image: url('~/assets/images/link.svg');
+        mask-image: url('~/assets/images/link.svg');
       }
     }
 

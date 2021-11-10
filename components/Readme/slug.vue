@@ -19,7 +19,8 @@
               style="text-decoration: none"
               aria-label="github"
               v-on="on"
-              ><v-icon x-large>mdi-github</v-icon>
+            >
+              <v-icon x-large>{{ mdiGithub }}</v-icon>
             </v-btn>
           </template>
           <span>Go to Github</span>
@@ -51,7 +52,7 @@
           rel="noopener"
           style="text-decoration: none; text-transform: none"
         >
-          <v-icon left color="purple">mdi-github</v-icon>
+          <v-icon left color="purple">{{ mdiGithub }}</v-icon>
           GitHub
         </v-btn>
         <v-btn
@@ -62,7 +63,7 @@
           rel="noopener"
           style="text-decoration: none"
         >
-          <v-icon left>mdi-open-in-new</v-icon>
+          <v-icon left>{{ mdiOpenInNew }}</v-icon>
           site
         </v-btn>
       </span>
@@ -97,9 +98,11 @@
 </template>
 
 <script>
+import { mdiGithub, mdiOpenInNew } from '@mdi/js'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
+  components: { BaseMarkdown: () => import('~/components/Base/Markdown.vue') },
   mixins: [Meta],
 
   props: {
@@ -114,6 +117,8 @@ export default {
         description: null,
         url: 'readmes/' + this.viewer.repository.name,
       },
+      mdiGithub,
+      mdiOpenInNew,
     }
   },
 

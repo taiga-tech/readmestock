@@ -19,6 +19,12 @@
 
 <script>
 export default {
+  components: {
+    TopChart: () => import('~/components/Top/Chart.vue'),
+    TopSns: () => import('~/components/Top/Sns.vue'),
+    TopProfile: () => import('~/components/Top/Profile.vue'),
+    TopProduct: () => import('~/components/Top/Product.vue'),
+  },
   async asyncData({ $content }) {
     const profile = await $content('info', 'profile').fetch()
     return { profile }

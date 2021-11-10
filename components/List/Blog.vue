@@ -2,7 +2,7 @@
   <v-list-group color="yellow">
     <template v-slot:activator>
       <v-list-item-icon>
-        <v-icon>mdi-post-outline</v-icon>
+        <v-icon>{{ mdiPostOutline }}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="'Blog'" />
@@ -11,7 +11,7 @@
 
     <v-list-item to="/blogs/" exact>
       <v-list-item-icon>
-        <v-icon small>mdi-post</v-icon>
+        <v-icon small>{{ mdiPost }}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title v-text="'一覧'" />
@@ -27,7 +27,7 @@
           exact
         >
           <v-list-item-icon>
-            <v-icon small>mdi-post</v-icon>
+            <v-icon small>{{ mdiPost }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -39,9 +39,14 @@
 </template>
 
 <script>
+import { mdiPostOutline, mdiPost } from '@mdi/js'
+
 export default {
   props: {
     blogs: { type: Array, default: () => [] },
+  },
+  data() {
+    return { mdiPostOutline, mdiPost }
   },
 }
 </script>

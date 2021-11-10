@@ -19,6 +19,7 @@
       />
 
       <v-spacer />
+
       <span>
         <v-img
           src="https://api.netlify.com/api/v1/badges/99c0bb10-8848-4e05-8ce9-4bff55729361/deploy-status"
@@ -42,6 +43,7 @@
 
 <script>
 export default {
+  components: { DrawerLeft: () => import('~/components/Drawer/Left.vue') },
   data() {
     return {
       title: 'README Stock',
