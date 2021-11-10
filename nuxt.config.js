@@ -88,43 +88,43 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
-    'nuxt-purgecss',
+    // 'nuxt-purgecss',
   ],
 
   moment: { locales: ['ja'] },
 
-  purgeCSS: {
-    enabled: process.env.NODE_ENV === 'production',
-    paths: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      './node_modules/vuetify/dist/vuetify.js',
-      'assets/**/*.scss',
-    ],
-    styleExtensions: ['.css'],
-    whitelist: ['v-application', 'v-application--wrap', 'layout', 'row', 'col'],
-    whitelistPatterns: [
-      /^v-((?!application).)*$/,
-      /^theme--*/,
-      /.*-transition/,
-      /^justify-*/,
-      /^p*-[0-9]/,
-      /^m*-[0-9]/,
-      /^text--*/,
-      /--text$/,
-      /^row-*/,
-      /^col-*/,
-    ],
-    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--*/],
-    extractors: [
-      {
-        extractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
-        extensions: ['html', 'vue', 'js'],
-      },
-    ],
-  },
+  // purgeCSS: {
+  //   enabled: process.env.NODE_ENV === 'production',
+  //   paths: [
+  //     'components/**/*.vue',
+  //     'layouts/**/*.vue',
+  //     'pages/**/*.vue',
+  //     'plugins/**/*.js',
+  //     './node_modules/vuetify/dist/vuetify.js',
+  //     'assets/**/*.scss',
+  //   ],
+  //   styleExtensions: ['.css'],
+  //   whitelist: ['v-application', 'v-application--wrap', 'layout', 'row', 'col'],
+  //   whitelistPatterns: [
+  //     /^v-((?!application).)*$/,
+  //     /^theme--*/,
+  //     /.*-transition/,
+  //     /^justify-*/,
+  //     /^p*-[0-9]/,
+  //     /^m*-[0-9]/,
+  //     /^text--*/,
+  //     /--text$/,
+  //     /^row-*/,
+  //     /^col-*/,
+  //   ],
+  //   whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--*/],
+  //   extractors: [
+  //     {
+  //       extractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
+  //       extensions: ['html', 'vue', 'js'],
+  //     },
+  //   ],
+  // },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
