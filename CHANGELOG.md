@@ -1,5 +1,12 @@
 # Change Logs
 
+## [v0.2.3] - 2021-11-10
+
+## Changed
+
+- purgeCSS disabled
+
+
 ## [v0.2.2] - 2021-11-10
 
 ## Changed
@@ -12,11 +19,13 @@
 
 - Other Fixed
 
+
 ## [v0.2.1] - 2021-07-30
 
 ### Changed
 
 - Add Sort to getRelease Query
+
 
 ## [v0.2.0] - 2021-07-30
 
