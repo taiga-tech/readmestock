@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import socials from '~/assets/json/socials.json'
-import links from '~/assets/json/links.json'
+import { links } from '~/assets/constants/links.js'
 
 export default {
+  components: { AppSns: () => import('~/components/App/Sns.vue') },
   data() {
-    return { links, socials }
+    return { links }
   },
 }
 </script>

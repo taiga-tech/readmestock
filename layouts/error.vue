@@ -3,7 +3,7 @@
     <v-dialog v-model="open" width="500" persistent>
       <v-card color="#13151a">
         <v-card-title>
-          <v-icon color="#dd2c00" left>mdi-cloud-alert</v-icon>
+          <v-icon color="#dd2c00" left>{{ mdiCloudAlert }}</v-icon>
           <h1 v-if="error.statusCode === 404" style="font-size: 20px">
             {{ pageNotFound }}
           </h1>
@@ -14,7 +14,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn text to="/" color="pink">topへ</v-btn>
-          <v-spacer></v-spacer>
+          <v-spacer />
           <v-btn color="green" text to="/info/contact/"> お問い合わせ </v-btn>
           <v-btn
             v-for="sns in socials"
@@ -25,7 +25,7 @@
             rel="noopener"
             target="_blank"
           >
-            <v-icon>mdi-{{ sns.icon }}</v-icon>
+            <v-icon>{{ sns.icon }}</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -34,7 +34,9 @@
 </template>
 
 <script>
-import socials from '~/assets/json/socials.json'
+import { mdiCloudAlert } from '@mdi/js'
+import { socials } from '~/assets/constants/socials.js'
+
 export default {
   layout: 'empty',
   props: {
@@ -49,6 +51,7 @@ export default {
       otherError: 'An error occurred',
       open: true,
       socials,
+      mdiCloudAlert,
     }
   },
   head() {

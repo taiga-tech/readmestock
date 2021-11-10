@@ -10,13 +10,13 @@
       rel="noopener"
       :aria-label="sns.name"
     >
-      <v-icon medium>mdi-{{ sns.icon }}</v-icon>
+      <v-icon medium>{{ sns.icon }}</v-icon>
     </v-btn>
   </span>
 </template>
 
 <script>
-import socials from '~/assets/json/socials.json'
+import { socials } from '~/assets/constants/socials.js'
 
 export default {
   data() {

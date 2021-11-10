@@ -8,8 +8,10 @@
 <script>
 import Prism from '~/plugins/prism'
 import tocToggle from '~/assets/mixins/tocToggle'
+;(async () => await require('~/assets/scss/custom.scss'))()
 
 export default {
+  components: { AppToc: () => import('~/components/App/Toc.vue') },
   mixins: [tocToggle],
 
   async mounted() {
@@ -21,5 +23,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" src="~/assets/scss/custom.scss"></style>

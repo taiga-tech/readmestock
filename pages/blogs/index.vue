@@ -9,7 +9,7 @@
           solo
           dense
           menu-props="auto"
-          prepend-inner-icon="mdi-swap-vertical"
+          :prepend-inner-icon="mdiSwapVertical"
           label="並び替え"
           :items="sortItems"
           item-text="name"
@@ -23,9 +23,14 @@
 </template>
 
 <script>
+import { mdiSwapVertical } from '@mdi/js'
 import Meta from '~/assets/mixins/meta.js'
 
 export default {
+  components: {
+    AppWarning: () => import('~/components/App/Warning.vue'),
+    Blog: () => import('~/components/Blog/Index.vue'),
+  },
   mixins: [Meta],
 
   data() {
@@ -57,6 +62,7 @@ export default {
           },
         },
       ],
+      mdiSwapVertical,
     }
   },
 

@@ -1,3 +1,5 @@
+import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
+
 export default {
   data() {
     return { toc: [] }
@@ -37,13 +39,18 @@ export default {
     },
 
     async updateIcon() {
-      const toggle = document.getElementById('toggleToc')
+      const toggle = document
+        .getElementById('toggleToc')
+        .querySelector('span')
+        .querySelector('path').attributes.d
       if (await this.tocStatus()) {
-        toggle.classList.remove('mdi-chevron-up')
-        toggle.classList.add('mdi-chevron-down')
+        toggle.value = mdiChevronUp
+        // toggle.classList.remove('mdi-chevron-up')
+        // toggle.classList.add('mdi-chevron-down')
       } else {
-        toggle.classList.add('mdi-chevron-up')
-        toggle.classList.remove('mdi-chevron-down')
+        toggle.value = mdiChevronDown
+        // toggle.classList.add('mdi-chevron-up')
+        // toggle.classList.remove('mdi-chevron-down')
       }
     },
 

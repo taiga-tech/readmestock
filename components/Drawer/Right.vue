@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  components: { AppSwitch: () => import('~/components/App/Switch.vue') },
   props: {
     rightDrawer: {
       type: Boolean,

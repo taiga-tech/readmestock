@@ -9,9 +9,9 @@
         hover
       >
         <v-list-item>
-          <v-list-item-avatar>
-            <v-icon large>mdi-github</v-icon>
-          </v-list-item-avatar>
+          <v-list-item-icon>
+            <v-icon large>{{ mdiGithub }}</v-icon>
+          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>
               <strong>{{ user.login }}</strong>
@@ -36,7 +36,7 @@
         </v-card-text>
 
         <v-card-subtitle>
-          ※Githubのプライベート含めた全てのリポジトリで使用した言語の割合です、参考にしていただけると幸いです。
+          ※Githubのパブリックリポジトリで使用した言語の割合です、参考にしていただけると幸いです。
         </v-card-subtitle>
       </v-card>
     </v-col>
@@ -44,7 +44,10 @@
 </template>
 
 <script>
+import { mdiGithub } from '@mdi/js'
+
 export default {
+  components: { TopPieChart: () => import('~/components/Top/PieChart.vue') },
   props: {
     user: {
       type: Object,
@@ -61,6 +64,7 @@ export default {
       languages: {},
       color: {},
       dataCollection: null,
+      mdiGithub,
     }
   },
 
@@ -99,7 +103,7 @@ export default {
       const repos = this.user.repositories.nodes
       const languages = {}
       const color = {}
-
+      // Todo: include private
       for (let i = 0; i < repos.length; i++) {
         const nodes = repos[i].languages.nodes
         for (let index = 0; index < nodes.length; index++) {

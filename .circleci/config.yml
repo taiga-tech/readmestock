@@ -14,27 +14,27 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+            - node-deps-v1-{{ .Branch }}-{{checksum "yarn.lock"}}
 
   install-packages:
     steps:
       - run:
           name: install packages
-          command: npm ci
+          command: yarn
 
 
   save-cache:
     steps:
       - save_cache:
-          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          key: node-deps-v1-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
-            - ~/.npm
+            - ~/.yarn/cache
 
   test-run:
     steps:
       - run:
           name: Run Tests
-          command: npm run lint
+          command: yarn lint
 
   test_notification_to_discord:
     steps:
