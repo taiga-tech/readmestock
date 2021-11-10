@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="12" md="5" lg="4" xl="3">
-        <top-chart :user="user" :viewer="viewer" />
+        <!-- <top-chart :user="user" :viewer="viewer" /> -->
         <top-sns />
       </v-col>
 
@@ -20,7 +20,7 @@
 <script>
 export default {
   components: {
-    TopChart: () => import('~/components/Top/Chart.vue'),
+    // TopChart: () => import('~/components/Top/Chart.vue'),
     TopSns: () => import('~/components/Top/Sns.vue'),
     TopProfile: () => import('~/components/Top/Profile.vue'),
     TopProduct: () => import('~/components/Top/Product.vue'),
