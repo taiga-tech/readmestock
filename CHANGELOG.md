@@ -1,5 +1,17 @@
 # Change Logs
 
+## [v0.2.2] - 2021-11-10
+
+## Changed
+
+- Changed from npm to yarn
+- Import icons and components directly
+- Improved performance
+
+## Fixed
+
+- Other Fixed
+
 ## [v0.2.1] - 2021-07-30
 
 ### Changed
