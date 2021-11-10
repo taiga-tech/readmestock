@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  components: { ReadmeSlug: () => import('~/components/Readme/slug.vue') },
   async asyncData({ store, params }) {
     const slug = await params.slug
     await store.dispatch('gh-readme/readme', slug).catch((err) => {

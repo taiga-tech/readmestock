@@ -1,14 +1,16 @@
 <template>
   <v-row dense>
-    <v-col v-for="(s, i) in sns" :key="i" cols="6">
+    <v-col v-for="(sns, i) in socials" :key="i" cols="6">
       <v-card hover>
-        <v-list-item :href="s.href" target="_blank" rel="noopener">
-          <v-list-item-avatar>
-            <v-icon left :color="s.color">mdi-{{ s.icon }}</v-icon>
-          </v-list-item-avatar>
+        <v-list-item :href="sns.href" target="_blank" rel="noopener">
+          <v-list-item-icon>
+            <v-icon :color="sns.color">
+              {{ sns.icon }}
+            </v-icon>
+          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>
-              {{ s.name }}
+              {{ sns.name }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -18,10 +20,11 @@
 </template>
 
 <script>
-import sns from '~/assets/json/socials.json'
+import { socials } from '~/assets/constants/socials.js'
+
 export default {
   data() {
-    return { sns }
+    return { socials }
   },
 }
 </script>

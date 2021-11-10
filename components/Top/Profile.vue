@@ -11,11 +11,11 @@
 </template>
 
 <script>
+;(async () => await require('~/assets/scss/custom.scss'))()
+
 export default {
   props: {
     profile: { type: Object, default: () => null },
   },
 }
 </script>
-
-<style lang="scss" src="~/assets/scss/custom.scss"></style>

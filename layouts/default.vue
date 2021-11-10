@@ -14,6 +14,11 @@
 <script>
 export default {
   name: 'Default',
+  components: {
+    AppBar: () => import('~/components/App/Bar.vue'),
+    AppFooter: () => import('~/components/App/Footer.vue'),
+    AppBottomNav: () => import('~/components/App/BottomNav.vue'),
+  },
 
   computed: {
     currentPageForCanonical() {

@@ -10,8 +10,9 @@
           small
           :href="'https://github.com/taiga-tech/' + $route.params.slug"
           target="_blank"
-          ><v-icon>mdi-github</v-icon></v-btn
         >
+          <v-icon>{{ mdiGithub }}</v-icon>
+        </v-btn>
       </v-col>
       <v-col class="shrink">
         <v-btn text small @click="$router.go(-1)">back</v-btn>
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+import { mdiGithub } from '@mdi/js'
+
 export default {
   props: {
     error: {
@@ -28,6 +31,9 @@ export default {
       required: false,
       default: null,
     },
+  },
+  data() {
+    return { mdiGithub }
   },
 }
 </script>

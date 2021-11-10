@@ -6,13 +6,16 @@
       数日中に追ってメールにて回答をお送りいたします。<br />
       今しばらくお待ちください。
     </v-card-title>
-    <v-divider></v-divider>
+    <v-divider />
     <contacts-content :data="data" />
   </v-card>
 </template>
 
 <script>
 export default {
+  components: {
+    ContactsContent: () => import('~/components/Contacts/Content.vue'),
+  },
   props: {
     data: { type: Object, default: null },
   },

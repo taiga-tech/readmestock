@@ -40,6 +40,12 @@
 
 <script>
 export default {
+  components: {
+    ListReadme: () => import('~/components/List/Readme.vue'),
+    ListBlog: () => import('~/components/List/Blog.vue'),
+    ListInfo: () => import('~/components/List/Info.vue'),
+    AppSns: () => import('~/components/App/Sns.vue'),
+  },
   props: {
     drawer: { type: Boolean },
     minivariant: { type: Boolean },
