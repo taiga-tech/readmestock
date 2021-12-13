@@ -2,20 +2,20 @@
 
 ## [v0.2.3] - 2021-11-10
 
-## Changed
+### Changed
 
 - purgeCSS disabled
 
 
 ## [v0.2.2] - 2021-11-10
 
-## Changed
+### Changed
 
 - Changed from npm to yarn
 - Import icons and components directly
 - Improved performance
 
-## Fixed
+### Fixed
 
 - Other Fixed
 
