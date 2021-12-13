@@ -1,12 +1,10 @@
 {
   "name": "readmestock",
-  "version": "0.2.3",
   "description": "半自動ポートフォリオ",
+  "version": "0.2.3",
+  "author": "Taiga Nakano <taiga.dev.n@gmail.com> (https://github.com/taiga-tech/)",
   "license": "MIT",
-  "author": {
-    "name": "taiga-tech",
-    "url": "https://github.com/taiga-tech/"
-  },
+  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -61,6 +59,5 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0"
-  },
-  "private": true
+  }
 }
