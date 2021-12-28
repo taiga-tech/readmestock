@@ -29,7 +29,11 @@ export default {
       // global OGP
       { hid: 'og:title', property: 'og:title', content: 'README Stock' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://www.taiga-tech.tk/' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://www.taiga-tech.tk/',
+      },
       {
         hid: 'og:image',
         property: 'og:image',
