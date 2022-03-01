@@ -23,6 +23,15 @@
 
         <v-card-subtitle v-if="re.languages.nodes">
           owner: {{ re.owner.login }}
+          <v-btn
+            v-if="re.owner.__typename === 'Organization'"
+            color="yellow"
+            text
+            x-small
+            right
+          >
+            {{ re.owner.__typename }}
+          </v-btn>
           <v-chip-group column>
             <v-chip
               v-for="(lang, index) in re.languages.nodes"
