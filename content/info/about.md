@@ -90,11 +90,11 @@ GitHubAPI v4が`GraphQL`を使用していて、`GraphQL`の勉強も出来る�
 
 ### Desktop
 
-![Lighthouse_desktop](https://taiga-tech.tk/img/about/lighthouse_desktop.png)
+![Lighthouse_desktop](https://taiga-tech.netlify.app/img/about/lighthouse_desktop.png)
 
 ### Mobile
 
-![Lighthouse_mobile](https://taiga-tech.tk/img/about/lighthouse_mobile.png)
+![Lighthouse_mobile](https://taiga-tech.netlify.app/img/about/lighthouse_mobile.png)
 
 ### 測定結果を見て
 
