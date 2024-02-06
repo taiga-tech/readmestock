@@ -32,12 +32,12 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://www.taiga-tech.tk/',
+        content: 'https://taiga-tech.netlify.app/',
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://www.taiga-tech.tk/icon.png/',
+        content: 'https://taiga-tech.netlify.app/icon.png/',
       },
       { property: 'og:site_name', content: 'README Stock' },
       {
