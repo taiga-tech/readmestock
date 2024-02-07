@@ -2,4 +2,4 @@ User-Agent: *
 
 Allow: /
 
-Sitemap: https://taiga-tech.tk/sitemap.xml/
+Sitemap: https://taiga-tech.netlify.app/sitemap.xml/
