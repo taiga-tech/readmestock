@@ -1,5 +1,18 @@
 # Change Logs
 
+## [v0.2.4] - 2024-02-08
+
+### Added
+
+- Get the Organization's README.md
+
+### Changed
+
+- Update domain
+- Update side drawer UX
+- Update article style
+- Other fixed
+
 ## [v0.2.3] - 2021-11-10
 
 ### Changed

@@ -1,7 +1,7 @@
 {
   "name": "readmestock",
   "description": "半自動ポートフォリオ",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Taiga Nakano <taiga.dev.n@gmail.com> (https://github.com/taiga-tech/)",
   "license": "MIT",
   "private": true,
