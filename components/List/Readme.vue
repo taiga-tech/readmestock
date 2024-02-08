@@ -20,7 +20,8 @@
 
     <v-virtual-scroll
       :items="viewer.repositories.nodes"
-      height="300"
+      bench="10"
+      height="505"
       item-height="48"
     >
       <template v-slot:default="{ item }">
@@ -34,13 +35,13 @@
               ? item.primaryLanguage.color
               : null)
           "
-          :to="'/readmes/' + item.name + '/'"
+          :to="'/readmes/' + item.name + '?owner=' + item.owner.login"
           :disabled="item.onMaster ? false : true || item.onMain ? false : true"
           nuxt
           exact
         >
           <v-list-item-icon>
-            <v-icon small>{{ mdiGithub }}</v-icon>
+            <!-- <v-icon small>{{ mdiGithub }}</v-icon> -->
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.name" />
