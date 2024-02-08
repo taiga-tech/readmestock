@@ -1,5 +1,11 @@
 # Change Logs
 
+## [v0.2.5] - 2024-02-08
+
+### Fixed
+
+- Update query for getting Release note
+
 ## [v0.2.4] - 2024-02-08
 
 ### Added
