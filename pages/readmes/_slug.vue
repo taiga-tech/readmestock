@@ -9,10 +9,17 @@
 <script>
 export default {
   components: { ReadmeSlug: () => import('~/components/Readme/slug.vue') },
-  async asyncData({ store, params }) {
+
+  async asyncData({ store, params, query }) {
     const slug = await params.slug
-    await store.dispatch('gh-readme/readme', slug).catch((err) => {
-      console.error(err)
+    const org = query.owner
+
+    await store.dispatch('gh-readme/readme', slug).catch(async () => {
+      await store
+        .dispatch('gh-readme/orgReadme', { org, slug })
+        .catch((err) => {
+          console.error(err)
+        })
     })
     return { slug }
   },

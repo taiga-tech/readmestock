@@ -194,7 +194,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
+  margin-top: 40px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
@@ -241,11 +241,6 @@
   color: #6a737d;
 }
 
-.markdown-body p {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
 .markdown-body blockquote {
   margin: 0;
   padding: 0 1em;
@@ -268,7 +263,7 @@
 .markdown-body pre,
 .markdown-body table,
 .markdown-body ul {
-  margin-top: 0;
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 
@@ -313,6 +308,11 @@
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
+}
+
+.markdown-body p {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .markdown-body :checked+.radio-label {
@@ -710,7 +710,8 @@
   display: inline;
   max-width: auto;
   padding: 0;
-  margin: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
   overflow: visible;
   line-height: inherit;
   word-wrap: normal;

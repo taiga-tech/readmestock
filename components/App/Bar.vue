@@ -48,7 +48,8 @@ export default {
     return {
       title: 'README Stock',
       items: [{ icon: 'mdi-home', title: 'Welcome', to: '/' }],
-      drawer: false,
+      // drawer: false,
+      drawer: !this.$vuetify.breakpoint.xs,
       miniVariant: false,
       rightDrawer: false,
       scrollY: 0,

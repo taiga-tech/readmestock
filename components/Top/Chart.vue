@@ -86,7 +86,7 @@ export default {
       const options = {
         legend: {
           labels: {
-            fontColor: '#fff',
+            fontColor: '#FFF',
           },
         },
       }
@@ -103,7 +103,7 @@ export default {
       const repos = this.user.repositories.nodes
       const languages = {}
       const color = {}
-      // Todo: include private
+      // TODO: include private
       for (let i = 0; i < repos.length; i++) {
         const nodes = repos[i].languages.nodes
         for (let index = 0; index < nodes.length; index++) {

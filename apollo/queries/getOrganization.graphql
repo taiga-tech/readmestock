@@ -1,0 +1,34 @@
+query ($org: String! $name: String!) {
+  organization(login: $org) {
+    login
+    avatarUrl
+    url
+    repository(name: $name) {
+      name
+      description
+      homepageUrl
+      createdAt
+      updatedAt
+      url
+      owner {
+        login
+      }
+      languages(first: 10) {
+        nodes {
+          color
+          name
+        }
+      }
+      onMaster: object(expression: "master:README.md") {
+        ... on Blob {
+          text
+        }
+      }
+      onMain: object(expression: "main:README.md") {
+        ... on Blob {
+          text
+        }
+      }
+    }
+  }
+}
