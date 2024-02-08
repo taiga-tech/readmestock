@@ -1,5 +1,6 @@
 import getRepositories from '~/apollo/queries/getRepositories.graphql'
-import getReadme from '~/apollo/queries/getReadme'
+import getReadme from '~/apollo/queries/getReadme.graphql'
+import getOrganization from '~/apollo/queries/getOrganization.graphql'
 
 export const state = () => ({
   index: null,
@@ -55,5 +56,14 @@ export const actions = {
     })
 
     commit('setReadme', response.data.viewer)
+  },
+
+  async orgReadme({ commit }, { org, slug }) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: getOrganization,
+      variables: { org, name: slug },
+    })
+
+    commit('setReadme', response.data.organization)
   },
 }

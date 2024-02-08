@@ -1,12 +1,10 @@
 {
   "name": "readmestock",
-  "version": "0.2.3",
   "description": "半自動ポートフォリオ",
+  "version": "0.2.4",
+  "author": "Taiga Nakano <taiga.dev.n@gmail.com> (https://github.com/taiga-tech/)",
   "license": "MIT",
-  "author": {
-    "name": "taiga-tech",
-    "url": "https://github.com/taiga-tech/"
-  },
+  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -38,7 +36,7 @@
     "markdown-it-task-lists": "^2.1.1",
     "nuxt": "^2.15.7",
     "prism-themes": "^1.7.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.27.0",
     "uslug": "^1.0.4",
     "vue-chartjs": "^3.5.1",
     "vue-scrollactive": "^0.9.3"
@@ -61,6 +59,5 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0"
-  },
-  "private": true
+  }
 }

@@ -9,7 +9,7 @@
 
       <v-card
         v-else
-        :to="'/readmes/' + re.name + '/'"
+        :to="'/readmes/' + re.name + '?owner=' + re.owner.login"
         nuxt
         tile
         hover
@@ -23,6 +23,15 @@
 
         <v-card-subtitle v-if="re.languages.nodes">
           owner: {{ re.owner.login }}
+          <v-btn
+            v-if="re.owner.__typename === 'Organization'"
+            color="yellow"
+            text
+            x-small
+            right
+          >
+            {{ re.owner.__typename }}
+          </v-btn>
           <v-chip-group column>
             <v-chip
               v-for="(lang, index) in re.languages.nodes"
@@ -36,8 +45,8 @@
           </v-chip-group>
         </v-card-subtitle>
 
-        <v-card-text v-if="re.discription" class="description-wrapper">
-          <span class="description">{{ re.discription }}</span>
+        <v-card-text v-if="re.description" class="description-wrapper">
+          <span class="description">{{ re.description }}</span>
         </v-card-text>
         <v-btn text x-small absolute bottom right>
           {{ $moment(re.createdAt).calendar() }} -

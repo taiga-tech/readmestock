@@ -29,7 +29,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://taiga-tech.tk/' + this.meta.url + '/',
+          content: 'https://taiga-tech.netlify.app/' + this.meta.url + '/',
         },
         {
           hid: 'twitter:description',

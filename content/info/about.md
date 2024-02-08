@@ -64,37 +64,32 @@ GitHubAPI v4が`GraphQL`を使用していて、`GraphQL`の勉強も出来る�
 ```shell
 ├── トップページ
 │   ├── 自己紹介
-│   ├── 使用言語割合チャート
-│   │   # GitHubのプライベートリポジトリ含めて使用したことのある言語の割合
-│   ├── アプリ一覧
-│   │   # 本番環境に上がっている、アプリ一覧
+│   ├── 使用言語割合チャート # GitHubのプライベートリポジトリ含めて使用したことのある言語の割合
+│   ├── アプリ一覧 # 本番環境に上がっている、アプリ一覧
 │   └── 各種リンク
 │
 ├── readmes
 │   ├── README一覧
-│   └── README
-│    # GitHubにpushすると、ほぼリアルタイムで更新
+│   └── README # GitHubにpushすると、ほぼリアルタイムで更新
 │
 ├── blogs
 │   ├── ブログ記事一覧
-│   └── ブログ記事
-│    # 現在コンテンツ作成中で、最近勉強したことなどを追加していく予定
+│   └── ブログ記事 # 現在コンテンツ作成中で、最近勉強したことなどを追加していく予定
 │
 └── info
-    ├── このサイトについて ※現在のページ
-    └── お問い合わせ
-    # Netlify formを使ってみたくて追加したページ、新規メッセージはDiscordで通知される
+    ├── このサイトについて
+    └── お問い合わせ # Netlify formを使ってみたくて追加したページ、新規メッセージはDiscordで通知される
 ```
 
 ## トップページのLighthouse測定結果
 
 ### Desktop
 
-![Lighthouse_desktop](https://taiga-tech.tk/img/about/lighthouse_desktop.png)
+![Lighthouse_desktop](https://taiga-tech.netlify.app/img/about/lighthouse_desktop.png)
 
 ### Mobile
 
-![Lighthouse_mobile](https://taiga-tech.tk/img/about/lighthouse_mobile.png)
+![Lighthouse_mobile](https://taiga-tech.netlify.app/img/about/lighthouse_mobile.png)
 
 ### 測定結果を見て
 

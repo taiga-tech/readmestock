@@ -28,6 +28,8 @@
 
       <list-blog :blogs="blogs" />
 
+      <v-divider></v-divider>
+
       <list-info :lts="viewer.repository.latestRelease.name" />
     </v-list>
     <template v-slot:append>

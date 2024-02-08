@@ -69,8 +69,11 @@
       </span>
     </v-card-title>
 
-    <v-card-subtitle v-if="viewer.repository.languages.nodes !== 0">
-      <v-chip-group mandatory>
+    <v-card-subtitle>
+      <span v-if="viewer.repository.description">
+        {{ viewer.repository.description }}
+      </span>
+      <v-chip-group v-if="viewer.repository.languages.nodes !== 0" mandatory>
         <v-chip
           v-for="(lang, i) in viewer.repository.languages.nodes"
           :key="i"

@@ -18,7 +18,7 @@
       </v-list-item-content>
     </v-list-item>
 
-    <v-virtual-scroll :items="blogs" height="300" item-height="48">
+    <v-virtual-scroll :items="blogs" item-height="48" bench="10">
       <template v-slot:default="{ item }">
         <v-list-item
           :key="item.path"
@@ -27,7 +27,7 @@
           exact
         >
           <v-list-item-icon>
-            <v-icon small>{{ mdiPost }}</v-icon>
+            <!-- <v-icon small>{{ mdiPost }}</v-icon> -->
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
